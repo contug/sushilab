@@ -1,8 +1,8 @@
 @media screen and (orientation:portrait) {
   .navbar {
     background-color: #ffbf5f;
-    height: 10vh;
-    width: 100vw;
+    height: inherit;
+    width: inherit;
   }
 
   .navbar-container {
@@ -39,7 +39,7 @@
 @media screen and (orientation: landscape) {
   .navbar {
     background-color: #ffbf5f;
-    height: 15vh;
+    height: inherit;
     width: 100vw;
   }
 
@@ -58,7 +58,7 @@
 
   .navbar-toggler {
     background-color: white;
-    border: solid black 4px;
+    border: solid black 5px;
     height: 6vw;
     width: 6vw;
     padding: 0;

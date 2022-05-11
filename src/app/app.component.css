@@ -7,12 +7,34 @@ html, body {
 }
 
 .root-container {
-  flex-direction: column;
+  display: flex;
   height: 100%;
-  justify-content: space-between;
+  width: 100%;
+  flex-direction: column;
 }
 
-.page-container {
+@media screen and (orientation: portrait) {
+  .navigation-row {
+    width: 100vw;
+    height: 10vh;
+  }
 }
 
+@media screen and (orientation: landscape) {
+  .navigation-row {
+    width: 100vw;
+    height: 15vh;
+  }
+}
+
+app-navigation {
+  width: inherit;
+  height: inherit;
+}
+
+.router-row {
+  font-size: 32px;
+  height: 90vh;
+  margin: 0;
+}
 
