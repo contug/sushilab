@@ -17,3 +17,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 *{
   font-family: 'Jockey One', sans-serif;
 }
+
+.flex-container {
+  display: flex;
+}
