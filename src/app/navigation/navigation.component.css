@@ -1,0 +1,33 @@
+.navbar {
+  background-color: #ffbf5f;
+  height: 10vh;
+  width: 100vw;
+}
+
+.navbar-container {
+  display: flex;
+  max-width: inherit;
+  justify-items: stretch;
+  margin-right: 5vw;
+  margin-left: 5vw;
+}
+
+.navbar-brand {
+  font-size: 10vw;
+  color: black;
+}
+
+.navbar-toggler {
+  background-color: white;
+  border: solid black 4px;
+  height: 6vh;
+  width: 6vh;
+  padding: 3%;
+  border-radius: 30%;
+}
+
+.navbar-toggler-icon {
+  scale: 200%
+}
+
+
