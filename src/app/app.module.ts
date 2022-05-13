@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from "@angular/router";
 import { GestioneTavoloComponent } from './gestione-tavolo/gestione-tavolo.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { DrawerComponent } from './drawer/drawer.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -17,13 +19,15 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     GestioneTavoloComponent,
+    DrawerComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     RouterModule.forRoot(routes),
-    MatSidenavModule
+    MatSidenavModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

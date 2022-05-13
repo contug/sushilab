@@ -1,0 +1,25 @@
+
+#drawer-root-container {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.drawer-item {
+  width: inherit;
+}
+
+.drawer-item-text {
+  font-size: 4vh;
+  padding-bottom: 2vh;
+  padding-top: 4vh;
+  border-bottom: solid black 5px;
+  text-align: center;
+}
+
+
+
+
+

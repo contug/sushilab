@@ -11,6 +11,7 @@ html, body {
   height: 100%;
   width: 100%;
   flex-direction: column;
+  padding: 0;
 }
 
 @media screen and (orientation: portrait) {
@@ -35,13 +36,14 @@ app-navigation {
 .router-row {
   font-size: 32px;
   height: 90vh;
+  width: 100vw;
   margin: 0;
 }
 
 
 /* NAVBAR ROW */
 
-@media screen and (orientation:portrait) {
+@media screen and (orientation: portrait) {
   .navbar {
     background-color: #ffbf5f;
     height: inherit;
@@ -118,3 +120,29 @@ app-navigation {
   }
 }
 
+/* DRAWER */
+mat-drawer-container {
+  height: 90vh;
+  width: 100vw;
+}
+
+
+mat-drawer-content {
+  height: 90vh;
+}
+
+.router-container {
+  height: inherit;
+}
+
+.drawer-container {
+  background-color: #ffe5be;
+  height: 90vh;
+  width: 50vw;
+  display: flex;
+}
+
+app-drawer {
+  height: inherit;
+  width: inherit;
+}

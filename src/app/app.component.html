@@ -12,9 +12,11 @@
   </div>
 
   <div class="router-row">
-    <mat-drawer-container class="menu-container" autosize>
+    <mat-drawer-container class="drawer-router-container" autosize>
       <mat-drawer #drawer id="app-drawer" mode="side">
-        <div style="font-size: 24px">menu</div>
+        <div class="drawer-container ">
+          <app-drawer></app-drawer>
+        </div>
       </mat-drawer>
 
       <div class="router-container">
