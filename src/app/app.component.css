@@ -14,36 +14,33 @@ html, body {
   padding: 0;
 }
 
-@media screen and (orientation: portrait) {
-  .navigation-row {
-    width: 100vw;
-    height: 10vh;
-  }
-}
 
-@media screen and (orientation: landscape) {
-  .navigation-row {
-    width: 100vw;
-    height: 15vh;
-  }
-}
+
 
 app-navigation {
   width: inherit;
   height: inherit;
 }
 
-.router-row {
-  font-size: 32px;
-  height: 90vh;
-  width: 100vw;
-  margin: 0;
-}
+
 
 
 /* NAVBAR ROW */
 
 @media screen and (orientation: portrait) {
+
+  .router-row {
+    font-size: 32px;
+    height: 90vh;
+    width: 100vw;
+    margin: 0;
+  }
+
+  .navigation-row {
+    width: 100vw;
+    height: 10vh;
+  }
+
   .navbar {
     background-color: #ffbf5f;
     height: inherit;
@@ -82,6 +79,19 @@ app-navigation {
 }
 
 @media screen and (orientation: landscape) {
+
+  .router-row {
+    font-size: 32px;
+    height: 85vh;
+    width: 100vw;
+    margin: 0;
+  }
+
+  .navigation-row {
+    width: 100vw;
+    height: 15vh;
+  }
+
   .navbar {
     background-color: #ffbf5f;
     height: inherit;
