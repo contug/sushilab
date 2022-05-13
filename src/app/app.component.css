@@ -38,3 +38,83 @@ app-navigation {
   margin: 0;
 }
 
+
+/* NAVBAR ROW */
+
+@media screen and (orientation:portrait) {
+  .navbar {
+    background-color: #ffbf5f;
+    height: inherit;
+    width: inherit;
+  }
+
+  .navbar-container {
+    display: flex;
+    max-width: inherit;
+    justify-items: stretch;
+    margin-right: 5vw;
+    margin-left: 5vw;
+  }
+
+  .navbar-brand {
+    font-size: 10vw;
+    color: black;
+  }
+
+  .navbar-toggler {
+    background-color: white;
+    border: solid black 5px;
+    height: 6vh;
+    width: 6vh;
+    padding: 0;
+    border-radius: 30%;
+    display: flex;
+  }
+
+  .navbar-toggler-icon {
+    width: 10vw;
+    height: 10vh;
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .navbar {
+    background-color: #ffbf5f;
+    height: inherit;
+    width: 100vw;
+  }
+
+  .navbar-container {
+    display: flex;
+    max-width: inherit;
+    justify-items: stretch;
+    margin-right: 5vh;
+    margin-left: 5vh;
+  }
+
+  .navbar-brand {
+    font-size: 10vh;
+    color: black;
+  }
+
+  .navbar-toggler {
+    background-color: white;
+    border: solid black 5px;
+    height: 6vw;
+    width: 6vw;
+    padding: 0;
+    border-radius: 30%;
+    display: flex;
+  }
+
+  .navbar-toggler-icon {
+    width: 7vw;
+    height: 7vh;
+    align-self: center;
+    justify-self: center;
+
+  }
+}
+

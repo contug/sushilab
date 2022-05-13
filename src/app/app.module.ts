@@ -4,10 +4,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from "@angular/router";
 import { GestioneTavoloComponent } from './gestione-tavolo/gestione-tavolo.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -16,14 +16,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
     GestioneTavoloComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,29 @@
 <div class="container-fluid root-container">
-    <div class="navigation-row"><app-navigation></app-navigation></div>
-    <div class="router-row"><router-outlet></router-outlet></div>
-<!--
-<app-navigation></app-navigation>
--->
+
+  <div class="navigation-row">
+    <div class="navbar fixed-top navbar-light">
+      <div class="container-fluid navbar-container">
+        <a href="" class="navbar-brand">SushiLab</a>
+        <button class="navbar-toggler" type="button" (click)="drawer.toggle()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="router-row">
+    <mat-drawer-container class="menu-container" autosize>
+      <mat-drawer #drawer id="app-drawer" mode="side">
+        <div style="font-size: 24px">menu</div>
+      </mat-drawer>
+
+      <div class="router-container">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-container>
+  </div>
+  <!--
+  <app-navigation></app-navigation>
+  -->
 
 </div>
