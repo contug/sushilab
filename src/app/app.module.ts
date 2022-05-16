@@ -12,11 +12,13 @@ import { DrawerComponent } from './drawer/drawer.component';
 import {MatDividerModule} from "@angular/material/divider";
 import { MenuComponent } from './menu/menu.component';
 import {MatCardModule} from "@angular/material/card";
+import { UniscitiComponent } from './unisciti/unisciti.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
   {path: "gestione-tavolo", component: GestioneTavoloComponent},
-  {path: "menu", component: MenuComponent}
+  {path: "menu", component: MenuComponent},
+  {path: "gestione-tavolo/unisciti", component: UniscitiComponent}
 ]
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ const routes: Routes = [
     GestioneTavoloComponent,
     DrawerComponent,
     MenuComponent,
+    UniscitiComponent,
   ],
   imports: [
     BrowserModule,
