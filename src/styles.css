@@ -12,12 +12,31 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-*{
+* {
   font-family: 'Jockey One', sans-serif;
 }
 
 .flex-container {
   display: flex;
+}
+
+@media screen and (orientation: portrait) {
+  .root-component-container {
+    height: 90vh;
+    width: 100vw;
+    background-color: #fff8e5;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .root-component-container {
+    height: 85vh;
+    width: 100vw;
+    background-color: #fff8e5;
+  }
 }

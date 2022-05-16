@@ -23,14 +23,21 @@ app-navigation {
 }
 
 
+.router-container {
+  width: inherit;
+  height: inherit;
+}
 
+app-gestione-tavolo {
+  width: inherit;
+  height: inherit;
+}
 
 /* NAVBAR ROW */
 
 @media screen and (orientation: portrait) {
 
   .router-row {
-    font-size: 32px;
     height: 90vh;
     width: 100vw;
     margin: 0;
@@ -130,29 +137,62 @@ app-navigation {
   }
 }
 
+
 /* DRAWER */
-mat-drawer-container {
-  height: 90vh;
-  width: 100vw;
+
+@media screen and (orientation: portrait) {
+
+  mat-drawer-container {
+    height: 90vh;
+    width: 100vw;
+  }
+
+
+  mat-drawer-content {
+    height: 90vh;
+  }
+
+  .router-container {
+    height: inherit;
+  }
+
+  .drawer-container {
+    background-color: #ffe5be;
+    height: 90vh;
+    width: 50vw;
+    display: flex;
+  }
+
+  app-drawer {
+    height: inherit;
+    width: inherit;
+  }
 }
 
+@media screen and (orientation: landscape) {
+  mat-drawer-container {
+    height: 85vh;
+    width: 100vw;
+  }
 
-mat-drawer-content {
-  height: 90vh;
-}
 
-.router-container {
-  height: inherit;
-}
+  mat-drawer-content {
+    height: 85vh;
+  }
 
-.drawer-container {
-  background-color: #ffe5be;
-  height: 90vh;
-  width: 50vw;
-  display: flex;
-}
+  .router-container {
+    height: inherit;
+  }
 
-app-drawer {
-  height: inherit;
-  width: inherit;
+  .drawer-container {
+    background-color: #ffe5be;
+    height: 85vh;
+    width: 25vw;
+    display: flex;
+  }
+
+  app-drawer {
+    height: inherit;
+    width: inherit;
+  }
 }

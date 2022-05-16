@@ -10,16 +10,20 @@ import { GestioneTavoloComponent } from './gestione-tavolo/gestione-tavolo.compo
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { DrawerComponent } from './drawer/drawer.component';
 import {MatDividerModule} from "@angular/material/divider";
+import { MenuComponent } from './menu/menu.component';
+import {MatCardModule} from "@angular/material/card";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
-  {path: "gestione-tavolo", component: GestioneTavoloComponent}
+  {path: "gestione-tavolo", component: GestioneTavoloComponent},
+  {path: "menu", component: MenuComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
     GestioneTavoloComponent,
     DrawerComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ const routes: Routes = [
     MatToolbarModule,
     RouterModule.forRoot(routes),
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
