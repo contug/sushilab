@@ -6,6 +6,26 @@ html, body {
   width: 100%;
 }
 
+/* CLASSE GENERICA PER TUTTI I COMPONENT DI ROUTER-OUTLET
+ * Ogni component interno a router-outlet deve:
+     - avere la classe .router-element impostata via typescript
+     - il container interno al component deve avere la
+          classe .root-component-container (in styles.css)
+
+   .router-element: estende il component all'intero router-container
+   .root-component-container: blocca il ridimensionamento all'apertura del drawer
+
+*/
+.router-element {
+  height: inherit;
+  width: inherit;
+}
+
+
+
+
+/* ROOT E ROUTER CONTAINER (dentro navbar-container) */
+
 .root-container {
   display: flex;
   height: 100%;
@@ -13,9 +33,6 @@ html, body {
   flex-direction: column;
   padding: 0;
 }
-
-
-
 
 app-navigation {
   width: inherit;
@@ -28,10 +45,9 @@ app-navigation {
   height: inherit;
 }
 
-app-gestione-tavolo {
-  width: inherit;
-  height: inherit;
-}
+
+
+
 
 /* NAVBAR ROW */
 
@@ -49,7 +65,6 @@ app-gestione-tavolo {
   }
 
   .navbar {
-    background-color: #ffbf5f;
     height: inherit;
     width: inherit;
   }
@@ -157,7 +172,6 @@ app-gestione-tavolo {
   }
 
   .drawer-container {
-    background-color: #ffe5be;
     height: 90vh;
     width: 50vw;
     display: flex;
@@ -185,7 +199,6 @@ app-gestione-tavolo {
   }
 
   .drawer-container {
-    background-color: #ffe5be;
     height: 85vh;
     width: 25vw;
     display: flex;

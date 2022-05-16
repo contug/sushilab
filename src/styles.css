@@ -7,18 +7,20 @@ html, body {
   padding: 0 !important;
 }
 
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
 * {
   font-family: 'Jockey One', sans-serif;
+}
+
+.color-dark {
+  background-color: #ffbf5f;
+}
+
+.color-medium {
+  background-color: #ffe5be;
+}
+
+.color-light {
+  background-color: #fff8e5;
 }
 
 .flex-container {
@@ -29,7 +31,6 @@ body {
   .root-component-container {
     height: 90vh;
     width: 100vw;
-    background-color: #fff8e5;
   }
 }
 
@@ -37,6 +38,5 @@ body {
   .root-component-container {
     height: 85vh;
     width: 100vw;
-    background-color: #fff8e5;
   }
 }
