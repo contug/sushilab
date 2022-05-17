@@ -27,6 +27,10 @@ html, body {
   background-color: #fff8e5;
 }
 
+.color-light-button{
+  background-color: #FFF0DA;
+}
+
 .flex-container {
   display: flex;
 }

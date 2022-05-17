@@ -6,10 +6,7 @@
     font-family: "Jockey One", sans-serif;
   }
   
-  
-  mat-card {
-  }
-  
+    
   .card-container {
     flex-direction: column;
     justify-content: center;
@@ -30,6 +27,12 @@
       align-items: center;
       justify-content: center;
     }
+
+    .register-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
   
     .card-input {
       border-radius: 0.5em;
@@ -40,6 +43,7 @@
       text-align: center;
       font-size: 3vh;
       font-weight: 100;
+      margin: 1vh;
     }
 
   
@@ -57,11 +61,15 @@
       border-radius: 3em;
       margin: 4vw;
       padding: 0;
-      height: 70vw;
+      height: 100vw;
     }
   
-    #qr-button {
+    #register-button {
       margin-top: 5vh;
+    }
+
+    #forgot-password{
+        font-size: 4vw;
     }
   }
   
@@ -76,6 +84,12 @@
       align-items: center;
       justify-content: center;
     }
+
+    .register-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
   
     .card-input {
       border-radius: 0.5em;
