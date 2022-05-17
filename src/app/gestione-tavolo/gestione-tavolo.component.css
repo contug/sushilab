@@ -48,8 +48,8 @@ h1, h3 {
   mat-card {
     border-radius: 3em;
     margin: 4vw;
-    padding: 0;
-    height: 50vw;
+    padding: 3vh;
+    height: fit-content;
   }
 }
 
@@ -85,7 +85,7 @@ h1, h3 {
     margin-left: 20vw;
     margin-right: 20vw;
     margin-top: 2vw;
-    padding: 0;
-    height: 25vw;
+    padding: 1vw;
+    height: fit-content;
   }
 }
