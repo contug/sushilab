@@ -13,12 +13,14 @@ import {MatDividerModule} from "@angular/material/divider";
 import { MenuComponent } from './menu/menu.component';
 import {MatCardModule} from "@angular/material/card";
 import { UniscitiComponent } from './unisciti/unisciti.component';
+import { CreaSessioneComponent } from './crea-sessione/crea-sessione.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
   {path: "gestione-tavolo", component: GestioneTavoloComponent},
   {path: "menu", component: MenuComponent},
-  {path: "gestione-tavolo/unisciti", component: UniscitiComponent}
+  {path: "gestione-tavolo/unisciti", component: UniscitiComponent},
+  {path: "gestione-tavolo/crea-sessione", component: CreaSessioneComponent}
 ]
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ const routes: Routes = [
     DrawerComponent,
     MenuComponent,
     UniscitiComponent,
+    CreaSessioneComponent,
   ],
   imports: [
     BrowserModule,
