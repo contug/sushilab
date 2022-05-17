@@ -34,7 +34,7 @@ mat-card {
   .card-input {
     border-radius: 0.5em;
     background-color: #ebebeb;
-    height: 6vh;
+    height: 7vh;
     width: 70vw;
     border-width: 0;
     text-align: center;
@@ -79,7 +79,7 @@ mat-card {
   .card-input {
     border-radius: 0.5em;
     background-color: #ebebeb;
-    height: 10vh;
+    height: 12vh;
     width: 35vw;
     border-width: 0;
     text-align: center;
