@@ -14,7 +14,11 @@ import { MenuComponent } from './menu/menu.component';
 import {MatCardModule} from "@angular/material/card";
 import { UniscitiComponent } from './unisciti/unisciti.component';
 import { CreaSessioneComponent } from './crea-sessione/crea-sessione.component';
+<<<<<<< HEAD
 import { LoginComponent } from './login/login.component';
+=======
+import { RegistraComponent } from './registra/registra.component';
+>>>>>>> 0492ab07e425a7d09e0d8b7787e315f127cfd2c5
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -22,8 +26,12 @@ const routes: Routes = [
   {path: "menu", component: MenuComponent},
   {path: "gestione-tavolo/unisciti", component: UniscitiComponent},
   {path: "gestione-tavolo/crea-sessione", component: CreaSessioneComponent},
+<<<<<<< HEAD
   {path: "login", component: LoginComponent}
 
+=======
+  {path: "login/registra", component: RegistraComponent}
+>>>>>>> 0492ab07e425a7d09e0d8b7787e315f127cfd2c5
 ]
 @NgModule({
   declarations: [
@@ -33,7 +41,11 @@ const routes: Routes = [
     MenuComponent,
     UniscitiComponent,
     CreaSessioneComponent,
+<<<<<<< HEAD
     LoginComponent,
+=======
+    RegistraComponent,
+>>>>>>> 0492ab07e425a7d09e0d8b7787e315f127cfd2c5
   ],
   imports: [
     BrowserModule,

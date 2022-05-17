@@ -1,9 +1,11 @@
-#crea-sessione-container {
+
+#registra-container{
   flex-direction: column;
 }
 
-h1, h3 {
+h1 {
   font-family: "Jockey One", sans-serif;
+
 }
 
 
@@ -15,23 +17,10 @@ h1, h3 {
   width: inherit;
 }
 
-
 @media screen and (orientation: portrait) {
   h1 {
     margin: 1em;
     font-size: 4vh;
-  }
-
-  h3 {
-    font-size: 3vh;
-  }
-
-  #qr-code {
-    border: solid black 2px;
-    height: 30vh;
-    width: 30vh;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
   }
 
   .header-container {
@@ -40,7 +29,23 @@ h1, h3 {
     justify-content: center;
   }
 
+  .register-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .card-input {
+    border-radius: 0.5em;
+    background-color: #ebebeb;
+    height: 7vh;
+    width: 70vw;
+    border-width: 0;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: 100;
+    margin: 1vh;
+  }
 
   .card-button {
     text-align: center;
@@ -56,28 +61,45 @@ h1, h3 {
     border-radius: 3em;
     margin: 4vw;
     padding: 0;
-    height: 90vw;
+    height: 80vw;
   }
 
-  #qr-button {
-    margin-top: 5vh;
+  #already-registered {
+    font-size: 4vw;
   }
+
 }
+
+
 
 @media screen and (orientation: landscape) {
   h1 {
-    margin: 1em;
+    margin: 0.5em;
     font-size: 6vh;
-  }
-
-  h3 {
-    font-size: 4vh;
   }
 
   .header-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .register-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-input {
+    border-radius: 0.5em;
+    background-color: #ebebeb;
+    height: 12vh;
+    width: 35vw;
+    border-width: 0;
+    text-align: center;
+    font-size: 5vh;
+    font-weight: 100;
+    margin: 1vh;
   }
 
   .card-button {
@@ -90,12 +112,17 @@ h1, h3 {
     font-size: 5vh;
   }
 
+
   mat-card {
     border-radius: 1em;
     margin-left: 20vw;
     margin-right: 20vw;
-    margin-top: 2vw;
+    margin-top: 1vw;
     padding: 0;
-    height: 35vw;
+    height: 40vw;
+  }
+
+  #already-registered {
+    font-size: 4vh;
   }
 }
