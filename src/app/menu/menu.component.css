@@ -1,0 +1,150 @@
+#menu-container {
+  flex-direction: column;
+}
+
+h1, h3 {
+  font-family: "Jockey One", sans-serif;
+}
+
+.card-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: inherit;
+}
+
+.header-piatto {
+  width: fit-content;
+}
+
+
+@media screen and (orientation: portrait) {
+  h1 {
+    margin: 1em;
+    font-size: 4vh;
+  }
+
+  h3 {
+    font-size: 3vh;
+  }
+
+  #numero-piatto {
+    padding-right: 1em;
+    font-size: 4vh;
+  }
+
+  #nome-piatto {
+    padding-right: 1em;
+    font-size: 4vh;
+  }
+
+  #star-border {
+    scale: 2;
+  }
+
+  #star-button {
+    height: 4em;
+    width: 5em;
+    border-radius: 1.2em;
+    border: 0;
+  }
+
+  #immagine {
+    border: solid black 2px;
+    height: 30vh;
+    width: 30vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-button {
+    text-align: center;
+    height: 6vh;
+    width: 70vw;
+    border-radius: 9999em 9999em 9999em 9999em;
+    border: 0;
+    margin: 0.5em;
+    font-size: 3vh;
+  }
+
+  mat-card {
+    border-radius: 3em;
+    margin: 4vw;
+    padding: 2vh;
+    height: fit-content;
+  }
+
+
+}
+
+@media screen and (orientation: landscape) {
+  h1 {
+    margin: 0.5em;
+    font-size: 6vh;
+  }
+
+  h3 {
+    font-size: 4vh;
+  }
+
+  #numero-piatto {
+    font-size: 3vw;
+    padding-right: 1em;
+  }
+
+  #nome-piatto {
+    font-size: 3vw;
+    padding-right: 1em;
+  }
+
+  #star-button{
+    height: 1.5em;
+    width: 2em;
+    border-radius: 0.5em;
+  }
+
+  #star-border {
+    scale: 2;
+  }
+
+  #immagine {
+    border: solid black 2px;
+    height: 30vh;
+    width: 30vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-button {
+    text-align: center;
+    height: 10vh;
+    width: 35vw;
+    border-radius: 9999em 9999em 9999em 9999em;
+    border: 0;
+    margin: 0.5em;
+    font-size: 5vh;
+  }
+
+  mat-card {
+    border-radius: 1em;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    margin-top: 2vw;
+    padding: 1vw;
+    height: fit-content;
+  }
+}
+

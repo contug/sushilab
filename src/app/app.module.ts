@@ -15,6 +15,7 @@ import {MatCardModule} from "@angular/material/card";
 import { UniscitiComponent } from './unisciti/unisciti.component';
 import { CreaSessioneComponent } from './crea-sessione/crea-sessione.component';
 import { RegistraComponent } from './registra/registra.component';
+import {MatIconModule} from "@angular/material/icon";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -41,7 +42,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatSidenavModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
