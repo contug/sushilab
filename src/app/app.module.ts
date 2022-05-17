@@ -16,6 +16,8 @@ import { UniscitiComponent } from './unisciti/unisciti.component';
 import { CreaSessioneComponent } from './crea-sessione/crea-sessione.component';
 import { LoginComponent } from './login/login.component';
 import { RegistraComponent } from './registra/registra.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path: "gestione-tavolo/unisciti", component: UniscitiComponent},
   {path: "gestione-tavolo/crea-sessione", component: CreaSessioneComponent},
   {path: "login", component: LoginComponent},
-  {path: "login/registra", component: RegistraComponent}
+  {path: "login/registra", component: RegistraComponent},
+  {path: "login/forgot-password", component:ForgotPasswordComponent},
+  {path: "login/forgot-password/recover-password",component:RecoverPasswordComponent}
 ]
 @NgModule({
   declarations: [
@@ -36,6 +40,8 @@ const routes: Routes = [
     CreaSessioneComponent,
     LoginComponent,
     RegistraComponent,
+    ForgotPasswordComponent,
+    RecoverPasswordComponent,
   ],
   imports: [
     BrowserModule,
