@@ -55,8 +55,8 @@ h1, h3 {
   mat-card {
     border-radius: 3em;
     margin: 4vw;
-    padding: 0;
-    height: 90vw;
+    padding: 3vw;
+    height: fit-content;
   }
 
   #qr-button {
@@ -95,7 +95,15 @@ h1, h3 {
     margin-left: 20vw;
     margin-right: 20vw;
     margin-top: 2vw;
-    padding: 0;
-    height: 35vw;
+    padding: 1vw;
+    height: fit-content;
+  }
+
+  #qr-code {
+    border: solid black 2px;
+    height: 30vh;
+    width: 30vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
   }
 }
