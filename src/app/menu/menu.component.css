@@ -14,10 +14,6 @@ h1, h3 {
   width: inherit;
 }
 
-.header-piatto {
-  width: fit-content;
-}
-
 
 @media screen and (orientation: portrait) {
   h1 {
@@ -56,6 +52,31 @@ h1, h3 {
     width: 30vh;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+  }
+
+  .footer-immagine {
+    flex-direction: row;
+  }
+
+  #allergeni {
+    border: solid black 2px;
+    width: 10em;
+    height: 2em;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh;
+  }
+
+  #prezzo {
+    justify-self: flex-end;
+    font-size: 2vh;
+    padding-left: 5em;
   }
 
   .header-container {
@@ -76,12 +97,65 @@ h1, h3 {
 
   mat-card {
     border-radius: 3em;
-    margin: 4vw;
+    margin: 4vw 10vw 4vw 10vw;
     padding: 2vh;
     height: fit-content;
   }
 
+  .expansion-panel {
+    background-color: #e0dfdc;
+    margin-top: 1vh;
+    height: 10vh;
+    width: 80vw;
+  }
 
+  #card-footer {
+    margin-top: 2vh;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    border: 0;
+    width: 70vw;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #panel-toggle {
+    border-radius: 2vw;
+    border: 0;
+    height: 4vh;
+    width: 7vw;
+  }
+
+  #toggle-icon {
+    scale: 2;
+  }
+
+  #plus-button, #minus-button {
+    border-radius: 2vw;
+    font-size: 5vw;
+    border: 0;
+    height: 4vh;
+    width: 7vw;
+  }
+
+  #plus-button {
+    margin-right: 1vw;
+  }
+
+  .quantity {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 1vw;
+  }
+
+  .max-quantity, .order-quantity {
+    font-size: 3vw;
+  }
+
+  .order-quantity {
+    padding-top: 1vw;
+  }
 }
 
 @media screen and (orientation: landscape) {
@@ -104,7 +178,7 @@ h1, h3 {
     padding-right: 1em;
   }
 
-  #star-button{
+  #star-button {
     height: 1.5em;
     width: 2em;
     border-radius: 0.5em;
@@ -120,6 +194,31 @@ h1, h3 {
     width: 30vh;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+  }
+
+  .footer-immagine {
+    flex-direction: row;
+  }
+
+  #allergeni {
+    border: solid black 2px;
+    width: 10em;
+    height: 2em;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh;
+  }
+
+  #prezzo {
+    justify-self: flex-end;
+    font-size: 2vh;
+    padding-left: 5em;
   }
 
   .header-container {
@@ -128,14 +227,10 @@ h1, h3 {
     justify-content: center;
   }
 
-  .card-button {
-    text-align: center;
+  .expansion-panel {
+    background-color: #e0dfdc;
     height: 10vh;
-    width: 35vw;
-    border-radius: 9999em 9999em 9999em 9999em;
-    border: 0;
-    margin: 0.5em;
-    font-size: 5vh;
+    width: 40vw;
   }
 
   mat-card {
