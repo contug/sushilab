@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistraComponent } from './registra/registra.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path: "login/registra", component: RegistraComponent},
   {path: "login/forgot-password", component:ForgotPasswordComponent},
   {path: "login/forgot-password/recover-password",component:RecoverPasswordComponent}
+  {path: "login", component: LoginComponent},
+  {path: "login/registra", component: RegistraComponent}
 ]
 @NgModule({
   declarations: [
@@ -50,7 +54,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatSidenavModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

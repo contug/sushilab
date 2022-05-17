@@ -8,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  hidden: boolean = true;
+
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  togglePanel (){
+    this.hidden = !this.hidden;
+  }
 }
