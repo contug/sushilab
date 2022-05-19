@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OrdiniService} from "../../core/http/ordini.service";
 
 @Component({
   selector: 'app-tuoi-ordini',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TuoiOrdiniComponent implements OnInit {
 
-  constructor() { }
+  idSessione: string = "0"
+  userId: string = "personali"
+
+  constructor(private ordiniService: OrdiniService) {
+
+  }
 
   ngOnInit(): void {
+    this.ottieniOrdini()
+  }
+
+  ottieniOrdini(): void {
+    this.ordiniService.ottieniOrdiniUtente(this.idSessione, this.userId).subscribe(res => {
+      console.log(res);
+    })
   }
 
 }

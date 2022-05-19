@@ -1,19 +1,23 @@
 <div class="root-component-container flex-container color-light" id="lista-ordini-container">
 
-    <div class="button-container">
-        <input class="threeButtons" type="image" src="/src/assets/img/desk.png" />
-        <input class="threeButtons" type="image" src="/src/assets/img/account.png" />
-        <input class="threeButtons" type="image" src="/src/assets/img/index.png" />
-    </div>
-
-    <div >
-      <h1 class="ordiniTavolo">Ordini del tavolo</h1>
-    </div>
-
-    <mat-card class="mat-elevation-z8">
-        <div class="card-container flex-container">
-            <h1 class="nomePiatto">Sashimi</h1>
-
-        </div>
-    </mat-card>
+  <div class="button-container">
+    <input class="threeButtons" type="image" src="/src/assets/img/desk.png"/>
+    <input class="threeButtons" type="image" src="/src/assets/img/account.png"/>
+    <input class="threeButtons" type="image" src="/src/assets/img/index.png"/>
   </div>
+
+  <div>
+    <h1 class="ordiniTavolo">Ordini del tavolo</h1>
+  </div>
+
+  <mat-card class="mat-elevation-z8">
+    <div class="card-container flex-container">
+      <h1 class="nomePiatto">Sashimi</h1>
+
+    </div>
+  </mat-card>
+
+  <button class="card-button color-dark mat-elevation-z8" (click)="this.confermaOrdine()">Conferma Ordine
+  </button>
+
+</div>
