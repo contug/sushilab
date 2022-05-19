@@ -13,6 +13,7 @@ import {Tavolo} from "../../shared/models/tavolo";
 export class GestioneTavoloComponent implements OnInit {
 
   tavolo!:Tavolo;
+  idSessione!:string;
   constructor(public http:HttpClient,public route: ActivatedRoute, public creaSessioneService: CreaSessioneHttpService) { }
 
   ngOnInit(): void {
@@ -20,15 +21,18 @@ export class GestioneTavoloComponent implements OnInit {
 
 
   creaSessione():void{
-    this.creaSessioneService.creaSessione();
+    this.creaSessioneService.creaSessione().subscribe(res => {
+      this.idSessione = res;
+      console.log(res);
+    })
+
   }
 
-  ottieniSessione(id: string):Tavolo{
+  ottieniSessione(id: string):void{
     this.creaSessioneService.ottieniSessione(id).subscribe( res=>{
         this.tavolo=res;
         console.log(res);
     });
-    return this.tavolo;
   }
 
 }

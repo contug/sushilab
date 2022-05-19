@@ -13,11 +13,12 @@ export class CreaSessioneHttpService {
   constructor(public http:HttpClient) {
   }
 
-  creaSessione():void{
-      this.http.post(Constants.ROOT_URL+'/tavolo','');
+  creaSessione():Observable<string>{
+      return this.http.post<string>(Constants.ROOT_URL+'/tavolo','');
   }
 
   ottieniSessione(id: string):Observable<Tavolo>{
     return this.http.get<Tavolo>(Constants.ROOT_URL+'/tavolo/' + id);
   }
+
 }
