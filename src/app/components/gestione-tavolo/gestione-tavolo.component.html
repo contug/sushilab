@@ -7,10 +7,12 @@
   <mat-card class="mat-elevation-z8">
     <div class="card-container flex-container">
       <button class="card-button color-dark mat-elevation-z8"
-              routerLink="/gestione-tavolo/crea-sessione">Crea sessione
+              routerLink="/gestione-tavolo/crea-sessione"
+              (click)="creaSessione()">Crea sessione
       </button>
       <button class="card-button color-dark mat-elevation-z8"
-              routerLink="/gestione-tavolo/unisciti">Unisciti a una sessione
+              routerLink="/gestione-tavolo/unisciti"
+              (click)="ottieniSessione()">Unisciti a una sessione
       </button>
     </div>
   </mat-card>
