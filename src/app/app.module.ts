@@ -14,14 +14,8 @@ import { DrawerComponent } from './components/drawer/drawer.component';
 import {MatDividerModule} from "@angular/material/divider";
 import { MenuComponent } from './components/menu/menu.component';
 import {MatCardModule} from "@angular/material/card";
-import { UniscitiComponent } from './unisciti/unisciti.component';
-import { CreaSessioneComponent } from './crea-sessione/crea-sessione.component';
-import { LoginComponent } from './login/login.component';
-import { RegistraComponent } from './registra/registra.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { RecoverPasswordComponent } from './recover-password/recover-password.component';
-import { ListaOrdiniComponent } from './lista-ordini/lista-ordini.component';
-import { TuoiOrdiniComponent } from './tuoi-ordini/tuoi-ordini.component';
+import { ListaOrdiniComponent } from './components/lista-ordini/lista-ordini.component';
+import { TuoiOrdiniComponent } from './components/tuoi-ordini/tuoi-ordini.component';
 import {HttpClientModule} from "@angular/common/http";
 import { UniscitiComponent } from './components/unisciti/unisciti.component';
 import { CreaSessioneComponent } from './components/crea-sessione/crea-sessione.component';
@@ -29,7 +23,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistraComponent } from './components/registra/registra.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
-import {MatIconModule} from "@angular/material/icon";
 import {MatExpansionModule} from "@angular/material/expansion";
 
 const routes: Routes = [
@@ -42,7 +35,7 @@ const routes: Routes = [
   {path: "login/registra", component: RegistraComponent},
   {path: "login/forgot-password", component:ForgotPasswordComponent},
   {path: "login/forgot-password/recover-password",component:RecoverPasswordComponent},
-  {path: "lista-ordini", component:ListaOrdiniComponent}
+  {path: "lista-ordini", component:ListaOrdiniComponent},
   {path: "login/forgot-password/recover-password",component:RecoverPasswordComponent},
   {path: "login", component: LoginComponent},
   {path: "login/registra", component: RegistraComponent}
@@ -72,9 +65,7 @@ const routes: Routes = [
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    HttpClientModule
-    MatCardModule,
-    MatIconModule,
+    HttpClientModule,
     MatExpansionModule
   ],
   providers: [],
