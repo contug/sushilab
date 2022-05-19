@@ -23,8 +23,8 @@ export class GestioneTavoloComponent implements OnInit {
     this.creaSessioneService.creaSessione();
   }
 
-  ottieniSessione():Tavolo{
-    this.creaSessioneService.ottieniSessione().subscribe( res=>{
+  ottieniSessione(id: string):Tavolo{
+    this.creaSessioneService.ottieniSessione(id).subscribe( res=>{
         this.tavolo=res;
         console.log(res);
     });

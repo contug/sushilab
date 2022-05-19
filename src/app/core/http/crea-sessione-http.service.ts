@@ -17,7 +17,7 @@ export class CreaSessioneHttpService {
       this.http.post(Constants.ROOT_URL+'/tavolo','');
   }
 
-  ottieniSessione():Observable<Tavolo>{
-    return this.http.get<Tavolo>(Constants.ROOT_URL+'/tavolo/0');
+  ottieniSessione(id: string):Observable<Tavolo>{
+    return this.http.get<Tavolo>(Constants.ROOT_URL+'/tavolo/' + id);
   }
 }
