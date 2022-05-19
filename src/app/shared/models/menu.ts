@@ -1,4 +1,4 @@
-import {Piatto} from "./piatto.model";
+import {Piatto} from "./piatto";
 
 export class Menu{
   nome!:string;
