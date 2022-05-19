@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import{MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +14,15 @@ import { DrawerComponent } from './components/drawer/drawer.component';
 import {MatDividerModule} from "@angular/material/divider";
 import { MenuComponent } from './components/menu/menu.component';
 import {MatCardModule} from "@angular/material/card";
+import { UniscitiComponent } from './unisciti/unisciti.component';
+import { CreaSessioneComponent } from './crea-sessione/crea-sessione.component';
+import { LoginComponent } from './login/login.component';
+import { RegistraComponent } from './registra/registra.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
+import { ListaOrdiniComponent } from './lista-ordini/lista-ordini.component';
+import { TuoiOrdiniComponent } from './tuoi-ordini/tuoi-ordini.component';
+import {HttpClientModule} from "@angular/common/http";
 import { UniscitiComponent } from './components/unisciti/unisciti.component';
 import { CreaSessioneComponent } from './components/crea-sessione/crea-sessione.component';
 import { LoginComponent } from './components/login/login.component';
@@ -31,6 +42,8 @@ const routes: Routes = [
   {path: "login/registra", component: RegistraComponent},
   {path: "login/forgot-password", component:ForgotPasswordComponent},
   {path: "login/forgot-password/recover-password",component:RecoverPasswordComponent},
+  {path: "lista-ordini", component:ListaOrdiniComponent}
+  {path: "login/forgot-password/recover-password",component:RecoverPasswordComponent},
   {path: "login", component: LoginComponent},
   {path: "login/registra", component: RegistraComponent}
 ]
@@ -46,6 +59,8 @@ const routes: Routes = [
     RegistraComponent,
     ForgotPasswordComponent,
     RecoverPasswordComponent,
+    ListaOrdiniComponent,
+    TuoiOrdiniComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +69,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatSidenavModule,
     MatDividerModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    HttpClientModule
     MatCardModule,
     MatIconModule,
     MatExpansionModule
