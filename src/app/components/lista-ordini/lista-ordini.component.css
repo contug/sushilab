@@ -1,12 +1,12 @@
 #lista-ordini-container {
     flex-direction: column;
   }
-  
+
   h1, h3 {
     font-family: "Jockey One", sans-serif;
   }
-  
-  
+
+
   .card-container {
     flex-direction: column;
     justify-content: center;
@@ -15,11 +15,11 @@
     width: inherit;
   }
 
-  
-  
-  
+
+
+
   @media screen and (orientation: portrait) {
-   
+
     .button-container{
         margin-top:1em;
         margin-bottom:1em;
@@ -30,9 +30,9 @@
         margin:0.5em;
         margin-top: 1em;
     }
-    
+
     .ordiniTavolo{
-        margin-top: 0em;
+        margin-top: 0;
         text-align: center;
         font-size: 4vh;
     }
@@ -41,42 +41,42 @@
       font-size: 4vh;
       margin:0.2em;
     }
-  
-    
-  
-    
+
+
+
+
     .header-container {
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-    
+
     mat-card {
       border-radius: 3em;
       margin: 4vw;
       padding: 3vw;
       height: fit-content;
     }
-  
+
   }
-  
+
   @media screen and (orientation: landscape) {
     h1 {
       margin: 1em;
       font-size: 6vh;
     }
-  
+
     h3 {
       font-size: 4vh;
     }
-  
+
     .header-container {
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-  
-     
+
+
     mat-card {
       border-radius: 1em;
       margin-left: 20vw;
@@ -85,7 +85,6 @@
       padding: 1vw;
       height: fit-content;
     }
-  
-    
+
+
   }
-  
