@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
-import {CreaSessioneHttpService} from "../../core/http/crea-sessione-http.service";
+import {SessioneHttpService} from "../../core/http/sessione-http.service";
 import {Tavolo} from "../../shared/models/tavolo";
 
 @Component({
@@ -12,15 +12,17 @@ import {Tavolo} from "../../shared/models/tavolo";
 })
 export class GestioneTavoloComponent implements OnInit {
 
-  tavolo!:Tavolo;
-  idSessione!:string;
-  constructor(public http:HttpClient,public route: ActivatedRoute, public creaSessioneService: CreaSessioneHttpService) { }
+  tavolo!: Tavolo;
+  idSessione!: string;
+
+  constructor(public http: HttpClient, public route: ActivatedRoute, public creaSessioneService: SessioneHttpService) {
+  }
 
   ngOnInit(): void {
   }
 
 
-  creaSessione():void{
+  creaSessione(): void {
     this.creaSessioneService.creaSessione().subscribe(res => {
       this.idSessione = res;
       console.log(res);
@@ -28,10 +30,10 @@ export class GestioneTavoloComponent implements OnInit {
 
   }
 
-  ottieniSessione(id: string):void{
-    this.creaSessioneService.ottieniSessione(id).subscribe( res=>{
-        this.tavolo=res;
-        console.log(res);
+  ottieniSessione(id: string): void {
+    this.creaSessioneService.ottieniSessione(id).subscribe(res => {
+      this.tavolo = res;
+      console.log(res);
     });
   }
 

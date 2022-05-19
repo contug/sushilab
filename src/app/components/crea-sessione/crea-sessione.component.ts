@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CreaSessioneHttpService} from "../../core/http/crea-sessione-http.service";
+import {SessioneHttpService} from "../../core/http/sessione-http.service";
 import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 

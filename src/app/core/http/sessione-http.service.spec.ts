@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CreaSessioneHttpService } from './crea-sessione-http.service';
+import { SessioneHttpService } from './sessione-http.service';
 
 describe('CreaSessioneHttpService', () => {
-  let service: CreaSessioneHttpService;
+  let service: SessioneHttpService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CreaSessioneHttpService);
+    service = TestBed.inject(SessioneHttpService);
   });
 
   it('should be created', () => {

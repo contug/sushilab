@@ -7,7 +7,7 @@ import {Tavolo} from "../../shared/models/tavolo";
 @Injectable({
   providedIn: 'root'
 })
-export class CreaSessioneHttpService {
+export class SessioneHttpService {
 
 
   constructor(public http:HttpClient) {
@@ -21,4 +21,7 @@ export class CreaSessioneHttpService {
     return this.http.get<Tavolo>(Constants.ROOT_URL+'/tavolo/' + id);
   }
 
+  chiudiSessione(id: string):void {
+    this.http.delete(Constants.ROOT_URL +'/tavolo/' + id);
+  }
 }
