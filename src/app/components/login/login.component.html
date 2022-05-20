@@ -2,18 +2,20 @@
     <div class="flex-container header-container">
       <h1>Login</h1>
     </div>
-  
+
     <mat-card class="mat-elevation-z8">
       <div class="card-container flex-container">
-        <form class="flex-container register-form" action="">
-          <input class="card-input" placeholder="Email">
-          <input class="card-input" placeholder="Password">
+        <form class="flex-container register-form" action="" [formGroup]="formLogin">
+          <input class="card-input" placeholder="Email" formControlName="email">
+          <input class="card-input" placeholder="Password" formControlName="password">
         </form>
-        <button class="card-button color-dark mat-elevation-z8" routerLink="/login" >Login</button>
+        <button class="card-button color-dark mat-elevation-z8"
+                routerLink="/login"
+                (click)="loginUtente()">Login
+        </button>
         <button class="card-button color-light-button mat-elevation-z8" id="register-button" routerLink="/login/registra">Register
         </button>
         <div id="forgot-password" routerLink="forgot-password">Forgot password?</div>
       </div>
     </mat-card>
   </div>
-  

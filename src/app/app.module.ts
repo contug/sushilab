@@ -24,6 +24,7 @@ import { RegistraComponent } from './components/registra/registra.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -55,19 +56,20 @@ const routes: Routes = [
     ListaOrdiniComponent,
     TuoiOrdiniComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    RouterModule.forRoot(routes),
-    MatSidenavModule,
-    MatDividerModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    HttpClientModule,
-    MatExpansionModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        RouterModule.forRoot(routes),
+        MatSidenavModule,
+        MatDividerModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        HttpClientModule,
+        MatExpansionModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
