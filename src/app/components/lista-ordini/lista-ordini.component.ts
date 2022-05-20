@@ -25,7 +25,9 @@ export class ListaOrdiniComponent implements OnInit {
   }
 
   confermaOrdine(): void {
-    this.ordiniService.confermaOrdine(this.idSessione);
+    this.ordiniService.confermaOrdine(this.idSessione).subscribe(res => {
+      console.log(res)
+    })
   }
 
 }
