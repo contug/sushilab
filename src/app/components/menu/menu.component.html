@@ -1,9 +1,58 @@
 <div class="root-component-container flex-container" id="menu-container">
   <div class="flex-container header-container">
     <h1>Menù</h1>
-    <h3>Sashimi</h3>
   </div>
 
+  <div *ngFor="let tempMenu of menu">
+    <div class="flex-container header-container">
+      <h3>{{tempMenu.nome}}</h3>
+    </div>
+
+    <mat-card class="mat-elevation-z8" *ngFor="let piatto of tempMenu.piatti">
+
+      <div class="card-container flex-container">
+        <div class="header-piatto flex-container">
+          <h3 id="numero-piatto">{{piatto.numero}}</h3>
+          <h3 id="nome-piatto">{{piatto.nome}}</h3>
+          <button id="star-button">
+            <mat-icon id="star-border">star_border</mat-icon>
+            <mat-icon id="star-full" hidden>star</mat-icon>
+          </button>
+        </div>
+
+
+        <div id="immagine">foto</div>
+
+        <div class="footer-immagine flex-container">
+          <div id="allergeni">allergeni</div>
+          <div id="prezzo">{{piatto.prezzo}}€</div>
+        </div>
+
+        <div class="expansion-panel flex-container" [hidden]="hidden"></div>
+
+        <div class="flex-container" id="card-footer">
+          <button id="panel-toggle" (click)="togglePanel()">
+            <mat-icon id="toggle-icon">more_vert</mat-icon>
+          </button>
+          <div class="flex-container quantity-buttons">
+            <button id="plus-button">-</button>
+            <div class="quantity flex-container">
+              <div class="max-quantity"> Max:</div>
+              <div class="order-quantity">{{piatto.limite}}</div>
+            </div>
+            <button id="minus-button">+</button>
+          </div>
+        </div>
+
+      </div>
+    </mat-card>
+
+  </div>
+
+
+  <!--<div class="flex-container header-container">
+    <h3>Sashimi</h3>
+  </div>
   <mat-card class="mat-elevation-z8">
     <div class="card-container flex-container">
       <div class="header-piatto flex-container">
@@ -31,7 +80,7 @@
         <div class="flex-container quantity-buttons">
           <button id="plus-button">-</button>
           <div class="quantity flex-container">
-            <div class="max-quantity"> Max: </div>
+            <div class="max-quantity"> Max:</div>
             <div class="order-quantity">2</div>
           </div>
           <button id="minus-button">+</button>
@@ -40,5 +89,5 @@
 
 
     </div>
-  </mat-card>
+  </mat-card>-->
 </div>
