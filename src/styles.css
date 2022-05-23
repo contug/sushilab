@@ -31,6 +31,22 @@ html, body {
   background-color: #FFF0DA;
 }
 
+.color-soia {
+  color: saddlebrown;
+}
+
+.color-arachidi{
+  color: darkgoldenrod;
+}
+
+.color-granchio {
+  color: orangered;
+}
+
+.color-latte {
+  color: white;
+}
+
 .flex-container {
   display: flex;
 }

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Piatto} from "../../shared/models/piatto";
+import {Ordine} from "../../shared/models/ordine";
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import {Piatto} from "../../shared/models/piatto";
 export class MenuService {
 
   map: Map<Piatto, number> = new Map<Piatto, number>();
+  mapNote: Map<number, string> = new Map<number, string>();
 
   constructor() {
   }
@@ -16,6 +18,19 @@ export class MenuService {
       return this.map.get(piatto)!;
     else
       return 0;
+  }
+
+  listaOrdine(): Ordine[] {
+    let listaOrdini: Ordine[] = [];
+    this.map.forEach((value, key) => {
+      let ordine: Ordine = new Ordine();
+      ordine.idPiatto = key.id;
+      ordine.count = value;
+      if( this.mapNote.has(key.id))
+        ordine.note = this.mapNote.get(key.id)!;
+      listaOrdini.push(ordine);
+    })
+    return listaOrdini;
   }
 
   modificaOrdine(piatto: Piatto, button: boolean): void {
