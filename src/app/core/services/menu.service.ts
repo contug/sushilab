@@ -11,6 +11,13 @@ export class MenuService {
   constructor() {
   }
 
+  getValue(piatto: Piatto): number {
+    if (this.map.has(piatto))
+      return this.map.get(piatto)!;
+    else
+      return 0;
+  }
+
   modificaOrdine(piatto: Piatto, button: boolean): void {
     if(button) {
       if(this.map.has(piatto)) {
@@ -42,6 +49,7 @@ export class MenuService {
       }
 
     }
+    console.log(this.map)
   }
 
 
