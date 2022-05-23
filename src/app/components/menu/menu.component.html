@@ -3,7 +3,10 @@
     <h1>Menù</h1>
   </div>
 
-  <mat-icon>circle</mat-icon>
+<!--
+  <mat-icon class="color-arachidi">circle</mat-icon>
+-->
+
   <div *ngFor="let tempMenu of menu">
     <div class="flex-container header-container">
       <h3>{{tempMenu.nome}}</h3>
@@ -38,7 +41,7 @@
           <div class="flex-container quantity-buttons">
             <button id="minus-button" (click)="this.menuService.modificaOrdine(piatto, false)">-</button>
             <div class="quantity flex-container">
-              <div class="max-quantity"> Max: {{piatto.limite}}</div>
+              <div class="max-quantity"> MAX: {{piatto.limite}}</div>
               <div class="order-quantity">{{this.menuService.getValue(piatto)}}</div>
             </div>
             <button id="plus-button" (click)="this.menuService.modificaOrdine(piatto, true)">+</button>
@@ -47,8 +50,10 @@
 
       </div>
     </mat-card>
-
   </div>
+
+  <div class="root-footer-spacing"></div>
+
 
 
   <!--<div class="flex-container header-container">
@@ -92,3 +97,7 @@
     </div>
   </mat-card>-->
 </div>
+
+<button #fab mat-fab color="primary" class="on-top" aria-label="Example icon button with a delete icon">
+  <mat-icon style="color: black">add_shopping_cart</mat-icon>
+</button>

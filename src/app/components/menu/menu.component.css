@@ -170,6 +170,16 @@ h1, h3 {
   .order-quantity {
     padding-top: 1vw;
   }
+
+  .on-top{
+    position: fixed;
+    top: 90%;
+    margin-left: 85vw;
+    margin-right: 5vw;
+    z-index: 9999;
+    scale: 2;
+    background-color: #ffbf5f;
+  }
 }
 
 @media screen and (orientation: landscape) {
@@ -328,5 +338,18 @@ h1, h3 {
   .order-quantity {
     padding-top: 1vh;
   }
+
+  .on-top{
+    position: fixed;
+    top: 85%;
+    margin-left: 90vw;
+    margin-right: 5vw;
+    z-index: 9999;
+    scale: 2;
+    background-color: #ffbf5f;
+  }
 }
+
+
+
 
