@@ -39,6 +39,10 @@ h1, h3 {
     scale: 2;
   }
 
+  #star-full {
+    scale: 2;
+  }
+
   #star-button {
     height: 4em;
     width: 5em;
@@ -185,6 +189,10 @@ h1, h3 {
   }
 
   #star-border {
+    scale: 2;
+  }
+
+  #star-full {
     scale: 2;
   }
 

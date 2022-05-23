@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Menu} from "../../shared/models/menu";
-import {MenuService} from "../../core/http/menu.service";
+import {MenuHttpService} from "../../core/http/menu-http.service";
 
 
 
@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
 
 
 
-  constructor(private menuService : MenuService) { }
+  constructor(private menuService : MenuHttpService) { }
 
   ngOnInit(): void {
     this.ottieniMenu();

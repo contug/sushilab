@@ -6,8 +6,7 @@ import { Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class MenuService {
-
+export class MenuHttpService {
 
   constructor(private http: HttpClient) { }
 
