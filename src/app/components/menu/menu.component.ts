@@ -20,10 +20,19 @@ export class MenuComponent implements OnInit {
 
 
   constructor(private menuHttpService : MenuHttpService,
-              public menuService: MenuService) { }
+              private menuService: MenuService) { }
 
   ngOnInit(): void {
+    console.log("oninit")
     this.ottieniMenu();
+  }
+
+  getValue(piatto:Piatto) : number {
+    return this.menuService.getValue(piatto);
+  }
+
+  modificaOrdine(piatto: Piatto, button: boolean) : void {
+    this.menuService.modificaOrdine(piatto, button);
   }
 
   modificaQuantita(piatto: Piatto, button: boolean) {

@@ -24,7 +24,8 @@ import { RegistraComponent } from './components/registra/registra.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import {MatExpansionModule} from "@angular/material/expansion";
-import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MenuService} from "./core/services/menu.service";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -71,7 +72,7 @@ const routes: Routes = [
         MatExpansionModule,
         ReactiveFormsModule
     ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

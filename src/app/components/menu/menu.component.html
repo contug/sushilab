@@ -39,12 +39,12 @@
             <mat-icon id="toggle-icon">more_vert</mat-icon>
           </button>
           <div class="flex-container quantity-buttons">
-            <button id="minus-button" (click)="this.menuService.modificaOrdine(piatto, false)">-</button>
+            <button id="minus-button" (click)="this.modificaOrdine(piatto, false)">-</button>
             <div class="quantity flex-container">
               <div class="max-quantity"> MAX: {{piatto.limite}}</div>
-              <div class="order-quantity">{{this.menuService.getValue(piatto)}}</div>
+              <div class="order-quantity">{{this.getValue(piatto)}}</div>
             </div>
-            <button id="plus-button" (click)="this.menuService.modificaOrdine(piatto, true)">+</button>
+            <button id="plus-button" (click)="this.modificaOrdine(piatto, true)">+</button>
           </div>
         </div>
 
@@ -98,6 +98,7 @@
   </mat-card>-->
 </div>
 
-<button #fab mat-fab color="primary" class="on-top" aria-label="Example icon button with a delete icon">
+<button #fab mat-fab color="primary" class="on-top" aria-label="Example icon button with a delete icon"
+routerLink="">
   <mat-icon style="color: black">add_shopping_cart</mat-icon>
 </button>

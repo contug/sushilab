@@ -36,6 +36,12 @@ export class OrdiniService {
     return this.http.get<Piatto[]>(this.url + id + "/inarrivo")
   }
 
+  public getOrdini() : Observable<Ordine[]> {
+    return this.http.get<Ordine[]>(this.url + "/tavolo/0/personali")
+  }
+
+
+
 }
 
 
