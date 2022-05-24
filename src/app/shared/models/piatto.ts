@@ -1,3 +1,6 @@
+import {Allergene} from "./allergene";
+import {Ingrediente} from "./ingrediente";
+
 export class Piatto{
 
   id!:number;
@@ -5,9 +8,9 @@ export class Piatto{
   variante!:string;
   nome!:string;
   prezzo!:number;
-  allergeni!:string[];
+  allergeni!:Allergene[];
   //settare il set di allergeni
-  ingredienti!:string[];
+  ingredienti!:Ingrediente[];
   limite!:number;
   valutazioneMedia!:number;
   valutazioneUtente!:number;
