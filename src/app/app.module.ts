@@ -25,6 +25,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -69,7 +70,8 @@ const routes: Routes = [
         MatButtonModule,
         HttpClientModule,
         MatExpansionModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatGridListModule
     ],
   providers: [],
   bootstrap: [AppComponent]
