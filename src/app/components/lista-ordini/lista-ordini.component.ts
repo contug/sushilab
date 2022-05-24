@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OrdiniService} from "../../core/http/ordini.service";
+import {OrdineCompatto} from "../../shared/models/ordine-compatto";
+import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 
 @Component({
   selector: 'app-lista-ordini',
@@ -10,17 +12,20 @@ import {OrdiniService} from "../../core/http/ordini.service";
 export class ListaOrdiniComponent implements OnInit {
 
   idSessione: string = "0"
-
+  ordiniTavolo!: OrdineDettaglio[];
   constructor(private ordiniService: OrdiniService) { }
 
   ngOnInit(): void {
     this.ottieniOrdiniTavolo();
-    this.confermaOrdine()
+    //console.log("nome: "+this.ordiniTavolo[]);
+    this.confermaOrdine();
+
   }
 
   ottieniOrdiniTavolo(): void {
     this.ordiniService.ottieniOrdiniTavolo(this.idSessione).subscribe(res => {
       console.log(res);
+      this.ordiniTavolo=res;
     })
   }
 

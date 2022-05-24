@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Piatto} from "../../shared/models/piatto";
 import {Ordine} from "../../shared/models/ordine";
+import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,11 @@ export class MenuService {
       return 0;
   }
 
+  mostraMappa(){
+    console.log("mappa");
+    console.log(this.map);
+  }
+
   listaOrdine(): Ordine[] {
     let listaOrdini: Ordine[] = [];
     this.map.forEach((value, key) => {
@@ -30,11 +36,28 @@ export class MenuService {
         ordine.note = this.mapNote.get(key.id)!;
       listaOrdini.push(ordine);
     })
+    console.log(listaOrdini);
+    return listaOrdini;
+  }
+
+  listaOrdiniDettaglio(): OrdineDettaglio[] {
+    let listaOrdini: OrdineDettaglio[] = [];
+    this.map.forEach((value, key) => {
+      let ordine: OrdineDettaglio = new OrdineDettaglio();
+      ordine.piatto = key;
+      ordine.molteplicita = value;
+      /*if( this.mapNote.has(key.id))
+        ordine.note = this.mapNote.get(key.id)!;*/
+      listaOrdini.push(ordine);
+    })
+    console.log("lista ordini in dettaglio:");
+    console.log(listaOrdini);
     return listaOrdini;
   }
 
   modificaOrdine(piatto: Piatto, button: boolean): void {
     if(button) {
+      console.log("ha il piatto? "+this.map.has(piatto));
       if(this.map.has(piatto)) {
         let value = this.map.get(piatto)!;
         if(value >= piatto.limite) {
@@ -71,3 +94,4 @@ export class MenuService {
 
 
 }
+

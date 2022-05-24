@@ -5,6 +5,7 @@ import {OrdineCompatto} from "../../shared/models/ordine-compatto";
 import {Constants} from "../../../assets/constants";
 import {Piatto} from "../../shared/models/piatto";
 import {Ordine} from "../../shared/models/ordine";
+import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,9 @@ export class OrdiniService {
   constructor(private http: HttpClient) {
   }
 
-  public ottieniOrdiniTavolo(id: string): Observable<OrdineCompatto[]> {
-    return this.http.get<OrdineCompatto[]>(this.url + id + "/ordini");
+  public ottieniOrdiniTavolo(id: string): Observable<OrdineDettaglio[]> {
+    return this.http.get<OrdineDettaglio[]>(this.url + id + "/ordini");
+    //return this.http.get<OrdineDettaglio[]>("https://stoplight.io/mocks/contug/sushilab/60738524/tavolo/{idTavolo}/ordini");
   }
 
   public confermaOrdine(id: string): Observable<any> {
