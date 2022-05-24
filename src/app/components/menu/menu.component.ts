@@ -3,7 +3,6 @@ import {Menu} from "../../shared/models/menu";
 import {MenuHttpService} from "../../core/http/menu-http.service";
 import {MenuService} from "../../core/services/menu.service";
 import {Piatto} from "../../shared/models/piatto";
-import {TuoiOrdiniComponent} from "../tuoi-ordini/tuoi-ordini.component";
 
 
 
@@ -25,6 +24,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("oninit")
+    this.menuService.mapInit();
+
     this.ottieniMenu();
     this.menuService.mostraMappa();
   }

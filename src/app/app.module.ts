@@ -26,6 +26,7 @@ import { RecoverPasswordComponent } from './components/recover-password/recover-
 import {MatExpansionModule} from "@angular/material/expansion";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MenuService} from "./core/services/menu.service";
+import { GuidaComponent } from './components/guida/guida.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -57,6 +58,7 @@ const routes: Routes = [
     RecoverPasswordComponent,
     ListaOrdiniComponent,
     TuoiOrdiniComponent,
+    GuidaComponent,
   ],
     imports: [
         BrowserModule,

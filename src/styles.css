@@ -31,6 +31,14 @@ html, body {
   background-color: #FFF0DA;
 }
 
+.color-glutine {
+  color: #ffe5be;
+}
+
+.color-crostacei {
+  color: red;
+}
+
 .color-soia {
   color: saddlebrown;
 }
@@ -39,8 +47,8 @@ html, body {
   color: darkgoldenrod;
 }
 
-.color-granchio {
-  color: orangered;
+.color-sesamo {
+  color: lightyellow;
 }
 
 .color-latte {

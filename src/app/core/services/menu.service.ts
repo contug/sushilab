@@ -8,10 +8,17 @@ import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 })
 export class MenuService {
 
-  map: Map<Piatto, number> = new Map<Piatto, number>();
+  map!: Map<Piatto, number>;
   mapNote: Map<number, string> = new Map<number, string>();
 
   constructor() {
+  }
+
+  mapInit() : void {
+    console.log(this.map)
+    if( this.map == undefined )
+      this.map =  new Map<Piatto, number>();
+    console.log(this.map)
   }
 
   getValue(piatto: Piatto): number {
