@@ -33,7 +33,9 @@ export class TuoiOrdiniComponent implements OnInit {
     //this.ordini=this.menuService.listaOrdine();
 
     //Inserisco in un array gli ordini dell'utente della map (non ancora confermati)
-    this.ordiniUtente=this.menuService.listaOrdiniDettaglio();
+    this.menuService.listaOrdiniDettaglio().subscribe(res => {
+      this.ordiniUtente = res;
+    })
   }
 
 
@@ -48,10 +50,10 @@ export class TuoiOrdiniComponent implements OnInit {
     })
   }*/
 
-  confermaOrdine(){
+  /*confermaOrdine(){
     this.ordiniUtente=this.menuService.listaOrdiniDettaglio();
     this.ordiniService.confermaOrdine("abc");
-  }
+  }*/
 
   ottieniOrdini(): void {
     this.ordiniService.ottieniOrdiniUtente(this.idSessione, this.userId).subscribe(res => {

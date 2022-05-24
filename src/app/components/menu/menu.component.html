@@ -39,12 +39,12 @@
             <mat-icon id="toggle-icon">more_vert</mat-icon>
           </button>
           <div class="flex-container quantity-buttons">
-            <button id="minus-button" (click)="this.modificaOrdine(piatto, false)">-</button>
+            <button id="minus-button" (click)="this.menuService.modificaOrdine(piatto, false, piatto.limite)">-</button>
             <div class="quantity flex-container">
               <div class="max-quantity"> MAX: {{piatto.limite}}</div>
-              <div class="order-quantity">{{this.getValue(piatto)}}</div>
+              <div class="order-quantity">{{this.menuService.getValue(piatto.id)}}</div>
             </div>
-            <button id="plus-button" (click)="this.modificaOrdine(piatto, true)">+</button>
+            <button id="plus-button" (click)="this.menuService.modificaOrdine(piatto, true, piatto.limite)">+</button>
           </div>
         </div>
 
