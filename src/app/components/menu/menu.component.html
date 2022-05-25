@@ -3,9 +3,9 @@
     <h1>Menù</h1>
   </div>
 
-<!--
-  <mat-icon class="color-arachidi">circle</mat-icon>
--->
+  <!--
+    <mat-icon class="color-arachidi">circle</mat-icon>
+  -->
 
   <div *ngFor="let tempMenu of menu">
     <div class="flex-container header-container">
@@ -30,8 +30,16 @@
         </div>
 
         <div class="footer-immagine flex-container">
-          <div id="allergeni">allergeni</div>
+          <div id="allergeni" class="flex-container">
+            <div id="icona-allergene" *ngFor="let allergene of piatto.allergeni">
+              <mat-icon [style.color]="allergene.colore">circle</mat-icon>
+            </div>
+          </div>
           <div id="prezzo">{{piatto.prezzo}}€</div>
+        </div>
+        <div id="ingredienti-container" class="flex-container">
+          <span>Ingredienti:<span
+            *ngFor="let ingrediente of piatto.ingredienti; let ultimo=last"> {{ingrediente.nome}}{{ultimo ? "" : ","}}</span></span>
         </div>
 
         <div class="expansion-panel flex-container" [hidden]="hidden"></div>
@@ -55,7 +63,6 @@
   </div>
 
   <div class="root-footer-spacing"></div>
-
 
 
   <!--<div class="flex-container header-container">
@@ -101,6 +108,6 @@
 </div>
 
 <button #fab mat-fab color="primary" class="on-top" aria-label="Example icon button with a delete icon"
-routerLink="/tuoi-ordini">
+        routerLink="/tuoi-ordini">
   <mat-icon style="color: black">add_shopping_cart</mat-icon>
 </button>
