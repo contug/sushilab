@@ -44,8 +44,10 @@ export class MenuComponent implements OnInit {
     this.menuHttpService.ottieniMenu().subscribe(res => {
       console.log(res);
       this.menu = res;
+      console.log(this.menu);
       console.log(this.menu[0].nome);
 
     })
+
   }
 }

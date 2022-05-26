@@ -27,6 +27,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MenuService} from "./core/services/menu.service";
 import { GuidaComponent } from './components/guida/guida.component';
+import { InArrivoComponent } from './components/in-arrivo/in-arrivo.component';
+import { PreferitiComponent } from './components/preferiti/preferiti.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -42,7 +44,10 @@ const routes: Routes = [
   {path: "login/forgot-password/recover-password",component:RecoverPasswordComponent},
   {path: "login", component: LoginComponent},
   {path: "login/registra", component: RegistraComponent},
-  {path: "tuoi-ordini", component: TuoiOrdiniComponent}
+  {path: "tuoi-ordini", component: TuoiOrdiniComponent},
+  {path: "in-arrivo", component:InArrivoComponent},
+  {path: "preferiti", component:PreferitiComponent}
+
 ]
 @NgModule({
   declarations: [
@@ -59,6 +64,8 @@ const routes: Routes = [
     ListaOrdiniComponent,
     TuoiOrdiniComponent,
     GuidaComponent,
+    InArrivoComponent,
+    PreferitiComponent,
   ],
     imports: [
         BrowserModule,

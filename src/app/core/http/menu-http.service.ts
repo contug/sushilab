@@ -4,6 +4,7 @@ import {Menu} from "../../shared/models/menu";
 import { Observable} from "rxjs";
 import {Constants} from "../../../assets/constants";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
+import {Piatto} from "../../shared/models/piatto";
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class MenuHttpService {
 
   public postCountOrdine(ordine : OrdineDettaglio) : void {
     this.http.post(this.url + "/tavolo/0/personali", ordine);
+  }
+
+  public ottieniPiatto(idPiatto:number): Observable<Piatto>{
+    return this.http.get<Piatto>(this.url+"/menu/0/piatto/"+idPiatto);
   }
 }

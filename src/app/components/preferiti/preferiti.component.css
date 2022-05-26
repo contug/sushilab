@@ -1,4 +1,4 @@
-#tuoi-ordini-container {
+#preferiti-container {
   flex-direction: column;
 }
 
@@ -16,39 +16,6 @@ h1, h3 {
 
 
 @media screen and (orientation: portrait) {
-
-  .center {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .button-container{
-    margin-top:1em;
-    margin-bottom:1em;
-    text-align: center;
-  }
-
-  .threeButtons{
-    border-radius: 1em;
-    margin:0.5em;
-    margin-top: 1em;
-  }
-
-  .tuoiOrdini{
-    margin-top: 0;
-    text-align: center;
-    font-size: 4vh;
-  }
-
-  .card-button {
-    text-align: center;
-    height: 6vh;
-    width: 70vw;
-    border-radius: 9999em 9999em 9999em 9999em;
-    border: 0;
-    margin: 0.5em;
-    font-size: 3vh;
-  }
 
   h1 {
     margin: 1em;
@@ -93,7 +60,6 @@ h1, h3 {
   }
 
   #immagine {
-    border: solid black 2px;
     height: 30vh;
     width: 30vh;
     margin-top: 1vh;
@@ -102,6 +68,12 @@ h1, h3 {
     justify-content: center;
     align-items: center;
     font-size: 3vh;
+  }
+
+  #immaginee{
+    width: 100%; /* or any custom size */
+    height: 100%;
+    object-fit: contain;
   }
 
   .footer-immagine {
@@ -204,14 +176,19 @@ h1, h3 {
   .order-quantity {
     padding-top: 1vw;
   }
+
+  .on-top{
+    position: fixed;
+    top: 90%;
+    margin-left: 85vw;
+    margin-right: 5vw;
+    z-index: 9999;
+    scale: 2;
+    background-color: #ffbf5f;
+  }
 }
 
 @media screen and (orientation: landscape) {
-  .center {
-    justify-content: center;
-    align-items: center;
-  }
-
   h1 {
     margin: 0.5em;
     font-size: 6vh;
@@ -367,4 +344,18 @@ h1, h3 {
   .order-quantity {
     padding-top: 1vh;
   }
+
+  .on-top{
+    position: fixed;
+    top: 85%;
+    margin-left: 90vw;
+    margin-right: 5vw;
+    z-index: 9999;
+    scale: 2;
+    background-color: #ffbf5f;
+  }
 }
+
+
+
+

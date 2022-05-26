@@ -26,8 +26,7 @@ export class TuoiOrdiniComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ottieniOrdini();
-    //this.ottieniOrdiniTavolo();
+    //this.ottieniOrdini();
     this.menuService.mostraMappa();
 
     //this.ordini=this.menuService.listaOrdine();

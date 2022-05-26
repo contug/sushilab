@@ -34,8 +34,8 @@ export class OrdiniService {
     return this.http.post(this.url + id + "/" + idUtente, ordini)
   }
 
-  public ottieniOrdiniInArrivo(id: string): Observable<Piatto[]> {
-    return this.http.get<Piatto[]>(this.url + id + "/inarrivo")
+  public ottieniOrdiniInArrivo(id: string): Observable<OrdineDettaglio[]> {
+    return this.http.get<OrdineDettaglio[]>(this.url + id + "/inarrivo")
   }
 
   public getOrdini() : Observable<Ordine[]> {

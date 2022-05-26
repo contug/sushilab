@@ -3,6 +3,7 @@ import {Piatto} from "../../shared/models/piatto";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 import {MenuHttpService} from "../http/menu-http.service";
 import {Observable} from "rxjs";
+import {Menu} from "../../shared/models/menu";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class MenuService {
   map!: Map<number, number>;
   mapNote: Map<Piatto, string> = new Map<Piatto, string>();
   mapOrdini!: Map<Piatto, number>;
+
 
   constructor() {
   }
@@ -51,6 +53,8 @@ export class MenuService {
     console.log(listaOrdini);
     return listaOrdini;
   }*/
+
+
 
   listaOrdiniDettaglio() : Observable<OrdineDettaglio[]> {
     let obs : Observable<OrdineDettaglio[]>= new Observable(observer => {

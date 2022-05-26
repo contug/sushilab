@@ -1,0 +1,54 @@
+<div class="root-component-container flex-container color-light" id="in-arrivo-container">
+
+  <div class="button-container">
+    <input routerLink="/lista-ordini" class="threeButtons" type="image" src="../../../assets/img/desk.png"/>
+    <input routerLink="/tuoi-ordini" class="threeButtons" type="image" src="../../../assets/img/account.png"/>
+    <input routerLink="/in-arrivo" class="threeButtons" type="image" src="../../../assets/img/index.png"/>
+  </div>
+
+  <div>
+    <h1 class="tuoiOrdini">Piatti in arrivo</h1>
+  </div>
+
+  <mat-card class="mat-elevation-z8" *ngFor="let item of piattiInArrivo">
+
+    <div class="card-container flex-container">
+      <div class="header-piatto flex-container">
+        <h3 id="numero-piatto">{{item.piatto.numero}}</h3>
+        <h3 id="nome-piatto">{{item.piatto.nome}}</h3>
+        <button id="star-button" (click)="item.piatto.preferito = !item.piatto.preferito">
+          <mat-icon id="star-border" [hidden]="!item.piatto.preferito">star_border</mat-icon>
+          <mat-icon id="star-full" [hidden]="item.piatto.preferito">star</mat-icon>
+        </button>
+      </div>
+
+
+      <div id="immagine">foto</div>
+
+      <div class="footer-immagine flex-container">
+        <div id="allergeni">allergeni</div>
+        <div id="prezzo">{{item.piatto.prezzo}}€</div>
+      </div>
+
+      <div class="expansion-panel flex-container" [hidden]="hidden"></div>
+
+      <div class="flex-container" id="card-footer">
+        <button id="panel-toggle" (click)="togglePanel()">
+          <mat-icon id="toggle-icon">more_vert</mat-icon>
+        </button>
+        <div class="flex-container quantity-buttons">
+          <!--<button id="minus-button" (click)="this.menuService.modificaOrdine(item.piatto, false, item.piatto.limite)">-</button>-->
+          <div class="quantity flex-container">
+            <!--<div class="max-quantity"> Max: {{item.piatto.limite}}</div>-->
+            <div class="order-quantity">Qt: {{item.molteplicita}}</div>
+          </div>
+            <!--<button id="plus-button" (click)="this.menuService.modificaOrdine(item.piatto, true, item.piatto.limite)">+</button>-->
+        </div>
+      </div>
+
+    </div>
+  </mat-card>
+
+
+</div>
+
