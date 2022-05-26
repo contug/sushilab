@@ -46,8 +46,8 @@ const routes: Routes = [
   {path: "login/registra", component: RegistraComponent},
   {path: "tuoi-ordini", component: TuoiOrdiniComponent},
   {path: "in-arrivo", component:InArrivoComponent},
-  {path: "preferiti", component:PreferitiComponent}
-
+  {path: "preferiti", component:PreferitiComponent},
+  {path: "guida", component: GuidaComponent}
 ]
 @NgModule({
   declarations: [

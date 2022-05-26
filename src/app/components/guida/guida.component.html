@@ -1,1 +1,16 @@
-<p>guida works!</p>
+<div class="root-component-container flex-container">
+  <div class="header-container">
+    <h1 id="titolo-pagina">Allergeni</h1>
+  </div>
+
+  <div class="card-container">
+    <mat-card class="size" *ngFor="let allergene of allergeni">
+      <div class="card-content-container flex-container size">
+        <div id="card-span" class="flex-container">
+          <mat-icon id="card-icon" [style.color]="allergene.colore">circle</mat-icon>
+          <span id="card-name">{{allergene.nome}}</span>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
