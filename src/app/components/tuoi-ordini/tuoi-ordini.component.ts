@@ -18,6 +18,7 @@ export class TuoiOrdiniComponent implements OnInit {
   ordiniUtente!: OrdineDettaglio[];
   hidden: boolean = true;
   ordini!:Ordine[];
+  note:string=''
 
 
   constructor(private ordiniService: OrdiniService,
@@ -39,22 +40,38 @@ export class TuoiOrdiniComponent implements OnInit {
   }
 
   confermaOrdine(){
-    this.menuService.listaOrdiniDettaglio().subscribe(res => {
+
+    //console.log(this.note)
+
+    this.ordiniUtente.forEach((value,index,array)=> {
+      this.ordiniService.confermaOrdine("0", "0",this.ordiniUtente[index] ).subscribe();
+    })
+
+    console.log(this.ordiniUtente)
+    this.ordiniUtente=[];
+    this.menuService.pulisciMappe()
+
+
+    /*this.menuService.listaOrdiniDettaglio().subscribe(res => {
       this.ordiniUtente = res;
       console.log(this.ordiniUtente)
 
-      this.ordiniUtente.forEach((value,index,array)=> {
-        this.ordiniService.confermaOrdine("0", "0",this.ordiniUtente[index] ).subscribe();
-      })
 
-      console.log(this.ordiniUtente)
-      this.ordiniUtente=[];
-    })
+    })*/
   }
 
 
   togglePanel (){
     this.hidden = !this.hidden;
+  }
+
+  clicc(i:number){
+
+    //let note=(<HTMLInputElement>document.getElementById("id "+"idpiatto")).value
+    //this.ordiniUtente[i].note=note;
+
+    console.log(this.ordiniUtente[i]);
+
   }
 
 

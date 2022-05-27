@@ -20,4 +20,5 @@ export class Piatto{
   immagine!:string;
   alt!:string;
 
+
 }

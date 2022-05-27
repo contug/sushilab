@@ -15,6 +15,8 @@ export class MenuService {
   mapOrdini!: Map<Piatto, number>;
 
 
+
+
   constructor() {
   }
 
@@ -25,6 +27,7 @@ export class MenuService {
       this.map =  new Map<number, number>();
     if(this.mapOrdini == undefined)
       this.mapOrdini = new Map<Piatto, number>();
+
     console.log(this.map)
   }
 
@@ -38,6 +41,11 @@ export class MenuService {
   mostraMappa(){
     console.log("mappa");
     console.log(this.map);
+    console.log(this.mapOrdini)
+  }
+  pulisciMappe(){
+    this.mapOrdini.clear()
+    this.map.clear()
   }
 
   /*listaOrdine(): Ordine[] {
@@ -63,12 +71,15 @@ export class MenuService {
         let ordine: OrdineDettaglio = new OrdineDettaglio();
         ordine.piatto = key;
         ordine.molteplicita = value;
+        ordine.note="";
         listaOrdini.push(ordine);
       })
       observer.next(listaOrdini);
     })
     return obs;
   }
+
+
 
 
  /* listaOrdiniDettaglio(): OrdineDettaglio[] {
@@ -90,16 +101,22 @@ export class MenuService {
     let idPiatto = piatto.id;
     if(button) {
       if(this.map.has(idPiatto)) {
+        console.log("mappa ha il piatto")
         let value = this.map.get(idPiatto)!;
         if(value >= limite) {
           console.log("limite raggiunto");
         }
         else {
           this.map.set(idPiatto, value + 1);
-          this.mapOrdini.set(piatto, value+1);
+          this.mapOrdini.forEach((value, key) => {
+            if(key.id == piatto.id)
+              this.mapOrdini.delete(key);
+          });
+          this.mapOrdini.set(piatto, value+1); //qui c'è il problema
         }
       }
       else {
+        console.log("la mappa non ha il piatto")
         console.log(idPiatto)
         this.map.set(idPiatto, 1);
         this.mapOrdini.set(piatto,1);
@@ -141,6 +158,8 @@ export class MenuService {
     console.log(this.map)
     console.log(this.mapOrdini)
   }
+
+
 
 
 

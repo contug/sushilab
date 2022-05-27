@@ -24,7 +24,7 @@ import { RegistraComponent } from './components/registra/registra.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import {MatExpansionModule} from "@angular/material/expansion";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MenuService} from "./core/services/menu.service";
 import { GuidaComponent } from './components/guida/guida.component';
 import { InArrivoComponent } from './components/in-arrivo/in-arrivo.component';
@@ -79,7 +79,8 @@ const routes: Routes = [
         MatButtonModule,
         HttpClientModule,
         MatExpansionModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
   providers: [MenuService],
   bootstrap: [AppComponent]

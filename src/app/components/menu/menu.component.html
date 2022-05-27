@@ -42,7 +42,9 @@
             *ngFor="let ingrediente of piatto.ingredienti; let ultimo=last"> {{ingrediente.nome}}{{ultimo ? "" : ","}}</span></span>
         </div>
 
-        <div class="expansion-panel flex-container" [hidden]="hidden"></div>
+        <div class="expansion-panel flex-container" [hidden]="hidden">
+
+        </div>
 
         <div class="flex-container" id="card-footer">
           <button id="panel-toggle" (click)="togglePanel()">
