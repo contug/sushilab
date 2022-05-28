@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validator, Validators} from "@angular/forms";
 import {UtenteHttpService} from "../../core/http/utente-http.service";
 import {Utente} from "../../shared/models/utente";
+import {AuthService} from "../../core/auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -16,11 +18,12 @@ export class LoginComponent implements OnInit {
   public utente!:Utente;
 
 
-  constructor(public http:HttpClient, private fb:FormBuilder, public utenteService:UtenteHttpService) {
+  constructor(public http:HttpClient, private fb:FormBuilder, public utenteService:UtenteHttpService,
+  private auth : AuthService, private router: Router) {
 
     this.formLogin=this.fb.group({
-      'email':[''],
-      'password':['']
+      'email':['', Validators.required],
+      'password':['', Validators.required]
     })
   }
 
@@ -35,6 +38,18 @@ export class LoginComponent implements OnInit {
     this.utenteService.loginUtente(this.utente).subscribe();
     console.log(this.utente);
   }
+
+  login() {
+    let validator = this.formLogin.value
+    if(validator.email && validator.password) {
+      this.auth.login(validator.email, validator.password).subscribe(
+        () => {
+          console.log("logged in");
+          this.router.navigateByUrl("/");
+        });
+    }
+  }
+
 
 
 
