@@ -38,8 +38,8 @@ export class PreferitiComponent implements OnInit {
     this.preferitiService.ottieniPreferiti("0").subscribe(res=>{
       this.preferiti=res; //array di PiattoUtente
 
-      this.preferiti.forEach(()=>{
-        this.menuService.ottieniPiatto(this.preferiti[0].idPiatto).subscribe(res=> {
+      this.preferiti.forEach((value,index,array)=>{
+        this.menuService.ottieniPiatto(this.preferiti[index].idPiatto).subscribe(res=> {
           this.piattiPreferiti.push(res);
           console.log(this.piattiPreferiti);
         })

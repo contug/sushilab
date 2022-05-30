@@ -18,7 +18,7 @@ export class ListaOrdiniComponent implements OnInit {
   ngOnInit(): void {
     this.ottieniOrdiniTavolo();
     //console.log("nome: "+this.ordiniTavolo[]);
-    this.confermaOrdine();
+    //this.confermaOrdine();
 
   }
 
@@ -29,10 +29,10 @@ export class ListaOrdiniComponent implements OnInit {
     })
   }
 
-  confermaOrdine(): void {
+  /*confermaOrdine(): void {
     this.ordiniService.confermaOrdine(this.idSessione).subscribe(res => {
       console.log(res)
     })
-  }
+  }*/
 
 }

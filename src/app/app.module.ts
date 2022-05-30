@@ -29,6 +29,7 @@ import {MenuService} from "./core/services/menu.service";
 import { GuidaComponent } from './components/guida/guida.component';
 import { InArrivoComponent } from './components/in-arrivo/in-arrivo.component';
 import { PreferitiComponent } from './components/preferiti/preferiti.component';
+import { BlacklistComponent } from './components/blacklist/blacklist.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -47,7 +48,8 @@ const routes: Routes = [
   {path: "tuoi-ordini", component: TuoiOrdiniComponent},
   {path: "in-arrivo", component:InArrivoComponent},
   {path: "preferiti", component:PreferitiComponent},
-  {path: "guida", component: GuidaComponent}
+  {path: "guida", component: GuidaComponent},
+  {path: "blacklist", component: BlacklistComponent}
 ]
 @NgModule({
   declarations: [
@@ -66,6 +68,7 @@ const routes: Routes = [
     GuidaComponent,
     InArrivoComponent,
     PreferitiComponent,
+    BlacklistComponent,
   ],
     imports: [
         BrowserModule,

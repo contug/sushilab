@@ -10,7 +10,7 @@
     <h1 class="tuoiOrdini">I tuoi ordini</h1>
   </div>
 
-  <mat-card class="mat-elevation-z8" *ngFor="let item of ordiniUtente">
+  <mat-card class="mat-elevation-z8" *ngFor="let item of ordiniUtente; index as i;">
 
     <div class="card-container flex-container">
       <div class="header-piatto flex-container">
@@ -30,7 +30,14 @@
         <div id="prezzo">{{item.piatto.prezzo}}€</div>
       </div>
 
-      <div class="expansion-panel flex-container" [hidden]="hidden"></div>
+      <div class="expansion-panel flex-container" [hidden]="hidden">
+        <form #formNote=ngForm>
+          <input [(ngModel)]="item.note" type="text" name="{{item.piatto.id}}">
+          <button type="submit" (click)="clicc(i)">cliccc</button>
+        </form>
+
+
+      </div>
 
       <div class="flex-container" id="card-footer">
         <button id="panel-toggle" (click)="togglePanel()">
@@ -50,7 +57,7 @@
   </mat-card>
 
   <div class="flex-container center">
-    <button class="card-button color-dark mat-elevation-z8">
+    <button class="card-button color-dark mat-elevation-z8" (click)="confermaOrdine()">
       Conferma Ordine
     </button>
   </div>

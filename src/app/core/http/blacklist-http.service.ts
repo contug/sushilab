@@ -13,7 +13,7 @@ export class BlacklistHttpService {
   }
 
   ottieniBlacklist():Observable<string[]>{
-    return this.http.get<string[]>(Constants.ROOT_URL+'/blacklist');
+    return this.http.get<string[]>(Constants.ROOT_URL+'/blacklist/'+0);
   }
 
   aggiornaBlacklist(ingredienti:string[]):Observable<string>{

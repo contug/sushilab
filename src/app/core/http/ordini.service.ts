@@ -22,8 +22,32 @@ export class OrdiniService {
     //return this.http.get<OrdineDettaglio[]>("https://stoplight.io/mocks/contug/sushilab/60738524/tavolo/{idTavolo}/ordini");
   }
 
-  public confermaOrdine(id: string): Observable<any> {
-    return this.http.post(this.url + id + "/ordini", "");
+  public confermaOrdine(idTavolo: string, idUtente:string, ordine:OrdineDettaglio): Observable<any> {
+    console.log(ordine)
+    return this.http.post(this.url + idTavolo+"/"+idUtente + "/personali",
+      {
+        "piatto": {
+          "id": ordine.piatto.id,
+          "numero": ordine.piatto.numero,
+          "variante": ordine.piatto.variante,
+          "nome": ordine.piatto.nome,
+          "prezzo": ordine.piatto.prezzo,
+          "allergeni": {},
+          "ingredienti": {},
+          "limite": ordine.piatto.limite,
+          "valutazioneMedia": ordine.piatto.valutazioneMedia,
+          "valutazioneUtente": ordine.piatto.valutazioneUtente,
+          "preferito": ordine.piatto.preferito,
+          "popolare": ordine.piatto.popolare,
+          "consigliato": ordine.piatto.consigliato,
+          "immagine": ordine.piatto.immagine,
+          "alt": ordine.piatto.alt
+        },
+        "molteplicita": ordine.molteplicita,
+        "note": ordine.note
+      }
+      );
+
   }
 
   public ottieniOrdiniUtente(id: string, idUtente: string): Observable<Piatto[]> {
