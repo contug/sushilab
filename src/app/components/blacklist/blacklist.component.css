@@ -2,48 +2,28 @@
   flex-direction: column;
 }
 
-h1, h3 {
+h1 {
   font-family: "Jockey One", sans-serif;
-  text-align: center;
 }
 
 
 .card-container {
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
   height: inherit;
   width: inherit;
+  justify-content: center;
 }
+
 
 
 
 
 @media screen and (orientation: portrait) {
-
-  .button-container{
-    margin-top:1em;
-    margin-bottom:1em;
-    text-align: center;
-  }
-  .threeButtons{
-    border-radius: 1em;
-    margin:0.5em;
-    margin-top: 1em;
-  }
-
-  .ordiniTavolo{
-    text-align: center;
+  h1 {
+    margin: 1em;
     font-size: 4vh;
   }
-
-  .nomePiatto {
-    font-size: 4vh;
-    margin:0.2em;
-  }
-
-
-
 
   .header-container {
     flex-direction: column;
@@ -58,19 +38,41 @@ h1, h3 {
     height: fit-content;
   }
 
-  .mat-grid-tile-content {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 0%;
-    padding: 0;
-    margin: 0;
+  .nomePiatto {
+    font-size: 4vh;
+    margin:0vh;
+    width: 70vw;
+    text-align: center;
   }
+
+  .register-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-input {
+    border-radius: 0.5em;
+    background-color: #ebebeb;
+    height: 7vh;
+    width: 70vw;
+    border-width: 0;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: 100;
+    margin: 0vh;
+  }
+
+  .card-button {
+    text-align: center;
+    height: 6vh;
+    width: 70vw;
+    border-radius: 9999em 9999em 9999em 9999em;
+    border: 0;
+    margin: 0.5em;
+    font-size: 3vh;
+  }
+
 
 }
 
@@ -80,25 +82,49 @@ h1, h3 {
     font-size: 6vh;
   }
 
-  h3 {
-    font-size: 4vh;
-  }
-
   .header-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
+  .register-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-input {
+    border-radius: 0.5em;
+    background-color: #ebebeb;
+    height: 12vh;
+    width: 35vw;
+    border-width: 0;
+    text-align: center;
+    font-size: 5vh;
+    font-weight: 100;
+  }
+
+  .card-button {
+    text-align: center;
+    height: 10vh;
+    width: 35vw;
+    border-radius: 9999em 9999em 9999em 9999em;
+    border: 0;
+    margin: 0.5em;
+    font-size: 5vh;
+  }
+
+  #qr-button {
+    margin-top: 8vh;
+  }
 
   mat-card {
     border-radius: 1em;
     margin-left: 20vw;
     margin-right: 20vw;
     margin-top: 2vw;
-    padding: 1vw;
-    height: fit-content;
+    padding: 0;
+    height: 35vw;
   }
-
-
 }

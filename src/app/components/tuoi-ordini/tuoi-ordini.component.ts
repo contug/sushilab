@@ -41,7 +41,6 @@ export class TuoiOrdiniComponent implements OnInit {
 
   confermaOrdine(){
 
-    //console.log(this.note)
 
     this.ordiniUtente.forEach((value,index,array)=> {
       this.ordiniService.confermaOrdine("0", "0",this.ordiniUtente[index] ).subscribe();

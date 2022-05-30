@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Constants} from "../../../assets/constants";
+import {Ingrediente} from "../../shared/models/ingrediente";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class BlacklistHttpService {
 
   }
 
-  ottieniBlacklist():Observable<string[]>{
-    return this.http.get<string[]>(Constants.ROOT_URL+'/blacklist/'+0);
+  ottieniBlacklist():Observable<Ingrediente[]>{
+    return this.http.get<Ingrediente[]>(Constants.ROOT_URL+'/blacklist/'+0);
   }
 
   aggiornaBlacklist(ingredienti:string[]):Observable<string>{
@@ -24,5 +25,29 @@ export class BlacklistHttpService {
       }
     )
   }
+
+  aggiungiIngredienteBlacklist(ingrediente:string):Observable<string>{
+    console.log(ingrediente)
+    return this.http.post<string>(
+      Constants.ROOT_URL+"/blacklist/"+"0",
+      {
+        "ingrediente": ingrediente
+      })
+  }
+
+  eliminaDallaBlacklist(ingrediente:string):Observable<string>{
+    console.log(ingrediente)
+    return this.http.delete<string>(
+      Constants.ROOT_URL+"/blacklist/"+"0",
+      {
+        body:{
+         "ingrediente": ingrediente
+        }
+      }
+      )
+  }
+
+
+
 
 }

@@ -1,29 +1,30 @@
-<div class="root-component-container flex-container color-light" id="blacklist-container">
-
-
-
-  <div flex-container>
+<div class="root-component-container color-light flex-container" id="blacklist-container">
+  <div class="flex-container header-container">
     <h1>Blacklist ingredienti</h1>
   </div>
 
-  <mat-card class="mat-elevation-z8" >
-    <div class="card-container flex-container" >
-      <div class="flex-container">
-        <input type="text" value="Ingrediente">
-        <button id="plus-button">+</button>
+    <mat-card class="mat-elevation-z8">
+      <div class="card-containerr flex-container">
+        <form #formIngrediente=ngForm class="flex-container register-form" action="" >
+          <input [(ngModel)]="ingrediente" class="card-input" placeholder="Ingrediente" name="ingrediente">
+        </form>
+        <button class="card-button color-dark mat-elevation-z8"
+        (click)="aggiungiIngredienteBlacklist(ingrediente)">+
+        </button>
       </div>
-    </div>
-  </mat-card>
+    </mat-card>
 
-  <mat-card class="mat-elevation-z8" *ngFor="let item of ingredientiBlacklistati">
-    <div class="card-container flex-container" >
-      <div class="flex-container">
-        <h1 class="nomePiatto">{{item}}</h1>
+
+    <mat-card class="mat-elevation-z8" *ngFor="let item of ingredientiBlacklistati">
+      <div class="card-container flex-container" >
+        <div class="flex-container">
+          <h1 class="nomePiatto">{{item.nome}}</h1>
+        </div>
+        <button class="card-button color-dark mat-elevation-z8"
+                (click)="eliminaDallaBlacklist(item.nome)">-</button>
+
       </div>
-    </div>
-  </mat-card>
-
-
+    </mat-card>
 
 
 
