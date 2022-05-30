@@ -14,6 +14,9 @@ h1, h3 {
   width: inherit;
 }
 
+.icon{
+  color:yellow;
+}
 
 
 
@@ -137,6 +140,22 @@ h1, h3 {
     margin-top: 1vh;
     height: 10vh;
     width: 80vw;
+    flex-direction: column;
+  }
+
+  .valutazioni{
+    margin-top: 1vh;
+    height: 10vh;
+    width: 80vw;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .valutazione-media{
+    margin-left: 2vh;
+  }
+
+  .valutazione-utente{
+    margin-right: 2vh;
   }
 
   #card-footer {
@@ -304,6 +323,7 @@ h1, h3 {
     background-color: #e0dfdc;
     height: 10vh;
     width: 40vw;
+
   }
 
   mat-card {
