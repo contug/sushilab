@@ -1,0 +1,30 @@
+<div class="root-component-container flex-container color-light" id="blacklist-container">
+
+
+
+  <div flex-container>
+    <h1>Blacklist ingredienti</h1>
+  </div>
+
+  <mat-card class="mat-elevation-z8" >
+    <div class="card-container flex-container" >
+      <div class="flex-container">
+        <input type="text" value="Ingrediente">
+        <button id="plus-button">+</button>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card class="mat-elevation-z8" *ngFor="let item of ingredientiBlacklistati">
+    <div class="card-container flex-container" >
+      <div class="flex-container">
+        <h1 class="nomePiatto">{{item}}</h1>
+      </div>
+    </div>
+  </mat-card>
+
+
+
+
+
+</div>

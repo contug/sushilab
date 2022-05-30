@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Menu} from "../../shared/models/menu";
 import {MenuHttpService} from "../../core/http/menu-http.service";
 import {MenuService} from "../../core/services/menu.service";
+import {DomSanitizer} from "@angular/platform-browser";
+import {Piatto} from "../../shared/models/piatto";
 
 
 
@@ -15,11 +17,12 @@ export class MenuComponent implements OnInit {
 
   hidden: boolean = true;
   menu!: Menu[];
-
+  immagine:any;
 
 
   constructor(private menuHttpService : MenuHttpService,
-              public menuService: MenuService) { }
+              public menuService: MenuService,
+              private sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
     console.log("oninit");
@@ -48,6 +51,16 @@ export class MenuComponent implements OnInit {
       console.log(this.menu[0].nome);
 
     })
-
   }
+
+  ottieniImmagine(){
+    this.menuHttpService.ottieniPiatto(0)
+      .subscribe( res =>{
+        let piatto:Piatto = res
+        let objectUrl=URL.createObjectURL(piatto.immagine)
+        this.immagine=this.sanitizer.bypassSecurityTrustUrl(objectUrl)
+      })
+  }
+
+
 }

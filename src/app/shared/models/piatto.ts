@@ -17,7 +17,7 @@ export class Piatto{
   preferito!:boolean;
   popolare!:boolean;
   consigliato!:boolean;
-  immagine!:string;
+  immagine!:Blob;
   alt!:string;
 
 

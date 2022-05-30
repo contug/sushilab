@@ -1,0 +1,104 @@
+#blacklist-container {
+  flex-direction: column;
+}
+
+h1, h3 {
+  font-family: "Jockey One", sans-serif;
+  text-align: center;
+}
+
+
+.card-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: inherit;
+}
+
+
+
+
+@media screen and (orientation: portrait) {
+
+  .button-container{
+    margin-top:1em;
+    margin-bottom:1em;
+    text-align: center;
+  }
+  .threeButtons{
+    border-radius: 1em;
+    margin:0.5em;
+    margin-top: 1em;
+  }
+
+  .ordiniTavolo{
+    text-align: center;
+    font-size: 4vh;
+  }
+
+  .nomePiatto {
+    font-size: 4vh;
+    margin:0.2em;
+  }
+
+
+
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-card {
+    border-radius: 3em;
+    margin: 4vw;
+    padding: 3vw;
+    height: fit-content;
+  }
+
+  .mat-grid-tile-content {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0%;
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+@media screen and (orientation: landscape) {
+  h1 {
+    margin: 1em;
+    font-size: 6vh;
+  }
+
+  h3 {
+    font-size: 4vh;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  mat-card {
+    border-radius: 1em;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 2vw;
+    padding: 1vw;
+    height: fit-content;
+  }
+
+
+}

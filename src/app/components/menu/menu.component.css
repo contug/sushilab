@@ -147,6 +147,7 @@ h1, h3 {
     width: 70vw;
     flex-direction: row;
     justify-content: space-between;
+
   }
 
   #panel-toggle {
