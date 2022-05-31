@@ -4,6 +4,7 @@ import {MenuHttpService} from "../../core/http/menu-http.service";
 import {MenuService} from "../../core/services/menu.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Piatto} from "../../shared/models/piatto";
+import {ImmaginiService} from "../../core/services/immagini.service";
 
 
 
@@ -22,18 +23,23 @@ export class MenuComponent implements OnInit {
 
   constructor(private menuHttpService : MenuHttpService,
               public menuService: MenuService,
-              private sanitizer:DomSanitizer) { }
+              private sanitizer:DomSanitizer,
+              private immaginiService:ImmaginiService) { }
 
   ngOnInit(): void {
     console.log("oninit");
     this.ottieniMenu();
     this.menuService.mapInit();
-
-
     this.menuService.mostraMappa();
+
+    if(this.immaginiService.mapImmagini.size===0)
+      this.immaginiService.getImmagini()
   }
 
 
+  getImmagine(id:number){
+    this.immaginiService.creaUrl(this.immaginiService.getImmagine(id))
+  }
 
 
 
@@ -53,11 +59,12 @@ export class MenuComponent implements OnInit {
     })
   }
 
+
   ottieniImmagine(){
     this.menuHttpService.ottieniPiatto(0)
-      .subscribe( res =>{
-        let piatto:Piatto = res
-        let objectUrl=URL.createObjectURL(piatto.immagine)
+      .subscribe( res =>{      //res avrà un piatto
+        let piatto:Piatto = res     //piatto.immagine sarà tipo blob
+        let objectUrl=URL.createObjectURL(piatto.immagine) //creo url passando il blob
         this.immagine=this.sanitizer.bypassSecurityTrustUrl(objectUrl)
       })
   }
