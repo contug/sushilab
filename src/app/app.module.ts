@@ -16,7 +16,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import {MatCardModule} from "@angular/material/card";
 import { ListaOrdiniComponent } from './components/lista-ordini/lista-ordini.component';
 import { TuoiOrdiniComponent } from './components/tuoi-ordini/tuoi-ordini.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { UniscitiComponent } from './components/unisciti/unisciti.component';
 import { CreaSessioneComponent } from './components/crea-sessione/crea-sessione.component';
 import { LoginComponent } from './components/login/login.component';
@@ -30,6 +30,8 @@ import { GuidaComponent } from './components/guida/guida.component';
 import { InArrivoComponent } from './components/in-arrivo/in-arrivo.component';
 import { PreferitiComponent } from './components/preferiti/preferiti.component';
 import { BlacklistComponent } from './components/blacklist/blacklist.component';
+import {AuthService} from "./core/auth/auth.service";
+import {AuthInterceptor} from "./core/auth/auth.interceptor";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -85,7 +87,14 @@ const routes: Routes = [
         ReactiveFormsModule,
         FormsModule
     ],
-  providers: [MenuService],
+  providers: [
+    MenuService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
