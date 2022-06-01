@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {OrdiniService} from "../../core/http/ordini.service";
 import {PreferitiHttpService} from "../../core/http/preferiti-http.service";
 import {PiattoUtente} from "../../shared/models/piatto-utente";
-import {Menu} from "../../shared/models/menu";
-import {MenuService} from "../../core/services/menu.service";
 import {MenuHttpService} from "../../core/http/menu-http.service";
 import {Piatto} from "../../shared/models/piatto";
-import {Observable} from "rxjs";
+import {ImmaginiService} from "../../core/services/immagini.service";
 
 @Component({
   selector: 'app-preferiti',
@@ -16,12 +13,12 @@ import {Observable} from "rxjs";
 export class PreferitiComponent implements OnInit {
 
   hidden: boolean = true;
-  //menu!:Menu[];
   preferiti!:PiattoUtente[];
   piattiPreferiti:Piatto[]=[];
 
   constructor(private preferitiService:PreferitiHttpService,
-              private menuService:MenuHttpService) {
+              private menuService:MenuHttpService,
+              private immaginiService:ImmaginiService) {
 
   }
 
@@ -57,12 +54,9 @@ export class PreferitiComponent implements OnInit {
   }
 
 
-  /*ottieniMenu(): void {
-    this.menuService.ottieniMenu().subscribe(res => {
-      this.menu = res;
-      console.log(this.menu);
-    })
-  }*/
+  getImmagine(id: number):string {
+    return this.immaginiService.mapImmagini.get(id)!;
+  }
 
 
 

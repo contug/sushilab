@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OrdiniService} from "../../core/http/ordini.service";
-import {Piatto} from "../../shared/models/piatto";
-import {MenuService} from "../../core/services/menu.service";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
+import {ImmaginiService} from "../../core/services/immagini.service";
 
 @Component({
   selector: 'app-in-arrivo',
@@ -15,7 +14,7 @@ export class InArrivoComponent implements OnInit {
   hidden: boolean = true;
 
   constructor(private ordiniService:OrdiniService,
-              public menuService:MenuService) { }
+              public immaginiService:ImmaginiService) { }
 
   ngOnInit(): void {
     this.ottieniOrdiniInArrivo();
@@ -33,5 +32,8 @@ export class InArrivoComponent implements OnInit {
     })
   }
 
+  getImmagine(id: number):string {
+    return this.immaginiService.mapImmagini.get(id)!;
+  }
 
 }

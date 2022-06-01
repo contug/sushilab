@@ -2,10 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Menu} from "../../shared/models/menu";
 import {MenuHttpService} from "../../core/http/menu-http.service";
 import {MenuService} from "../../core/services/menu.service";
-import {DomSanitizer} from "@angular/platform-browser";
-import {Piatto} from "../../shared/models/piatto";
 import {ImmaginiService} from "../../core/services/immagini.service";
-import {ImmaginiHttpService} from "../../core/http/immagini-http.service";
 
 
 @Component({
@@ -23,9 +20,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private menuHttpService: MenuHttpService,
               public menuService: MenuService,
-              private sanitizer: DomSanitizer,
-              public immaginiService: ImmaginiService,
-              public immaginiHttpService: ImmaginiHttpService) {
+              public immaginiService: ImmaginiService,) {
   }
 
   ngOnInit(): void {

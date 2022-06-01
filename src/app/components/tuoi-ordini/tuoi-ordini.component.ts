@@ -64,6 +64,9 @@ export class TuoiOrdiniComponent implements OnInit {
     })*/
   }
 
+  getImmagine(id: number):string {
+    return this.immaginiService.mapImmagini.get(id)!;
+  }
 
   togglePanel() {
     this.hidden = !this.hidden;

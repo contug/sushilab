@@ -1,9 +1,9 @@
 <div class="root-component-container flex-container color-light" id="tuoi-ordini-container">
 
   <div class="button-container">
-    <input routerLink="/lista-ordini" class="threeButtons" type="image" src="../../../assets/img/desk.png"/>
-    <input routerLink="/tuoi-ordini" class="threeButtons" type="image" src="../../../assets/img/account.png"/>
-    <input routerLink="/in-arrivo" class="threeButtons" type="image" src="../../../assets/img/index.png"/>
+    <input alt="tavolo" routerLink="/lista-ordini" class="threeButtons" type="image" src="../../../assets/img/desk.png"/>
+    <input alt="personali" routerLink="/tuoi-ordini" class="threeButtons" type="image" src="../../../assets/img/account.png"/>
+    <input alt="in arrivo" routerLink="/in-arrivo" class="threeButtons" type="image" src="../../../assets/img/index.png"/>
   </div>
 
   <div>
@@ -23,7 +23,9 @@
       </div>
 
 
-      <div id="immagine">foto</div>
+      <div id="immagine">
+        <img [src]="getImmagine(item.piatto.id)" alt="foto" >
+      </div>
 
       <div class="footer-immagine flex-container">
         <div id="allergeni">allergeni</div>
