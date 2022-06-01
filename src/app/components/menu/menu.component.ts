@@ -3,7 +3,11 @@ import {Menu} from "../../shared/models/menu";
 import {MenuHttpService} from "../../core/http/menu-http.service";
 import {MenuService} from "../../core/services/menu.service";
 import {ImmaginiService} from "../../core/services/immagini.service";
-
+import {DomSanitizer} from "@angular/platform-browser";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../dialog/dialog.component";
+import {AuthService} from "../../core/auth/auth.service";
+import {RecensioniHttpService} from "../../core/http/recensioni-http.service";
 
 @Component({
   selector: 'app-menu',
@@ -20,7 +24,11 @@ export class MenuComponent implements OnInit {
 
   constructor(private menuHttpService: MenuHttpService,
               public menuService: MenuService,
-              public immaginiService: ImmaginiService,) {
+              public immaginiService: ImmaginiService,
+              public sanitizer: DomSanitizer,
+              public authService : AuthService,
+              public dialog : MatDialog,
+              public recensioniHttpService : RecensioniHttpService) {
   }
 
   ngOnInit(): void {
@@ -52,6 +60,33 @@ export class MenuComponent implements OnInit {
 
     })
   }
+
+
+  intValue(num:number): number {
+    return Math.trunc(num);
+  }
+
+  diffValue(num:number): number {
+    return 5-Math.trunc(num);
+  }
+
+
+  openDialog(idPiatto:number): void {
+    let valutazione = 0;
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '75vw',
+      data: {idPiatto: idPiatto, val: valutazione},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+       valutazione = result;
+       console.log(result);
+    });
+
+
+  }
+
 
 
 }

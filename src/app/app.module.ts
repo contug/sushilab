@@ -32,6 +32,8 @@ import { PreferitiComponent } from './components/preferiti/preferiti.component';
 import { BlacklistComponent } from './components/blacklist/blacklist.component';
 import {AuthService} from "./core/auth/auth.service";
 import {AuthInterceptor} from "./core/auth/auth.interceptor";
+import { DialogComponent } from './components/dialog/dialog.component';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -71,6 +73,7 @@ const routes: Routes = [
     InArrivoComponent,
     PreferitiComponent,
     BlacklistComponent,
+    DialogComponent,
   ],
     imports: [
         BrowserModule,
@@ -85,7 +88,8 @@ const routes: Routes = [
         HttpClientModule,
         MatExpansionModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        MatDialogModule
     ],
   providers: [
     MenuService,
@@ -94,7 +98,8 @@ const routes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }],
+    },
+    DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

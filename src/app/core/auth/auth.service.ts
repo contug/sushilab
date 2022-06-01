@@ -4,11 +4,14 @@ import {HttpClient} from "@angular/common/http";
 import {JsonWebToken} from "./json-web-token";
 import moment from 'moment';
 import {Constants} from "../../../assets/constants";
+import {Utente} from "../../shared/models/utente";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  public utente = new Utente();
 
   constructor(private http: HttpClient) {
   }
@@ -27,6 +30,8 @@ export class AuthService {
 
     localStorage.setItem('id_token', jsonWebToken.idToken);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+
+    this.utente.idUtente = jsonWebToken.idToken;
   }
 
   logout(): void {

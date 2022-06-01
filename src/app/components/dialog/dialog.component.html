@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Recensione</h1>
+<div mat-dialog-content>
+  <p>Inserisci il tuo voto:</p>
+  <div>
+    <mat-icon id="1" (click)="starClick('1')">star</mat-icon>
+    <mat-icon id="2" (click)="starClick('2')">star</mat-icon>
+    <mat-icon id="3" (click)="starClick('3')">star</mat-icon>
+    <mat-icon id="4" (click)="starClick('4')">star</mat-icon>
+    <mat-icon id="5" (click)="starClick('5')">star</mat-icon>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annulla</button>
+  <button mat-button [mat-dialog-close]="data.valutazione" cdkFocusInitial (click)="this.postRecensione()">Invia</button>
+</div>

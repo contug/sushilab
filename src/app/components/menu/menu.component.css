@@ -14,10 +14,42 @@ h1, h3 {
   width: inherit;
 }
 
-.icon{
-  color:yellow;
+.icon {
+  color: yellow;
 }
 
+.valutazione-media {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.valutazione-utente {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.val-media-container, .val-utente-container {
+  height: 2vh;
+}
+
+.star-container {
+  height: inherit;
+
+}
+
+.star-icon-white {
+  color: white;
+  scale: 1.5;
+  margin: 0.5vw;
+}
+
+.star-icon-yellow {
+  color: #ffbf5f;
+  scale: 1.5;
+  margin: 0.5vw;
+}
 
 
 @media screen and (orientation: portrait) {
@@ -62,10 +94,12 @@ h1, h3 {
     border-radius: 1.2em;
     border: 0;
   }
-  img{
-    max-width: 100%;
-    max-height: 100%;
+
+  img {
+    width: 30vh;
+    height: 30vh;
   }
+
   #immagine {
     border: solid black 2px;
     height: 30vh;
@@ -138,27 +172,40 @@ h1, h3 {
     height: fit-content;
   }
 
-  .expansion-panel {
-    background-color: #e0dfdc;
-    margin-top: 1vh;
-    height: 10vh;
-    width: 80vw;
-    flex-direction: column;
-  }
 
-  .valutazioni{
+
+  .expansion-panel {
+    background-color: #dfe4eb;
     margin-top: 1vh;
     height: 10vh;
     width: 80vw;
     flex-direction: row;
-    justify-content: space-between;
-  }
-  .valutazione-media{
-    margin-left: 2vh;
+    align-items: center;
+    justify-content: center;
   }
 
-  .valutazione-utente{
-    margin-right: 2vh;
+  .valutazioni {
+    height: 10vh;
+    width: 30vh;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5vh;
+    text-align: start;
+
+  }
+
+
+
+  .star-icon-white {
+    color: white;
+    scale: 1.5;
+    margin: 0.5vw;
+  }
+
+  .star-icon-yellow {
+    color: #ffbf5f;
+    scale: 1.5;
+    margin: 0.5vw;
   }
 
   #card-footer {
@@ -279,6 +326,11 @@ h1, h3 {
     font-size: 3vh;
   }
 
+  img {
+    width: 30vw;
+    height: 30vw;
+  }
+
 
   .footer-immagine {
     margin-top: 1vh;
@@ -323,28 +375,62 @@ h1, h3 {
     text-align: center;
   }
 
-  .expansion-panel {
-    background-color: #e0dfdc;
-    height: 10vh;
-    width: 40vw;
 
+
+  .valutazioni {
+    height: 8vw;
+    width: 30vw;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5vh;
+    text-align: start;
+
+  }
+
+  .valutazione-utente, .valutazione-media {
+    height: 8vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+  }
+
+  .val-media-container, .val-utente-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5vw;
+  }
+
+  .star-icon-white {
+    color: white;
+    scale: 1.5;
+    margin: 0.5vw;
+  }
+
+  .star-icon-yellow {
+    color: #ffbf5f;
+    scale: 1.5;
+    margin: 0.5vw;
   }
 
   mat-card {
     border-radius: 1em;
-    margin-left: 30vw;
-    margin-right: 30vw;
-    margin-top: 2vw;
     padding: 1vw;
-    margin-bottom: 2vh;
+    margin: 2vw 30vw 2vh;
     height: fit-content;
   }
 
   .expansion-panel {
-    background-color: #e0dfdc;
+    background-color: #dfe4eb;
     margin-top: 1vh;
-    height: 10vh;
+    height: 8vw;
     width: 40vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   #card-footer {
