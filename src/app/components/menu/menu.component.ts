@@ -5,7 +5,7 @@ import {MenuService} from "../../core/services/menu.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Piatto} from "../../shared/models/piatto";
 import {ImmaginiService} from "../../core/services/immagini.service";
-
+import {ImmaginiHttpService} from "../../core/http/immagini-http.service";
 
 
 @Component({
@@ -18,13 +18,15 @@ export class MenuComponent implements OnInit {
 
   hidden: boolean = true;
   menu!: Menu[];
-  immagine:any;
+  immagine: any;
 
 
-  constructor(private menuHttpService : MenuHttpService,
+  constructor(private menuHttpService: MenuHttpService,
               public menuService: MenuService,
-              private sanitizer:DomSanitizer,
-              private immaginiService:ImmaginiService) { }
+              private sanitizer: DomSanitizer,
+              public immaginiService: ImmaginiService,
+              public immaginiHttpService: ImmaginiHttpService) {
+  }
 
   ngOnInit(): void {
     console.log("oninit");
@@ -32,20 +34,17 @@ export class MenuComponent implements OnInit {
     this.menuService.mapInit();
     this.menuService.mostraMappa();
 
-    if(this.immaginiService.mapImmagini.size===0)
-      this.immaginiService.getImmagini()
+
   }
 
 
-  getImmagine(id:number){
-    this.immaginiService.creaUrl(this.immaginiService.getImmagine(id))
+  getImmagine(id: number):string {
+    return this.immaginiService.mapImmagini.get(id)!;
   }
 
 
 
-
-
-  togglePanel (){
+  togglePanel() {
     this.hidden = !this.hidden;
   }
 
@@ -57,16 +56,6 @@ export class MenuComponent implements OnInit {
       console.log(this.menu[0].nome);
 
     })
-  }
-
-
-  ottieniImmagine(){
-    this.menuHttpService.ottieniPiatto(0)
-      .subscribe( res =>{      //res avrà un piatto
-        let piatto:Piatto = res     //piatto.immagine sarà tipo blob
-        let objectUrl=URL.createObjectURL(piatto.immagine) //creo url passando il blob
-        this.immagine=this.sanitizer.bypassSecurityTrustUrl(objectUrl)
-      })
   }
 
 

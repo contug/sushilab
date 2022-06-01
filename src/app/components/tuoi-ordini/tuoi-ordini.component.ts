@@ -3,6 +3,7 @@ import {OrdiniService} from "../../core/http/ordini.service";
 import {MenuService} from "../../core/services/menu.service";
 import {Ordine} from "../../shared/models/ordine";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
+import {ImmaginiService} from "../../core/services/immagini.service";
 
 @Component({
   selector: 'app-tuoi-ordini',
@@ -17,16 +18,20 @@ export class TuoiOrdiniComponent implements OnInit {
   //ordiniTavolo!: OrdineDettaglio[];
   ordiniUtente!: OrdineDettaglio[];
   hidden: boolean = true;
-  ordini!:Ordine[];
-  note:string=''
+  ordini!: Ordine[];
+  note: string = ''
 
 
   constructor(private ordiniService: OrdiniService,
-              public menuService:MenuService) {
+              public menuService: MenuService,
+              public immaginiService: ImmaginiService) {
 
   }
 
   ngOnInit(): void {
+
+
+
     //this.ottieniOrdini();
     this.menuService.mostraMappa();
 
@@ -39,15 +44,15 @@ export class TuoiOrdiniComponent implements OnInit {
     })
   }
 
-  confermaOrdine(){
+  confermaOrdine() {
 
 
-    this.ordiniUtente.forEach((value,index,array)=> {
-      this.ordiniService.confermaOrdine("0", "0",this.ordiniUtente[index] ).subscribe();
+    this.ordiniUtente.forEach((value, index, array) => {
+      this.ordiniService.confermaOrdine("0", "0", this.ordiniUtente[index]).subscribe();
     })
 
     console.log(this.ordiniUtente)
-    this.ordiniUtente=[];
+    this.ordiniUtente = [];
     this.menuService.pulisciMappe()
 
 
@@ -60,11 +65,11 @@ export class TuoiOrdiniComponent implements OnInit {
   }
 
 
-  togglePanel (){
+  togglePanel() {
     this.hidden = !this.hidden;
   }
 
-  clicc(i:number){
+  clicc(i: number) {
 
     //let note=(<HTMLInputElement>document.getElementById("id "+"idpiatto")).value
     //this.ordiniUtente[i].note=note;
@@ -79,5 +84,10 @@ export class TuoiOrdiniComponent implements OnInit {
       console.log(res);
     })
   }
+
+
+  /*  getImmagine(id: number) {
+      this.immaginiService.creaUrl(this.immaginiService.getImmagine(id))
+    }*/
 
 }
