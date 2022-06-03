@@ -9,6 +9,8 @@ import {DialogComponent} from "../dialog/dialog.component";
 import {AuthService} from "../../core/auth/auth.service";
 import {RecensioniHttpService} from "../../core/http/recensioni-http.service";
 import {firstValueFrom} from "rxjs";
+import {Piatto} from "../../shared/models/piatto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -30,7 +32,8 @@ export class MenuComponent implements OnInit, OnChanges {
               public sanitizer: DomSanitizer,
               public authService : AuthService,
               public dialog : MatDialog,
-              public recensioniHttpService : RecensioniHttpService) {
+              public recensioniHttpService : RecensioniHttpService,
+              private router : Router) {
   }
 
   ngOnInit(): void {
@@ -78,31 +81,24 @@ export class MenuComponent implements OnInit, OnChanges {
 
 
 
-  starClick(idPiatto:number) {
-    let dialogRef;
-    this.openDialog(idPiatto, dialogRef);
-    console.log(dialogRef)
-    if(this.recensioniHttpService.valutazione != 0) {
-      this.recensioniHttpService.postRecensione(idPiatto, this.recensioniHttpService.valutazione);
-    }
-  }
 
-  openDialog(idPiatto:number, dialogRef:any): void {
+
+  openDialog(idPiatto:number, piatto: Piatto): void {
     let valutazione = 0;
-    dialogRef = this.dialog.open(DialogComponent, {
+    let dialogRef = this.dialog.open(DialogComponent, {
       width: '75vw',
       data: {idPiatto: idPiatto, val: valutazione},
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
-       let val = result;
-       console.log(this.recensioniHttpService.valutazione)
+      this.router.navigateByUrl('/', { skipLocationChange: true })
+        .then(() => {
+          this.router.navigate(["/menu"]);
+        });
     });
 
 
   }
-
-
 
 }

@@ -11,11 +11,12 @@ export class RecensioniHttpService {
 
   valutazione = 0;
 
+
   constructor(private authService: AuthService, private http : HttpClient) { }
 
   postRecensione(idPiatto:number, valutazione: number): Observable<any>  {
     return this.http.post<any>(Constants.ROOT_URL + "/valutazione/" + this.authService.utente.idUtente + "/"
-    + idPiatto, valutazione);
+    + idPiatto, {"valutazione" : valutazione});
   }
 
   getRecensioneUtente(idPiatto: number): Observable<number> {
