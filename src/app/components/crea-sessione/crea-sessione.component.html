@@ -6,9 +6,11 @@
 
   <mat-card class="mat-elevation-z8">
     <div class="card-container flex-container">
-      <h3>Codice sessione:</h3>
+      <h3>Codice sessione: {{this.qrData}}</h3>
 
-      <div id="qr-code"></div>
+      <div id="qr-code">
+        <qrcode [qrdata]="this.qrData" [width]="this.width" [errorCorrectionLevel]="'M'"></qrcode>
+      </div>
 
       <button class="card-button color-dark mat-elevation-z8">Esci dalla sessione
       </button>

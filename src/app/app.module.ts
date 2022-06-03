@@ -34,6 +34,7 @@ import {AuthService} from "./core/auth/auth.service";
 import {AuthInterceptor} from "./core/auth/auth.interceptor";
 import { DialogComponent } from './components/dialog/dialog.component';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {QRCodeModule} from "angularx-qrcode";
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -75,22 +76,23 @@ const routes: Routes = [
     BlacklistComponent,
     DialogComponent,
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        RouterModule.forRoot(routes),
-        MatSidenavModule,
-        MatDividerModule,
-        MatCardModule,
-        MatIconModule,
-        MatButtonModule,
-        HttpClientModule,
-        MatExpansionModule,
-        ReactiveFormsModule,
-        FormsModule,
-        MatDialogModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    RouterModule.forRoot(routes),
+    MatSidenavModule,
+    MatDividerModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    HttpClientModule,
+    MatExpansionModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatDialogModule,
+    QRCodeModule
+  ],
   providers: [
     MenuService,
     AuthService,

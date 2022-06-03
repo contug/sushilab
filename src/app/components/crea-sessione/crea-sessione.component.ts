@@ -15,11 +15,16 @@ export class CreaSessioneComponent implements OnInit {
 
   }
 
+  width = 0;
+  qrData = "#temp-code";
+
   ngOnInit(): void {
-
-
-
+    this.qrWidth()
   }
 
 
+  qrWidth() {
+    let width = document.getElementById("qr-code")!.offsetWidth;
+    this.width = width;
+  }
 }
