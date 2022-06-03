@@ -8,6 +8,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../dialog/dialog.component";
 import {AuthService} from "../../core/auth/auth.service";
 import {RecensioniHttpService} from "../../core/http/recensioni-http.service";
+import {firstValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-menu',
@@ -77,19 +78,26 @@ export class MenuComponent implements OnInit, OnChanges {
 
 
 
+  starClick(idPiatto:number) {
+    let dialogRef;
+    this.openDialog(idPiatto, dialogRef);
+    console.log(dialogRef)
+    if(this.recensioniHttpService.valutazione != 0) {
+      this.recensioniHttpService.postRecensione(idPiatto, this.recensioniHttpService.valutazione);
+    }
+  }
 
-  openDialog(idPiatto:number): void {
+  openDialog(idPiatto:number, dialogRef:any): void {
     let valutazione = 0;
-    const dialogRef = this.dialog.open(DialogComponent, {
+    dialogRef = this.dialog.open(DialogComponent, {
       width: '75vw',
       data: {idPiatto: idPiatto, val: valutazione},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
        let val = result;
-       console.log(valutazione);
-       this.recensioniHttpService.postRecensione(idPiatto, valutazione);
+       console.log(this.recensioniHttpService.valutazione)
     });
 
 

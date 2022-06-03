@@ -1,7 +1,7 @@
 import {Component, Inject, Injectable, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {RecensioniHttpService} from "../../core/http/recensioni-http.service";
-import {lastValueFrom} from "rxjs";
+import {lastValueFrom, Observable} from "rxjs";
 
 export interface DialogData {
   idPiatto: number;
@@ -40,6 +40,7 @@ export class DialogComponent implements OnInit, OnDestroy {
       document.getElementById("4")!.style.color = "lightgrey";
       document.getElementById("5")!.style.color = "lightgrey";
       this.data.valutazione = 1;
+      this.recensioniHttpService.valutazione = 1;
     }
     if (id === "2") {
       document.getElementById("1")!.style.color = this.yellow;
@@ -48,6 +49,7 @@ export class DialogComponent implements OnInit, OnDestroy {
       document.getElementById("4")!.style.color = "lightgrey";
       document.getElementById("5")!.style.color = "lightgrey";
       this.data.valutazione = 2;
+      this.recensioniHttpService.valutazione = 2;
 
     }
     if (id === "3") {
@@ -57,6 +59,8 @@ export class DialogComponent implements OnInit, OnDestroy {
       document.getElementById("4")!.style.color = "lightgrey";
       document.getElementById("5")!.style.color = "lightgrey";
       this.data.valutazione = 3;
+      this.recensioniHttpService.valutazione = 3;
+
 
     }
     if (id === "4") {
@@ -66,6 +70,8 @@ export class DialogComponent implements OnInit, OnDestroy {
       document.getElementById("4")!.style.color = this.yellow;
       document.getElementById("5")!.style.color = "lightgrey";
       this.data.valutazione = 4;
+      this.recensioniHttpService.valutazione = 4;
+
     }
     if (id === "5") {
       document.getElementById("1")!.style.color = this.yellow;
@@ -74,11 +80,13 @@ export class DialogComponent implements OnInit, OnDestroy {
       document.getElementById("4")!.style.color = this.yellow;
       document.getElementById("5")!.style.color = this.yellow;
       this.data.valutazione = 5;
+      this.recensioniHttpService.valutazione = 5;
     }
 
   }
 
   onNoClick(): void {
+    this.recensioniHttpService.valutazione = 0;
     this.dialogRef.close();
   }
 
@@ -86,6 +94,13 @@ export class DialogComponent implements OnInit, OnDestroy {
   postRecensione() {
    this.recensioniHttpService.postRecensione(this.data.idPiatto, this.data.valutazione)
     console.log("post recensione")
+  }
+
+  onClickClose() {
+    this.recensioniHttpService.postRecensione(this.data.idPiatto, this.recensioniHttpService.valutazione).subscribe( res => {
+      console.log(res);
+      this.dialogRef.close()
+    })
   }
 
 

@@ -12,7 +12,7 @@
   </div>
   <div mat-dialog-actions class="button-container flex-container">
     <button mat-button class="button-left color-light-button" (click)="onNoClick()">Annulla</button>
-    <button mat-button class="button-right color-dark" [mat-dialog-close]="data.valutazione" cdkFocusInitial>Invia
+    <button mat-button class="button-right color-dark" (click)="onClickClose()" cdkFocusInitial>Invia
     </button>
   </div>
 </div>

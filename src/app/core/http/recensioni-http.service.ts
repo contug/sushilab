@@ -9,10 +9,12 @@ import {Observable} from "rxjs";
 })
 export class RecensioniHttpService {
 
+  valutazione = 0;
+
   constructor(private authService: AuthService, private http : HttpClient) { }
 
-  postRecensione(idPiatto:number, valutazione: number)  {
-    this.http.post(Constants.ROOT_URL + "/valutazione/" + this.authService.utente.idUtente + "/"
+  postRecensione(idPiatto:number, valutazione: number): Observable<any>  {
+    return this.http.post<any>(Constants.ROOT_URL + "/valutazione/" + this.authService.utente.idUtente + "/"
     + idPiatto, valutazione);
   }
 
