@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Menu} from "../../shared/models/menu";
 import {MenuHttpService} from "../../core/http/menu-http.service";
 import {MenuService} from "../../core/services/menu.service";
@@ -15,11 +15,12 @@ import {RecensioniHttpService} from "../../core/http/recensioni-http.service";
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnChanges {
 
   hidden: boolean = true;
   menu!: Menu[];
   immagine: any;
+
 
 
   constructor(private menuHttpService: MenuHttpService,
@@ -38,6 +39,10 @@ export class MenuComponent implements OnInit {
     this.menuService.mostraMappa();
 
 
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes)
   }
 
 
@@ -71,6 +76,8 @@ export class MenuComponent implements OnInit {
   }
 
 
+
+
   openDialog(idPiatto:number): void {
     let valutazione = 0;
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -80,8 +87,9 @@ export class MenuComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-       valutazione = result;
-       console.log(result);
+       let val = result;
+       console.log(valutazione);
+       this.recensioniHttpService.postRecensione(idPiatto, valutazione);
     });
 
 

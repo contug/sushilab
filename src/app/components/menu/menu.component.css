@@ -51,6 +51,18 @@ h1, h3 {
   margin: 0.5vw;
 }
 
+app-dialog {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+mat-dialog-container {
+  padding: 0;
+}
+
 
 @media screen and (orientation: portrait) {
   h1 {
