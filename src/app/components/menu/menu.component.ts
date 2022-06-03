@@ -8,7 +8,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../dialog/dialog.component";
 import {AuthService} from "../../core/auth/auth.service";
 import {RecensioniHttpService} from "../../core/http/recensioni-http.service";
-import {firstValueFrom} from "rxjs";
 import {Piatto} from "../../shared/models/piatto";
 import {Router} from "@angular/router";
 
@@ -30,9 +29,7 @@ export class MenuComponent implements OnInit, OnChanges {
               public menuService: MenuService,
               public immaginiService: ImmaginiService,
               public sanitizer: DomSanitizer,
-              public authService : AuthService,
               public dialog : MatDialog,
-              public recensioniHttpService : RecensioniHttpService,
               private router : Router) {
   }
 

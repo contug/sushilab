@@ -35,16 +35,16 @@ export class BlacklistHttpService {
       })
   }
 
-  eliminaDallaBlacklist(ingrediente:string):Observable<string>{
+  eliminaDallaBlacklist(ingrediente: string) {
     console.log(ingrediente)
-    return this.http.delete<string>(
-      Constants.ROOT_URL+"/blacklist/"+"0",
+    this.http.delete<string>(
+      Constants.ROOT_URL + "/blacklist/" + "0",
       {
-        body:{
-         "ingrediente": ingrediente
+        body: {
+          "ingrediente": ingrediente
         }
       }
-      )
+    ).subscribe()
   }
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BlacklistHttpService} from "../../core/http/blacklist-http.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Ingrediente} from "../../shared/models/ingrediente";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-blacklist',
@@ -11,7 +12,7 @@ import {Ingrediente} from "../../shared/models/ingrediente";
 export class BlacklistComponent implements OnInit {
 
   constructor(public blacklistService:BlacklistHttpService,
-              ) { }
+              private router:Router) { }
 
   ingredientiBlacklistati:Ingrediente[]=[];
   idUtente:number=0;
@@ -33,8 +34,17 @@ export class BlacklistComponent implements OnInit {
     this.blacklistService.aggiungiIngredienteBlacklist(ingrediente).subscribe();
   }
 
+
+
   eliminaDallaBlacklist(ingrediente:string){
-    this.blacklistService.eliminaDallaBlacklist(ingrediente).subscribe()
+    this.blacklistService.eliminaDallaBlacklist(ingrediente)
+
+    this.router.navigateByUrl('/', { skipLocationChange: true })
+      .then(() => {
+        this.router.navigate(["/blacklist"]);
+      });
+
+
   }
 
 }

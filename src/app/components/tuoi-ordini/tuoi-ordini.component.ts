@@ -4,6 +4,7 @@ import {MenuService} from "../../core/services/menu.service";
 import {Ordine} from "../../shared/models/ordine";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 import {ImmaginiService} from "../../core/services/immagini.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-tuoi-ordini',
@@ -24,20 +25,16 @@ export class TuoiOrdiniComponent implements OnInit {
 
   constructor(private ordiniService: OrdiniService,
               public menuService: MenuService,
+              public sanitizer: DomSanitizer,
               public immaginiService: ImmaginiService) {
 
   }
 
   ngOnInit(): void {
 
-
-
-    //this.ottieniOrdini();
     this.menuService.mostraMappa();
 
-    //this.ordini=this.menuService.listaOrdine();
 
-    //Inserisco in un array gli ordini dell'utente della map (non ancora confermati)
     this.menuService.listaOrdiniDettaglio().subscribe(res => {
       this.ordiniUtente = res;
       //console.log(this.ordiniUtente)
@@ -89,8 +86,6 @@ export class TuoiOrdiniComponent implements OnInit {
   }
 
 
-  /*  getImmagine(id: number) {
-      this.immaginiService.creaUrl(this.immaginiService.getImmagine(id))
-    }*/
+
 
 }

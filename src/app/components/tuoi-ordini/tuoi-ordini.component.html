@@ -24,7 +24,7 @@
 
 
       <div id="immagine">
-        <img [src]="getImmagine(item.piatto.id)" alt="foto" >
+        <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(getImmagine(item.piatto.id))" alt="foto" >
       </div>
 
       <div class="footer-immagine flex-container">

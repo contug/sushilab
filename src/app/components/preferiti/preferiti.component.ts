@@ -4,6 +4,7 @@ import {PiattoUtente} from "../../shared/models/piatto-utente";
 import {MenuHttpService} from "../../core/http/menu-http.service";
 import {Piatto} from "../../shared/models/piatto";
 import {ImmaginiService} from "../../core/services/immagini.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-preferiti',
@@ -13,39 +14,32 @@ import {ImmaginiService} from "../../core/services/immagini.service";
 export class PreferitiComponent implements OnInit {
 
   hidden: boolean = true;
-  preferiti!:PiattoUtente[];
+  preferiti!:Piatto[];
   piattiPreferiti:Piatto[]=[];
 
-  constructor(private preferitiService:PreferitiHttpService,
+
+
+  constructor(private preferitiHttpService:PreferitiHttpService,
               private menuService:MenuHttpService,
-              private immaginiService:ImmaginiService) {
+              private immaginiService:ImmaginiService,
+              public sanitizer: DomSanitizer) {
 
   }
 
   ngOnInit(): void {
-    //this.ottieniMenu();
 
     //riceve array di piattiUtente
     this.ottieniPreferiti();
+
 
   }
 
 
   ottieniPreferiti(){
-    this.preferitiService.ottieniPreferiti("0").subscribe(res=>{
-      this.preferiti=res; //array di PiattoUtente
-
-      this.preferiti.forEach((value,index,array)=>{
-        this.menuService.ottieniPiatto(this.preferiti[index].idPiatto).subscribe(res=> {
-          this.piattiPreferiti.push(res);
-          console.log(this.piattiPreferiti);
-        })
-      })
-
-      console.log("preferiti");
-      console.log(this.preferiti);
-      //return this.preferiti
-    })
+    this.preferitiHttpService.ottieniPreferiti("0").subscribe(res=>{
+      this.preferiti=res; //array di Piatto
+      console.log(this.preferiti)
+    });
 
   }
 
@@ -58,6 +52,13 @@ export class PreferitiComponent implements OnInit {
     return this.immaginiService.mapImmagini.get(id)!;
   }
 
+  intValue(num:number): number {
+    return Math.trunc(num);
+  }
+
+  diffValue(num:number): number {
+    return 5-Math.trunc(num);
+  }
 
 
 }

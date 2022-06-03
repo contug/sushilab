@@ -7,31 +7,71 @@
     <mat-icon class="color-arachidi">circle</mat-icon>
   -->
 
- <div>
 
-    <mat-card class="mat-elevation-z8" *ngFor="let piatto of piattiPreferiti">
+
+
+    <mat-card class="mat-elevation-z8" *ngFor="let piatto of preferiti">
 
       <div class="card-container flex-container">
         <div class="header-piatto flex-container">
           <h3 id="numero-piatto">{{piatto.numero}}</h3>
           <h3 id="nome-piatto">{{piatto.nome}}</h3>
           <button id="star-button" (click)="piatto.preferito = !piatto.preferito">
-            <mat-icon id="star-border" [hidden]="!piatto.preferito">star_border</mat-icon>
-            <mat-icon id="star-full" [hidden]="piatto.preferito">star</mat-icon>
+            <mat-icon id="star-border" [hidden]="piatto.preferito">star_border</mat-icon>
+            <mat-icon id="star-full" [hidden]="!piatto.preferito">star</mat-icon>
           </button>
         </div>
 
 
         <div id="immagine">
-          <img [src]="getImmagine(piatto.id)" alt="foto" >
+          <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(getImmagine(piatto.id))" alt="foto">
         </div>
 
         <div class="footer-immagine flex-container">
-          <div id="allergeni">allergeni</div>
+          <div id="allergeni" class="flex-container">
+            <div id="icona-allergene" *ngFor="let allergene of piatto.allergeni">
+              <mat-icon [style.color]="allergene.colore">circle</mat-icon>
+            </div>
+          </div>
           <div id="prezzo">{{piatto.prezzo}}€</div>
         </div>
+        <div id="ingredienti-container" class="flex-container">
+          <span>Ingredienti:<span
+            *ngFor="let ingrediente of piatto.ingredienti; let ultimo=last"> {{ingrediente.nome}}{{ultimo ? "" : ","}}</span></span>
+        </div>
 
-        <div class="expansion-panel flex-container" [hidden]="hidden"></div>
+        <div class="expansion-panel flex-container" [hidden]="hidden">
+          <div class="valutazioni flex-container">
+            <div class="valutazione-media flex-container">
+              valutazione media:
+              <div class="val-media-container">
+                <div class="star-container">
+                  <mat-icon class="star-icon-yellow"
+                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneMedia))">star</mat-icon>
+                  <mat-icon class="star-icon-white"
+                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneMedia))">star</mat-icon>
+
+                </div>
+              </div>
+            </div>
+
+             <div class="valutazione-utente flex-container">
+              la tua valutazione:
+              <div class="val-utente-container">
+                <div class="star-container">
+                  <mat-icon class="star-icon-yellow"
+                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneUtente))">star</mat-icon>
+                  <mat-icon class="star-icon-white"
+                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneUtente))">star</mat-icon>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
 
         <div class="flex-container" id="card-footer">
           <button id="panel-toggle" (click)="togglePanel()">
@@ -41,10 +81,9 @@
 
       </div>
     </mat-card>
-  </div>
+
 
   <div class="root-footer-spacing"></div>
-
 
 
   <!--<div class="flex-container header-container">
