@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {OrdiniService} from "../../core/http/ordini.service";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 import {ImmaginiService} from "../../core/services/immagini.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-in-arrivo',
@@ -14,7 +15,8 @@ export class InArrivoComponent implements OnInit {
   hidden: boolean = true;
 
   constructor(private ordiniService:OrdiniService,
-              public immaginiService:ImmaginiService) { }
+              public immaginiService:ImmaginiService,
+              public sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
     this.ottieniOrdiniInArrivo();

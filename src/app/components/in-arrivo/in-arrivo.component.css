@@ -102,6 +102,11 @@ h1, h3 {
     border: 0;
   }
 
+  img {
+    width: 30vh;
+    height: 30vh;
+  }
+
   #immagine {
     border: solid black 2px;
     height: 30vh;
@@ -114,25 +119,27 @@ h1, h3 {
     font-size: 3vh;
   }
 
-  img{
-    max-height: 100%;
-    max-width: 100%;
-  }
-
   .footer-immagine {
     flex-direction: row;
     align-items: center;
+    width: 30vh;
+    justify-content: space-between;
+    padding-left: 1vw;
+    padding-right: 1vw;
   }
 
   #allergeni {
-    border: solid black 2px;
     width: 10em;
     height: 2em;
     display: flex;
     justify-self: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 1.5vh;
+  }
+
+  #icona-allergene {
+    margin-right: 2vw;
   }
 
   #prezzo {
@@ -173,13 +180,14 @@ h1, h3 {
   }
 
   #card-footer {
-    margin-top: 2vh;
+    margin-top: 1vh;
     padding-left: 7vw;
     padding-right: 7vw;
     border: 0;
     width: 70vw;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+
   }
 
   #panel-toggle {
@@ -193,18 +201,6 @@ h1, h3 {
     scale: 2;
   }
 
-  #plus-button, #minus-button {
-    border-radius: 2vw;
-    font-size: 5vw;
-    border: 0;
-    height: 4vh;
-    width: 7vw;
-  }
-
-  #minus-button {
-    margin-right: 1vw;
-  }
-
   .quantity {
     flex-direction: column;
     align-items: center;
@@ -213,7 +209,7 @@ h1, h3 {
   }
 
   .max-quantity, .order-quantity {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 
   .order-quantity {

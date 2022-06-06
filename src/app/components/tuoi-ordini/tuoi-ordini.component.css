@@ -123,14 +123,17 @@ h1, h3 {
   }
 
   #allergeni {
-    border: solid black 2px;
     width: 10em;
     height: 2em;
     display: flex;
     justify-self: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 1.5vh;
+  }
+
+  #icona-allergene{
+    margin-right: 2vw;
   }
 
   #prezzo {

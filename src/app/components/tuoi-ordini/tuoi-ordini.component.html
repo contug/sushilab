@@ -28,7 +28,11 @@
       </div>
 
       <div class="footer-immagine flex-container">
-        <div id="allergeni">allergeni</div>
+        <div id="allergeni" class="flex-container">
+          <div id="icona-allergene" *ngFor="let allergene of item.piatto.allergeni">
+            <mat-icon [style.color]="allergene.colore">circle</mat-icon>
+          </div>
+        </div>
         <div id="prezzo">{{item.piatto.prezzo}}€</div>
       </div>
 

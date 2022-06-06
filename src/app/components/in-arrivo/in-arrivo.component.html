@@ -24,11 +24,15 @@
 
 
       <div id="immagine">
-        <img [src]="getImmagine(item.piatto.id)" alt="foto" >
+        <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(getImmagine(item.piatto.id))" alt="foto" >
       </div>
 
       <div class="footer-immagine flex-container">
-        <div id="allergeni">allergeni</div>
+        <div id="allergeni" class="flex-container">
+          <div id="icona-allergene" *ngFor="let allergene of item.piatto.allergeni">
+            <mat-icon [style.color]="allergene.colore">circle</mat-icon>
+          </div>
+        </div>
         <div id="prezzo">{{item.piatto.prezzo}}€</div>
       </div>
 
@@ -37,12 +41,9 @@
       <div class="flex-container" id="card-footer">
 
         <div class="flex-container quantity-buttons">
-          <!--<button id="minus-button" (click)="this.menuService.modificaOrdine(item.piatto, false, item.piatto.limite)">-</button>-->
           <div class="quantity flex-container">
-            <!--<div class="max-quantity"> Max: {{item.piatto.limite}}</div>-->
             <div class="order-quantity">Qt: {{item.molteplicita}}</div>
           </div>
-            <!--<button id="plus-button" (click)="this.menuService.modificaOrdine(item.piatto, true, item.piatto.limite)">+</button>-->
         </div>
       </div>
 
