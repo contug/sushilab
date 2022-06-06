@@ -26,12 +26,22 @@ h1, h3 {
     margin-top:1em;
     margin-bottom:1em;
     text-align: center;
+    align-items: center;
+    height: 8vh;
   }
 
   .threeButtons{
     border-radius: 1em;
-    margin:0.5em;
     margin-top: 1em;
+  }
+
+  input{
+    height: 6vh;
+  }
+
+  #utente{
+    margin-left: 2vh;
+    margin-right: 2vh;
   }
 
   .tuoiOrdini{
@@ -217,34 +227,52 @@ h1, h3 {
     align-items: center;
   }
 
-  h1 {
-    margin: 0.5em;
-    font-size: 6vh;
-  }
-
   h3 {
     font-size: 4vh;
+  }
+
+  .button-container{
+    text-align: center;
+    align-items: center;
+    height: 12vh;
+  }
+
+  .threeButtons{
+    margin-top: 2vh;
+    border-radius: 1em;
+  }
+  input{
+    height: 9vh;
+  }
+  #utente{
+    margin-left: 2vh;
+    margin-right: 2vh;
+  }
+  .tuoiOrdini{
+    margin-top: 1vh;
+    text-align: center;
+    font-size: 7vh;
   }
 
   .header-piatto {
     width: 30vw;
     align-items: center;
     text-align: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
 
   #numero-piatto {
-    font-size: 4vh;
+    font-size: 5vh;
     justify-self: flex-start;
-
+    margin: 0;
   }
 
   #nome-piatto {
-    font-size: 4vh;
+    font-size: 5vh;
     white-space: nowrap;
     text-align: center;
     justify-self: center;
-
+    margin: 0;
   }
 
   #star-button {
@@ -274,12 +302,26 @@ h1, h3 {
     font-size: 3vh;
   }
 
+  img {
+    width: 30vw;
+    height: 30vw;
+  }
+
+
   .footer-immagine {
+    margin-top: 1vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
     flex-direction: row;
+    width: 30vw;
+    justify-content: space-between;
+  }
+
+  #icona-allergene {
+    margin-right: 2vh;
   }
 
   #allergeni {
-    border: solid black 2px;
     width: 10em;
     height: 2em;
     justify-self: center;
@@ -291,8 +333,15 @@ h1, h3 {
 
   #prezzo {
     justify-self: flex-end;
-    font-size: 2vh;
-    padding-left: 5em;
+    font-size: 2vw;
+  }
+
+  #ingredienti-container {
+    font-size: 3vh;
+    width: 30vw;
+    text-align: start;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
   }
 
   .header-container {
@@ -302,35 +351,69 @@ h1, h3 {
     text-align: center;
   }
 
-  .expansion-panel {
-    background-color: #e0dfdc;
-    height: 10vh;
-    width: 40vw;
+
+
+  .valutazioni {
+    height: 8vw;
+    width: 30vw;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5vh;
+    text-align: start;
+
+  }
+
+  .valutazione-utente, .valutazione-media {
+    height: 8vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+  }
+
+  .val-media-container, .val-utente-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5vw;
+  }
+
+  .star-icon-white {
+    color: white;
+    scale: 1.5;
+    margin: 0.5vw;
+  }
+
+  .star-icon-yellow {
+    color: #ffbf5f;
+    scale: 1.5;
+    margin: 0.5vw;
   }
 
   mat-card {
     border-radius: 1em;
-    margin-left: 30vw;
-    margin-right: 30vw;
-    margin-top: 2vw;
     padding: 1vw;
-    margin-bottom: 2vh;
+    margin: 2vw 30vw 2vh;
     height: fit-content;
   }
 
   .expansion-panel {
-    background-color: #e0dfdc;
+    background-color: #dfe4eb;
     margin-top: 1vh;
-    height: 10vh;
+    height: 8vw;
     width: 40vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   #card-footer {
     margin-top: 2vh;
-    padding-left: 5vh;
-    padding-right: 5vh;
+
     border: 0;
-    width: 40vw;
+    width: 30vw;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -371,5 +454,15 @@ h1, h3 {
 
   .order-quantity {
     padding-top: 1vh;
+  }
+
+  .on-top {
+    position: fixed;
+    top: 85%;
+    margin-left: 90vw;
+    margin-right: 5vw;
+    z-index: 9999;
+    scale: 2;
+    background-color: #ffbf5f;
   }
 }

@@ -36,11 +36,25 @@ export class PreferitiComponent implements OnInit {
 
 
   ottieniPreferiti(){
-    this.preferitiHttpService.ottieniPreferiti("0").subscribe(res=>{
+    this.preferitiHttpService.ottieniPreferiti(0).subscribe(res=>{
       this.preferiti=res; //array di Piatto
       console.log(this.preferiti)
     });
+  }
 
+  aggiungiRimuoviDaiPreferiti(idUtente: number, piatto: Piatto) {
+    if (!piatto.preferito) {
+      console.log("piatto non preferito, viene aggiunto")
+      piatto.preferito=true
+      console.log(piatto)
+      this.preferitiHttpService.aggiungiAiPreferiti(idUtente, piatto)
+    }
+    else {
+      console.log("piatto preferito, viene rimosso")
+      piatto.preferito=false
+      console.log(piatto)
+      this.preferitiHttpService.rimuoviDaiPreferiti(idUtente, piatto)
+    }
   }
 
   togglePanel (){

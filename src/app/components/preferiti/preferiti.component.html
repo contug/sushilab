@@ -16,7 +16,7 @@
         <div class="header-piatto flex-container">
           <h3 id="numero-piatto">{{piatto.numero}}</h3>
           <h3 id="nome-piatto">{{piatto.nome}}</h3>
-          <button id="star-button" (click)="piatto.preferito = !piatto.preferito">
+          <button id="star-button" (click)="aggiungiRimuoviDaiPreferiti(0,piatto)">
             <mat-icon id="star-border" [hidden]="piatto.preferito">star_border</mat-icon>
             <mat-icon id="star-full" [hidden]="!piatto.preferito">star</mat-icon>
           </button>

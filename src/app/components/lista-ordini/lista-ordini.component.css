@@ -24,12 +24,21 @@
         margin-top:1em;
         margin-bottom:1em;
         text-align: center;
+        align-items: center;
+        height: 8vh;
     }
     .threeButtons{
         border-radius: 1em;
-        margin:0.5em;
         margin-top: 1em;
     }
+    input{
+      height: 6vh;
+    }
+    #utente{
+      margin-left: 2vh;
+      margin-right: 2vh;
+    }
+
 
     .ordiniTavolo{
         margin-top: 0;
@@ -75,10 +84,36 @@
   }
 
   @media screen and (orientation: landscape) {
-    h1 {
-      margin: 1em;
-      font-size: 6vh;
+
+    .button-container{
+      text-align: center;
+      align-items: center;
+      height: 12vh;
     }
+
+    .threeButtons{
+      margin-top: 2vh;
+      border-radius: 1em;
+    }
+    input{
+      height: 9vh;
+    }
+    #utente{
+      margin-left: 2vh;
+      margin-right: 2vh;
+    }
+    .ordiniTavolo{
+      margin:1vh;
+      text-align: center;
+      font-size: 7vh;
+    }
+
+    .nomePiatto {
+      font-size: 4vh;
+      margin:0.2em;
+    }
+
+
 
     h3 {
       font-size: 4vh;
