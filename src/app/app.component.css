@@ -4,6 +4,7 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
+  background-color: #fff8e5;
 }
 
 /* CLASSE GENERICA PER TUTTI I COMPONENT DI ROUTER-OUTLET

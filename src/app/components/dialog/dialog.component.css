@@ -69,5 +69,10 @@ mat-icon {
   font-size: 2vh;
 }
 
+.header-recensione {
+  height: 1em;
+  display: flex;
+  align-items: center;
+}
 
 

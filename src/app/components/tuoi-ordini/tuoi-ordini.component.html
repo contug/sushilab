@@ -33,9 +33,9 @@
       </div>
 
       <div class="expansion-panel flex-container" [hidden]="hidden">
-        <form #formNote=ngForm>
-          <input [(ngModel)]="item.note" type="text" name="{{item.piatto.id}}">
-          <button type="submit" (click)="clicc(i)">cliccc</button>
+        <form #formNote=ngForm class="expansion-panel-form">
+          <input [(ngModel)]="item.note" type="text" name="{{item.piatto.id}}" placeholder="note" class="input-note">
+          <button type="submit" (click)="clicc(i)" class="form-button">Invia</button>
         </form>
 
 

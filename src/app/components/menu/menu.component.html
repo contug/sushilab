@@ -1,4 +1,4 @@
-<div class="root-component-container flex-container" id="menu-container">
+<div class="root-component-container flex-container color-light" id="menu-container">
   <div class="flex-container header-container">
     <h1>Menù</h1>
   </div>
@@ -7,7 +7,7 @@
     <mat-icon class="color-arachidi">circle</mat-icon>
   -->
 
-  <div *ngFor="let tempMenu of menu">
+  <div *ngFor="let tempMenu of menu" class="color-light">
     <div class="flex-container header-container">
       <h3>{{tempMenu.nome}}</h3>
     </div>
@@ -49,9 +49,11 @@
               <div class="val-media-container">
                 <div class="star-container">
                   <mat-icon class="star-icon-yellow"
-                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneMedia))">star</mat-icon>
+                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneMedia))">star
+                  </mat-icon>
                   <mat-icon class="star-icon-white"
-                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneMedia))">star</mat-icon>
+                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneMedia))">star
+                  </mat-icon>
                 </div>
               </div>
             </div>
@@ -61,9 +63,11 @@
               <div class="val-utente-container">
                 <div class="star-container">
                   <mat-icon class="star-icon-yellow"
-                  *ngFor="let i of [].constructor(intValue(piatto.valutazioneUtente))">star</mat-icon>
+                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneUtente))">star
+                  </mat-icon>
                   <mat-icon class="star-icon-white"
-                  *ngFor="let i of [].constructor(diffValue(piatto.valutazioneUtente))">star</mat-icon>
+                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneUtente))">star
+                  </mat-icon>
 
                 </div>
               </div>
@@ -137,7 +141,7 @@
   </mat-card>-->
 </div>
 
-<button #fab mat-fab color="primary" class="on-top" aria-label="Example icon button with a delete icon"
+<button #fab mat-fab color="primary" class="on-top"
         routerLink="/tuoi-ordini">
   <mat-icon style="color: black">add_shopping_cart</mat-icon>
 </button>
