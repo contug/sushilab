@@ -1,12 +1,12 @@
 <div class="root-component-container flex-container color-light" id="crea-sessione-container">
   <div class="flex-container header-container">
     <h1>Gestione Tavolo</h1>
-    <h3>Numero tavolo:</h3>
+    <h3>Numero tavolo: {{numeroTavolo}}</h3>
   </div>
 
   <mat-card class="mat-elevation-z8">
     <div class="card-container flex-container">
-      <h3>Codice sessione: {{this.qrData}}</h3>
+      <h3>Codice sessione: {{idSessione}}</h3>
 
       <div id="qr-code">
         <qrcode [qrdata]="this.qrData" [width]="this.width" [errorCorrectionLevel]="'M'"></qrcode>
