@@ -6,6 +6,12 @@ h1, h3 {
   font-family: "Jockey One", sans-serif;
 }
 
+.check-icon{
+  color:green;
+}
+
+
+
 .card-container {
   flex-direction: column;
   justify-content: center;
@@ -180,14 +186,20 @@ h1, h3 {
   }
 
   #card-footer {
-    margin-top: 1vh;
+    height: 6vh;
     padding-left: 7vw;
     padding-right: 7vw;
     border: 0;
     width: 70vw;
     flex-direction: row;
+  }
+  #card-footer2 {
+    height: 6vh;
+    padding-left: 7vw;
+    padding-right: 0vw;
+    border: 0;
+    width: 70vw;
     justify-content: center;
-
   }
 
   #panel-toggle {
@@ -206,15 +218,33 @@ h1, h3 {
     align-items: center;
     justify-content: flex-start;
     margin-right: 1vw;
+
   }
 
   .max-quantity, .order-quantity {
-    font-size: 4vw;
+    font-size: 3vh;
   }
 
   .order-quantity {
-    padding-top: 1vw;
+    margin-top:2vh;
+    margin-bottom: 2vh;
   }
+
+  .check-button{
+    margin-top:2vh;
+    margin-bottom: 2vh;
+    margin-right: 1vw;
+    border: green;
+    background-color: transparent;
+  }
+
+  #check{
+    scale:3;
+  }
+
+
+
+
 }
 
 @media screen and (orientation: landscape) {
@@ -406,12 +436,16 @@ h1, h3 {
   }
 
   #card-footer {
-    margin-top: 2vh;
-
     border: 0;
     width: 30vw;
+    height:10vh;
     flex-direction: row;
-    justify-content: space-between;
+  }
+  #card-footer2 {
+    border: 0;
+    width: 30vw;
+    height:10vh;
+    justify-content: center;
   }
 
   #panel-toggle {
@@ -445,11 +479,17 @@ h1, h3 {
   }
 
   .max-quantity, .order-quantity {
-    font-size: 2vw;
+    font-size: 5vh;
   }
 
   .order-quantity {
-    padding-top: 1vh;
+    margin-top: 2vh ;
+    margin-bottom: 2vh;
+  }
+
+  .check-button{
+    border: green;
+    background-color: transparent;
   }
 
   .on-top {

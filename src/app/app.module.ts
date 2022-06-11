@@ -36,6 +36,8 @@ import {DialogComponent} from './components/dialog/dialog.component';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {QRCodeModule} from "angularx-qrcode";
 import {AreaPersonaleComponent} from './components/area-personale/area-personale.component';
+import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+
 
 const routes: Routes = [
   {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
@@ -95,7 +97,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    QRCodeModule
+    QRCodeModule,
+    NgxScannerQrcodeModule
   ],
   providers: [
     MenuService,

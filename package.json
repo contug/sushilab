@@ -23,6 +23,7 @@
     "@stoplight/elements": "^7.5.19",
     "angularx-qrcode": "^13.0.15",
     "moment": "^2.29.3",
+    "ngx-scanner-qrcode": "^1.0.17",
     "nodejs": "^0.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

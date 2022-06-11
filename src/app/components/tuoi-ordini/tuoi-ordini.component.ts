@@ -79,11 +79,11 @@ export class TuoiOrdiniComponent implements OnInit {
   }
 
 
-  ottieniOrdini(): void {
+  /*ottieniOrdini(): void {
     this.ordiniService.ottieniOrdiniUtente(this.idSessione, this.userId).subscribe(res => {
       console.log(res);
     })
-  }
+  }*/
 
 
 

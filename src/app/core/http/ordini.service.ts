@@ -50,13 +50,9 @@ export class OrdiniService {
 
   }
 
-  public ottieniOrdiniUtente(id: string, idUtente: string): Observable<Piatto[]> {
+  /*public ottieniOrdiniUtente(id: string, idUtente: string): Observable<Piatto[]> {
     return this.http.get<Piatto[]>(this.url + id + "/" + idUtente)
-  }
-
-  public modificaOrdiniUtente(id: string, idUtente: string, ordini: Ordine[]): Observable<any> {
-    return this.http.post(this.url + id + "/" + idUtente, ordini)
-  }
+  }*/
 
   public ottieniOrdiniInArrivo(id: string): Observable<OrdineDettaglio[]> {
     return this.http.get<OrdineDettaglio[]>(this.url + id + "/inarrivo")
@@ -64,6 +60,20 @@ export class OrdiniService {
 
   public getOrdini() : Observable<Ordine[]> {
     return this.http.get<Ordine[]>(this.url + "/tavolo/0/personali")
+  }
+
+  public eliminaOrdineArrivato(ordine: OrdineDettaglio, id:string){
+    return this.http.delete(this.url+id+"/inarrivo",
+      {
+        body: ordine
+      })
+  }
+
+  public aggiornaOrdineArrivato(ordine: OrdineDettaglio, id:string){
+    return this.http.put(this.url+id+"/inarrivo",
+      {
+        body: ordine
+      })
   }
 
 

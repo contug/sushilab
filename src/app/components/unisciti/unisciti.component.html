@@ -10,8 +10,12 @@
       </form>
       <button class="card-button color-dark mat-elevation-z8" >Unisciti</button>
       <button class="card-button color-dark mat-elevation-z8"
-              id="qr-button">Scansiona QR
+              id="qr-button"
+              (click)="action.toggleCamera()"
+              [disabled]="action.isLoading">Scansiona QR {{action.isStart ? 'Stop' : 'Start'}}
       </button>
+      <ngx-scanner-qrcode #action="scanner" ></ngx-scanner-qrcode>
+
     </div>
   </mat-card>
 </div>
