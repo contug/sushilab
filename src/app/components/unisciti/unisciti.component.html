@@ -6,16 +6,11 @@
   <mat-card class="mat-elevation-z8">
     <div class="card-container flex-container">
       <form action="">
-        <input class="card-input" placeholder="Codice sessione">
+        <input class="card-input" placeholder="Codice sessione" [value]="qrService.qrCode">
       </form>
       <button class="card-button color-dark mat-elevation-z8" >Unisciti</button>
       <button class="card-button color-dark mat-elevation-z8"
-              id="qr-button"
-              (click)="action.toggleCamera()"
-              [disabled]="action.isLoading">Scansiona QR {{action.isStart ? 'Stop' : 'Start'}}
-      </button>
-      <ngx-scanner-qrcode #action="scanner" ></ngx-scanner-qrcode>
-
+              id="qr-button" (click)="openDialog()">Scansiona QR</button>
     </div>
   </mat-card>
 </div>

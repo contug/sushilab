@@ -1,0 +1,59 @@
+.dialog-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (orientation: portrait) {
+
+  #dialog-header {
+    font-size: 4vh;
+    margin-bottom: 5vh;
+    margin-top: 2vh;
+  }
+
+  :host zxing-scanner::ng-deep {
+    max-height: 70vh;
+    width: 60vw;
+    object-fit: contain;
+    border-radius: 10%;
+  }
+
+
+  .card-button {
+    text-align: center;
+    height: 6vh;
+    width: 70vw;
+    border-radius: 9999em 9999em 9999em 9999em;
+    border: 0;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    font-size: 3vh;
+  }
+}
+
+@media screen and (orientation: landscape) {
+
+  #dialog-header {
+    font-size: 4vw;
+    margin-bottom: 5vw;
+    margin-top: 2vw;
+  }
+
+  .card-button {
+    text-align: center;
+    height: 10vh;
+    width: 35vw;
+    border-radius: 9999em 9999em 9999em 9999em;
+    border: 0;
+    margin: 0.5em;
+    font-size: 5vh;
+  }
+
+
+  :host zxing-scanner::ng-deep {
+    max-height: 70vw;
+    width: 60vh;
+    object-fit: contain;
+  }
+}

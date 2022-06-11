@@ -37,6 +37,8 @@ import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {QRCodeModule} from "angularx-qrcode";
 import {AreaPersonaleComponent} from './components/area-personale/area-personale.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
+import {ZXingScannerModule} from "@zxing/ngx-scanner";
 
 
 const routes: Routes = [
@@ -81,6 +83,7 @@ const routes: Routes = [
     BlacklistComponent,
     DialogComponent,
     AreaPersonaleComponent,
+    QrDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,7 +101,8 @@ const routes: Routes = [
     FormsModule,
     MatDialogModule,
     QRCodeModule,
-    NgxScannerQrcodeModule
+    NgxScannerQrcodeModule,
+    ZXingScannerModule
   ],
   providers: [
     MenuService,
