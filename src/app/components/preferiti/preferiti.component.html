@@ -1,4 +1,4 @@
-<div class="root-component-container flex-container" id="preferiti-container">
+<div class="root-component-container flex-container color-light" id="preferiti-container">
   <div class="flex-container header-container">
     <h1>Preferiti</h1>
   </div>
@@ -8,8 +8,7 @@
   -->
 
 
-
-
+  <div class="color-light">
     <mat-card class="mat-elevation-z8" *ngFor="let piatto of preferiti">
 
       <div class="card-container flex-container">
@@ -47,22 +46,26 @@
               <div class="val-media-container">
                 <div class="star-container">
                   <mat-icon class="star-icon-yellow"
-                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneMedia))">star</mat-icon>
+                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneMedia))">star
+                  </mat-icon>
                   <mat-icon class="star-icon-white"
-                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneMedia))">star</mat-icon>
+                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneMedia))">star
+                  </mat-icon>
 
                 </div>
               </div>
             </div>
 
-             <div class="valutazione-utente flex-container">
+            <div class="valutazione-utente flex-container">
               la tua valutazione:
               <div class="val-utente-container">
                 <div class="star-container">
                   <mat-icon class="star-icon-yellow"
-                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneUtente))">star</mat-icon>
+                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneUtente))">star
+                  </mat-icon>
                   <mat-icon class="star-icon-white"
-                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneUtente))">star</mat-icon>
+                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneUtente))">star
+                  </mat-icon>
 
                 </div>
               </div>
@@ -81,7 +84,7 @@
 
       </div>
     </mat-card>
-
+  </div>
 
   <div class="root-footer-spacing"></div>
 

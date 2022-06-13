@@ -4,16 +4,18 @@
     <h3>Numero tavolo: {{numeroTavolo}}</h3>
   </div>
 
-  <mat-card class="mat-elevation-z8">
-    <div class="card-container flex-container">
-      <h3>Codice sessione: {{idSessione}}</h3>
+  <div class="color-light">
+    <mat-card class="mat-elevation-z8">
+      <div class="card-container flex-container">
+        <h3>Codice sessione: {{idSessione}}</h3>
 
-      <div id="qr-code">
-        <qrcode [qrdata]="this.qrData" [width]="this.width" [errorCorrectionLevel]="'M'"></qrcode>
+        <div id="qr-code">
+          <qrcode [qrdata]="this.qrData" [width]="this.width" [errorCorrectionLevel]="'M'"></qrcode>
+        </div>
+
+        <button class="card-button color-dark mat-elevation-z8">Esci dalla sessione
+        </button>
       </div>
-
-      <button class="card-button color-dark mat-elevation-z8">Esci dalla sessione
-      </button>
-    </div>
-  </mat-card>
+    </mat-card>
+  </div>
 </div>

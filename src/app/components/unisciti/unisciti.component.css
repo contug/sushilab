@@ -59,6 +59,7 @@ mat-card {
     margin: 4vw;
     padding: 0;
     height: 70vw;
+
   }
 
   #qr-button {
@@ -110,5 +111,6 @@ mat-card {
     margin-top: 2vw;
     padding: 0;
     height: 35vw;
+    margin-bottom: 2vh;
   }
 }

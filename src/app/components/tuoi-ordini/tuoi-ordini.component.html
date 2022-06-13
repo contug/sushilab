@@ -1,68 +1,77 @@
 <div class="root-component-container flex-container color-light" id="tuoi-ordini-container">
 
   <div class="button-container">
-    <input alt="tavolo" routerLink="/lista-ordini" class="threeButtons" type="image" src="../../../assets/img/desk.png"/>
-    <input id="utente" alt="personali" routerLink="/tuoi-ordini" class="threeButtons" type="image" src="../../../assets/img/account.png"/>
-    <input alt="in arrivo" routerLink="/in-arrivo" class="threeButtons" type="image" src="../../../assets/img/index.png"/>
+    <input alt="tavolo" routerLink="/lista-ordini" class="threeButtons" type="image"
+           src="../../../assets/img/desk.png"/>
+    <input id="utente" alt="personali" routerLink="/tuoi-ordini" class="threeButtons" type="image"
+           src="../../../assets/img/account.png"/>
+    <input alt="in arrivo" routerLink="/in-arrivo" class="threeButtons" type="image"
+           src="../../../assets/img/index.png"/>
   </div>
 
   <div>
     <h1 class="tuoiOrdini">I tuoi ordini</h1>
   </div>
 
-  <mat-card class="mat-elevation-z8" *ngFor="let item of ordiniUtente; index as i;">
+  <div class="color-light">
+    <mat-card class="mat-elevation-z8" *ngFor="let item of ordiniUtente; index as i;">
 
-    <div class="card-container flex-container">
-      <div class="header-piatto flex-container">
-        <h3 id="numero-piatto">{{item.piatto.numero}}</h3>
-        <h3 id="nome-piatto">{{item.piatto.nome}}</h3>
-        <button id="star-button" (click)="item.piatto.preferito = !item.piatto.preferito">
-          <mat-icon id="star-border" [hidden]="!item.piatto.preferito">star_border</mat-icon>
-          <mat-icon id="star-full" [hidden]="item.piatto.preferito">star</mat-icon>
-        </button>
-      </div>
+      <div class="card-container flex-container">
+        <div class="header-piatto flex-container">
+          <h3 id="numero-piatto">{{item.piatto.numero}}</h3>
+          <h3 id="nome-piatto">{{item.piatto.nome}}</h3>
+          <button id="star-button" (click)="item.piatto.preferito = !item.piatto.preferito">
+            <mat-icon id="star-border" [hidden]="!item.piatto.preferito">star_border</mat-icon>
+            <mat-icon id="star-full" [hidden]="item.piatto.preferito">star</mat-icon>
+          </button>
+        </div>
 
 
-      <div id="immagine">
-        <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(getImmagine(item.piatto.id))" alt="foto" >
-      </div>
+        <div id="immagine">
+          <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl(getImmagine(item.piatto.id))" alt="foto">
+        </div>
 
-      <div class="footer-immagine flex-container">
-        <div id="allergeni" class="flex-container">
-          <div id="icona-allergene" *ngFor="let allergene of item.piatto.allergeni">
-            <mat-icon [style.color]="allergene.colore">circle</mat-icon>
+        <div class="footer-immagine flex-container">
+          <div id="allergeni" class="flex-container">
+            <div id="icona-allergene" *ngFor="let allergene of item.piatto.allergeni">
+              <mat-icon [style.color]="allergene.colore">circle</mat-icon>
+            </div>
+          </div>
+          <div id="prezzo">{{item.piatto.prezzo}}€</div>
+        </div>
+
+        <div class="expansion-panel flex-container" [hidden]="hidden">
+          <form #formNote=ngForm class="expansion-panel-form">
+            <input [(ngModel)]="item.note" type="text" name="{{item.piatto.id}}" placeholder="note" class="input-note">
+            <button type="submit" (click)="clicc(i)" class="form-button">Invia</button>
+          </form>
+
+
+        </div>
+
+        <div class="flex-container" id="card-footer">
+          <button id="panel-toggle" (click)="togglePanel()">
+            <mat-icon id="toggle-icon">more_vert</mat-icon>
+          </button>
+          <div class="flex-container quantity-buttons">
+            <button id="minus-button" (click)="this.menuService.modificaOrdine(item.piatto, false, item.piatto.limite)">
+              -
+            </button>
+            <div class="quantity flex-container">
+              <div class="max-quantity"> Max: {{item.piatto.limite}}</div>
+              <div class="order-quantity">{{this.menuService.getValue(item.piatto.id)}}</div>
+            </div>
+            <button id="plus-button" (click)="this.menuService.modificaOrdine(item.piatto, true, item.piatto.limite)">
+              +
+            </button>
           </div>
         </div>
-        <div id="prezzo">{{item.piatto.prezzo}}€</div>
-      </div>
-
-      <div class="expansion-panel flex-container" [hidden]="hidden">
-        <form #formNote=ngForm class="expansion-panel-form">
-          <input [(ngModel)]="item.note" type="text" name="{{item.piatto.id}}" placeholder="note" class="input-note">
-          <button type="submit" (click)="clicc(i)" class="form-button">Invia</button>
-        </form>
-
 
       </div>
+    </mat-card>
+  </div>
 
-      <div class="flex-container" id="card-footer">
-        <button id="panel-toggle" (click)="togglePanel()">
-          <mat-icon id="toggle-icon">more_vert</mat-icon>
-        </button>
-        <div class="flex-container quantity-buttons">
-          <button id="minus-button" (click)="this.menuService.modificaOrdine(item.piatto, false, item.piatto.limite)">-</button>
-          <div class="quantity flex-container">
-            <div class="max-quantity"> Max: {{item.piatto.limite}}</div>
-            <div class="order-quantity">{{this.menuService.getValue(item.piatto.id)}}</div>
-          </div>
-          <button id="plus-button" (click)="this.menuService.modificaOrdine(item.piatto, true, item.piatto.limite)">+</button>
-        </div>
-      </div>
-
-    </div>
-  </mat-card>
-
-  <div class="flex-container center">
+  <div class="flex-container center color-light">
     <button class="card-button color-dark mat-elevation-z8" (click)="confermaOrdine()">
       Conferma Ordine
     </button>

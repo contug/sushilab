@@ -221,7 +221,8 @@ h1, h3 {
     border-radius: 1vw;
     border-width: 0;
     height: 5vh;
-
+    font-size: 3vh;
+    text-align: center;
   }
 
   ::placeholder {
@@ -498,5 +499,30 @@ h1, h3 {
     border: 0;
     margin: 0.5em;
     font-size: 3vh;
+  }
+
+  .input-note {
+    background-color: lightgray;
+    width: 50vh;
+    border-radius: 1vh;
+    border-width: 0;
+    height: 5vw;
+    font-size: 3vw;
+    text-align: center;
+  }
+
+  ::placeholder {
+    font-size: 3vw;
+    text-align: center;
+
+  }
+
+  .form-button {
+    border-radius: 1vh;
+    border-width: 0;
+    margin-left: 2vh;
+    height: 5vw;
+    width: 5vw;
+    font-size: 2vw;
   }
 }

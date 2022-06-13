@@ -101,6 +101,7 @@
       text-align: center;
       font-size: 5vh;
       font-weight: 100;
+      margin-top: 2vh;
     }
 
     .card-button {
@@ -123,6 +124,7 @@
       margin-right: 20vw;
       margin-top: 2vw;
       padding: 0;
-      height: 35vw;
+      height: 40vw;
+      margin-bottom: 2vh;
     }
   }
