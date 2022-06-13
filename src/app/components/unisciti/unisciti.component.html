@@ -5,10 +5,10 @@
 
   <mat-card class="mat-elevation-z8">
     <div class="card-container flex-container">
-      <form action="">
-        <input class="card-input" placeholder="Codice sessione" [value]="qrService.qrCode">
+      <form action="" [formGroup]="qrForm">
+        <input class="card-input" placeholder="Codice sessione" formControlName="qrInput">
       </form>
-      <button class="card-button color-dark mat-elevation-z8" >Unisciti</button>
+      <button class="card-button color-dark mat-elevation-z8" (click)="onClickUnisciti()">Unisciti</button>
       <button class="card-button color-dark mat-elevation-z8"
               id="qr-button" (click)="openDialog()">Scansiona QR</button>
     </div>
