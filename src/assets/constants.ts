@@ -1,3 +1,3 @@
 export class Constants {
-  public static ROOT_URL = "https://stoplight.io/mocks/contug/sushilab/60738524"
+  public static ROOT_URL = "http://localhost:8080"
 }

@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl("/");
         });
     }
-    console.log(this.auth.isLoggedIn())
   }
 
 

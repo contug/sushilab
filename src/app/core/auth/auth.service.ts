@@ -26,24 +26,16 @@ export class AuthService {
   }
 
   public setSession(jsonWebToken: JsonWebToken) {
-    const expiresAt = moment().add(jsonWebToken.expiresIn, 'second');
 
-    localStorage.setItem('id_token', jsonWebToken.idToken);
-    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem('token', jsonWebToken.token);
 
-    this.utente.idUtente = jsonWebToken.idToken;
+
+    this.utente.idUtente = jsonWebToken.idUtente
   }
 
   logout(): void {
-    localStorage.removeItem("id_token");
-    localStorage.removeItem("expires_at");
+    localStorage.removeItem("token");
   }
 
-  isLoggedIn(): boolean {
-    const scadenza = localStorage.getItem("expires_at");
-    if (scadenza == null)
-      return false;
-    else
-      return moment().isBefore(moment(JSON.parse(scadenza)));
-  }
+
 }
