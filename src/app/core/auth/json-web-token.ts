@@ -1,4 +1,7 @@
 export class JsonWebToken {
-  expiresIn!:number;
-  idToken!:string;
+
+  token! : string;
+
+  idUtente! : number;
+
 }

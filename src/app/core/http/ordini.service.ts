@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {OrdineCompatto} from "../../shared/models/ordine-compatto";
 import {Constants} from "../../../assets/constants";
-import {Piatto} from "../../shared/models/piatto";
 import {Ordine} from "../../shared/models/ordine";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 

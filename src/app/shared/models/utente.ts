@@ -1,6 +1,6 @@
 export class Utente{
   email!:string;
-  idUtente!:string;
+  idUtente!:number;
   isGestore:boolean =false;
   password!:string;
 }

@@ -19,6 +19,7 @@ export class ImmaginiService {
         element.piatti.forEach(piatto => {
           this.immaginiHttpServ.ottieniImmagine(piatto.id).subscribe(res => {
             this.mapImmagini.set(piatto.id, res.img);
+            console.log("immagine b64 in immaginiService: " + res.img);
           })
         })
       })

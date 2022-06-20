@@ -16,7 +16,7 @@ export class MenuHttpService {
   constructor(private http: HttpClient) { }
 
   public ottieniMenu():Observable<Menu[]> {
-    return this.http.get<Menu[]>(this.url + "/menu/0")
+    return this.http.get<Menu[]>(this.url + "/menu/1")
   }
 
   public getOrdini() : Observable<OrdineDettaglio[]> {
