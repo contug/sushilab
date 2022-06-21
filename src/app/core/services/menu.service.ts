@@ -4,6 +4,9 @@ import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 import {MenuHttpService} from "../http/menu-http.service";
 import {Observable} from "rxjs";
 import {Menu} from "../../shared/models/menu";
+import {PiattoUtente} from "../../shared/models/piatto-utente";
+import {RecensioniHttpService} from "../http/recensioni-http.service";
+import {ValutazioneUtente} from "../../shared/models/valutazione-utente";
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +16,11 @@ export class MenuService {
   map!: Map<number, number>;
   mapNote: Map<Piatto, string> = new Map<Piatto, string>();
   mapOrdini!: Map<Piatto, number>;
+  valutazioniUtente : ValutazioneUtente[] = [];
 
 
 
-
-  constructor() {
+  constructor(private recensioniHttpService : RecensioniHttpService) {
   }
 
 
@@ -162,7 +165,20 @@ export class MenuService {
 
 
 
+  getValutazioni() {
+    this.recensioniHttpService.getRecensioniUtente().subscribe(res => {
+      this.valutazioniUtente = res;
+    })
+  }
 
+  getValutazione(idPiatto : number) {
+    let val = this.valutazioniUtente.find(i => i.idPiatto === idPiatto);
+    if(val == undefined) {
+      return 0;
+    }
+    else
+      return val.valutazione;
+  }
 
 
 

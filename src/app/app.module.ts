@@ -106,7 +106,6 @@ const routes: Routes = [
   ],
   providers: [
     MenuService,
-    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

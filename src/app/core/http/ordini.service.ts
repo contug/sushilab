@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Constants} from "../../../assets/constants";
 import {Ordine} from "../../shared/models/ordine";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
+import {OrdineConfermato} from "../../shared/models/ordine-confermato";
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,43 @@ export class OrdiniService {
     //return this.http.get<OrdineDettaglio[]>("https://stoplight.io/mocks/contug/sushilab/60738524/tavolo/{idTavolo}/ordini");
   }
 
-  public confermaOrdine(idTavolo: string, idUtente:string, ordine:OrdineDettaglio): Observable<any> {
-    console.log(ordine)
-    return this.http.post(this.url + idTavolo+"/"+idUtente + "/personali",
+  public confermaOrdine(idTavolo: string, idUtente: string, listaOrdini: OrdineConfermato[]): Observable<any> {
+    return this.http.post(this.url + idUtente,
+      listaOrdini);
+
+  }
+
+  /*public ottieniOrdiniUtente(id: string, idUtente: string): Observable<Piatto[]> {
+    return this.http.get<Piatto[]>(this.url + id + "/" + idUtente)
+  }*/
+
+  public ottieniOrdiniInArrivo(id: string): Observable<OrdineDettaglio[]> {
+    return this.http.get<OrdineDettaglio[]>(this.url + id + "/inarrivo")
+  }
+
+  public getOrdini(): Observable<Ordine[]> {
+    return this.http.get<Ordine[]>(this.url + "/tavolo/0/personali")
+  }
+
+  public eliminaOrdineArrivato(ordine: OrdineDettaglio, id: string) {
+    return this.http.delete(this.url + id + "/inarrivo",
       {
-        "piatto": {
+        body: ordine
+      })
+  }
+
+  public aggiornaOrdineArrivato(ordine: OrdineDettaglio, id: string) {
+    return this.http.put(this.url + id + "/inarrivo",
+      {
+        body: ordine
+      })
+  }
+
+
+}
+
+
+/* "piatto": {
           "id": ordine.piatto.id,
           "numero": ordine.piatto.numero,
           "variante": ordine.piatto.variante,
@@ -40,42 +73,4 @@ export class OrdiniService {
           "consigliato": ordine.piatto.consigliato,
           "immagine": ordine.piatto.immagine,
           "alt": ordine.piatto.alt
-        },
-        "molteplicita": ordine.molteplicita,
-        "note": ordine.note
-      }
-      );
-
-  }
-
-  /*public ottieniOrdiniUtente(id: string, idUtente: string): Observable<Piatto[]> {
-    return this.http.get<Piatto[]>(this.url + id + "/" + idUtente)
-  }*/
-
-  public ottieniOrdiniInArrivo(id: string): Observable<OrdineDettaglio[]> {
-    return this.http.get<OrdineDettaglio[]>(this.url + id + "/inarrivo")
-  }
-
-  public getOrdini() : Observable<Ordine[]> {
-    return this.http.get<Ordine[]>(this.url + "/tavolo/0/personali")
-  }
-
-  public eliminaOrdineArrivato(ordine: OrdineDettaglio, id:string){
-    return this.http.delete(this.url+id+"/inarrivo",
-      {
-        body: ordine
-      })
-  }
-
-  public aggiornaOrdineArrivato(ordine: OrdineDettaglio, id:string){
-    return this.http.put(this.url+id+"/inarrivo",
-      {
-        body: ordine
-      })
-  }
-
-
-
-}
-
-
+        }*/

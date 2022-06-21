@@ -11,7 +11,7 @@ import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 })
 export class ListaOrdiniComponent implements OnInit {
 
-  idSessione: string = "0"
+  idSessione: string = "5"
   ordiniTavolo!: OrdineDettaglio[];
   constructor(private ordiniService: OrdiniService) { }
 

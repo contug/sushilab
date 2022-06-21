@@ -20,9 +20,9 @@ export class PreferitiHttpService {
   }
 
   public aggiungiAiPreferiti(idUtente: number, piatto: Piatto) {
-    this.http.post(Constants.ROOT_URL + "/tavolo/" + idUtente + "/preferiti", {
+    this.http.post(Constants.ROOT_URL + "/tavolo/preferiti/" + idUtente, {
       "id": piatto.id,
-      "numero": piatto.numero,
+      /*"numero": piatto.numero,
       "variante": piatto.variante,
       "nome": piatto.nome,
       "prezzo": piatto.prezzo,
@@ -35,16 +35,16 @@ export class PreferitiHttpService {
       "popolare": piatto.popolare,
       "consigliato": piatto.consigliato,
       "immagine": piatto.immagine,
-      "alt": piatto.alt
+      "alt": piatto.alt*/
     })
   }
 
   public rimuoviDaiPreferiti(idUtente:number, piatto:Piatto){
-    this.http.delete(Constants.ROOT_URL+"/tavolo/"+idUtente+"/preferiti",
+    this.http.delete(Constants.ROOT_URL+"/tavolo/preferiti/" +idUtente,
       {body:
           {
             "id": piatto.id,
-            "numero": piatto.numero,
+            /*"numero": piatto.numero,
             "variante": piatto.variante,
             "nome": piatto.nome,
             "prezzo": piatto.prezzo,
@@ -57,7 +57,7 @@ export class PreferitiHttpService {
             "popolare": piatto.popolare,
             "consigliato": piatto.consigliato,
             "immagine": piatto.immagine,
-            "alt": piatto.alt
+            "alt": piatto.alt*/
           }
       })
 

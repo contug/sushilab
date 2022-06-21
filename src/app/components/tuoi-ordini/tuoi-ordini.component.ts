@@ -5,6 +5,8 @@ import {Ordine} from "../../shared/models/ordine";
 import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 import {ImmaginiService} from "../../core/services/immagini.service";
 import {DomSanitizer} from "@angular/platform-browser";
+import {OrdineConfermato} from "../../shared/models/ordine-confermato";
+import {List} from "@zxing/library/es2015/customTypings";
 
 @Component({
   selector: 'app-tuoi-ordini',
@@ -43,10 +45,18 @@ export class TuoiOrdiniComponent implements OnInit {
 
   confermaOrdine() {
 
+    let idUtente = localStorage.getItem('idUtente')!;
+    let listaOrdini : OrdineConfermato[] = [];
 
     this.ordiniUtente.forEach((value, index, array) => {
-      this.ordiniService.confermaOrdine("0", "0", this.ordiniUtente[index]).subscribe();
+      let ordine : OrdineConfermato = new OrdineConfermato();
+      ordine.piattoId = value.piatto.id;
+      ordine.count = value.molteplicita;
+      ordine.note = value.note;
+      listaOrdini.push(ordine);
     })
+
+    this.ordiniService.confermaOrdine("5", idUtente, listaOrdini).subscribe();
 
     console.log(this.ordiniUtente)
     this.ordiniUtente = [];

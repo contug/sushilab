@@ -12,7 +12,7 @@
       <h3>{{tempMenu.nome}}</h3>
     </div>
 
-    <mat-card class="mat-elevation-z8" *ngFor="let piatto of tempMenu.piatti">
+    <mat-card class="mat-elevation-z8" *ngFor="let piatto of tempMenu.piatti.sort(compare)">
 
       <div class="card-container flex-container">
         <div class="header-piatto flex-container">
@@ -63,10 +63,10 @@
               <div class="val-utente-container">
                 <div class="star-container">
                   <mat-icon class="star-icon-yellow"
-                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneUtente))">star
+                            *ngFor="let i of [].constructor(intValue(this.menuService.getValutazione(piatto.id)))">star
                   </mat-icon>
                   <mat-icon class="star-icon-white"
-                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneUtente))">star
+                            *ngFor="let i of [].constructor(diffValue(this.menuService.getValutazione(piatto.id)))">star
                   </mat-icon>
 
                 </div>

@@ -29,8 +29,11 @@ export class AuthService {
 
     localStorage.setItem('token', jsonWebToken.token);
 
+    console.log("auth.setSession idUtente dal token: " + jsonWebToken.idUtente);
+    this.utente.idUtente = jsonWebToken.idUtente;
+    localStorage.setItem('idUtente', jsonWebToken.idUtente.toString())
+    console.log("auth.utente.idUtente: " + this.utente.idUtente);
 
-    this.utente.idUtente = jsonWebToken.idUtente
   }
 
   logout(): void {

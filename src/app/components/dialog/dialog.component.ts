@@ -98,7 +98,7 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   onClickClose() {
     this.recensioniHttpService.postRecensione(this.data.idPiatto, this.recensioniHttpService.valutazione).subscribe( res => {
-      console.log(res);
+      console.log("log on click close" + res);
       this.dialogRef.close()
     })
   }

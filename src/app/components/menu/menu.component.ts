@@ -36,8 +36,11 @@ export class MenuComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     console.log("oninit");
     this.ottieniMenu();
+    this.menuService.getValutazioni();
+    console.log("array valutazioni: " + this.menuService.valutazioniUtente);
     this.menuService.mapInit();
     this.menuService.mostraMappa();
+
 
 
   }
@@ -96,6 +99,16 @@ export class MenuComponent implements OnInit, OnChanges {
     });
 
 
+  }
+
+  compare( a:Piatto, b:Piatto ) {
+    if ( a.numero < b.numero ){
+      return -1;
+    }
+    if ( a.numero > b.numero ){
+      return 1;
+    }
+    return 0;
   }
 
 }
