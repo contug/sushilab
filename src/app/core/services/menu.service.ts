@@ -7,6 +7,7 @@ import {Menu} from "../../shared/models/menu";
 import {PiattoUtente} from "../../shared/models/piatto-utente";
 import {RecensioniHttpService} from "../http/recensioni-http.service";
 import {ValutazioneUtente} from "../../shared/models/valutazione-utente";
+import {PreferitiHttpService} from "../http/preferiti-http.service";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class MenuService {
 
 
 
-  constructor(private recensioniHttpService : RecensioniHttpService) {
+  constructor(private recensioniHttpService : RecensioniHttpService,
+              private preferitiHttpService : PreferitiHttpService) {
   }
 
 
@@ -181,6 +183,13 @@ export class MenuService {
   }
 
 
+  getPreferito(piatto : Piatto) : Boolean  {
+    if(this.preferitiHttpService.preferitiUtente.some(element => (piatto.id === element.id.piattoId))){
+      return this.preferitiHttpService.preferitiUtente.find(element => (piatto.id === element.id.piattoId))!.preferito;}
+    else{
+      return false;
+    }
+  }
 
 }
 

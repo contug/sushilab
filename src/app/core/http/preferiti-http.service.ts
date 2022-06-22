@@ -1,66 +1,86 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Constants} from "../../../assets/constants";
 import {PiattoUtente} from "../../shared/models/piatto-utente";
 import {Observable} from "rxjs";
 import {Piatto} from "../../shared/models/piatto";
+import {PiattoUtenteB} from "../../shared/models/PiattoUtenteB";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PreferitiHttpService {
 
+  preferitiUtente: PiattoUtenteB[] = [];
 
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient,
+              private router : Router) {
+    this.preferitiInit()
   }
 
-  public ottieniPreferiti(idUtente:number):Observable<Piatto[]> {
-    return this.http.get<Piatto[]>(Constants.ROOT_URL+"/tavolo/"+idUtente+"/preferiti");
-  }
-
-  public aggiungiAiPreferiti(idUtente: number, piatto: Piatto) {
-    this.http.post(Constants.ROOT_URL + "/tavolo/preferiti/" + idUtente, {
-      "id": piatto.id,
-      /*"numero": piatto.numero,
-      "variante": piatto.variante,
-      "nome": piatto.nome,
-      "prezzo": piatto.prezzo,
-      "allergeni": piatto.allergeni,
-      "ingredienti": piatto.ingredienti,
-      "limite": piatto.limite,
-      "valutazioneMedia": piatto.valutazioneMedia,
-      "valutazioneUtente": piatto.valutazioneUtente,
-      "preferito": piatto.preferito,
-      "popolare": piatto.popolare,
-      "consigliato": piatto.consigliato,
-      "immagine": piatto.immagine,
-      "alt": piatto.alt*/
+  preferitiInit() {
+    this.getPreferiti().subscribe(res => {
+      this.preferitiUtente = res;
     })
   }
 
-  public rimuoviDaiPreferiti(idUtente:number, piatto:Piatto){
-    this.http.delete(Constants.ROOT_URL+"/tavolo/preferiti/" +idUtente,
-      {body:
-          {
-            "id": piatto.id,
-            /*"numero": piatto.numero,
-            "variante": piatto.variante,
-            "nome": piatto.nome,
-            "prezzo": piatto.prezzo,
-            "allergeni": piatto.allergeni,
-            "ingredienti": piatto.ingredienti,
-            "limite": piatto.limite,
-            "valutazioneMedia": piatto.valutazioneMedia,
-            "valutazioneUtente": piatto.valutazioneUtente,
-            "preferito": piatto.preferito,
-            "popolare": piatto.popolare,
-            "consigliato": piatto.consigliato,
-            "immagine": piatto.immagine,
-            "alt": piatto.alt*/
-          }
-      })
+  public getPreferiti() : Observable<PiattoUtenteB[]> {
+    return this.http.get<PiattoUtenteB[]>(Constants.ROOT_URL + "/preferiti/" + localStorage.getItem("idUtente"));
+  }
+
+  public ottieniPreferiti(): Observable<PiattoUtente[]> {
+    return this.http.get<PiattoUtente[]>(Constants.ROOT_URL + "/preferiti/" + localStorage.getItem("idUtente"));
+  }
+
+  public aggiungiAiPreferiti(piatto: Piatto, route : number) {
+    console.log("post preferito")
+    this.http.post(Constants.ROOT_URL + "/preferiti/" + localStorage.getItem("idUtente"), piatto.id).subscribe(res => {
+      this.preferitiInit();
+      if(route === 0) {
+        this.router.navigateByUrl('/', {skipLocationChange: true})
+          .then(() => {
+            this.router.navigate(["/menu"]);
+          });
+      }
+      else {
+        this.router.navigateByUrl('/', {skipLocationChange: true})
+          .then(() => {
+            this.router.navigate(["/preferiti"]);
+          });
+      }
+    })
+    console.log("dopo post preferito")
+  }
+
+  public rimuoviDaiPreferiti(piatto: Piatto, route: number) {
+    this.http.post(Constants.ROOT_URL + "/preferiti/" + localStorage.getItem("idUtente") + "/" + piatto.id, "").subscribe(res => {
+      this.preferitiInit();
+
+      if(route === 0) {
+        this.router.navigateByUrl('/', {skipLocationChange: true})
+          .then(() => {
+            this.router.navigate(["/menu"]);
+          });
+      }
+      else {
+        this.router.navigateByUrl('/', {skipLocationChange: true})
+          .then(() => {
+            this.router.navigate(["/preferiti"]);
+          });
+      }
+
+    })
 
   }
+
+  getPreferito(idPiatto: number): Observable<PiattoUtente> {
+    return this.http.get<PiattoUtente>(Constants.ROOT_URL + "/preferiti/" + localStorage.getItem('idUtente') + "/" + idPiatto);
+  }
+
+  getAllPreferiti() : Observable<Piatto[]> {
+    return this.http.get<Piatto[]>(Constants.ROOT_URL + "/preferiti/" + localStorage.getItem("idUtente") + "/all")
+}
 
 }

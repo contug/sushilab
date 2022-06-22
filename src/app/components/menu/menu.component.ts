@@ -10,6 +10,10 @@ import {AuthService} from "../../core/auth/auth.service";
 import {RecensioniHttpService} from "../../core/http/recensioni-http.service";
 import {Piatto} from "../../shared/models/piatto";
 import {Router} from "@angular/router";
+import {PreferitiHttpService} from "../../core/http/preferiti-http.service";
+import {HttpClient} from "@angular/common/http";
+import {PiattoUtente} from "../../shared/models/piatto-utente";
+import {Constants} from "../../../assets/constants";
 
 @Component({
   selector: 'app-menu',
@@ -24,13 +28,14 @@ export class MenuComponent implements OnInit, OnChanges {
   immagine: any;
 
 
-
   constructor(private menuHttpService: MenuHttpService,
+              private http: HttpClient,
+              public preferitiHttpService: PreferitiHttpService,
               public menuService: MenuService,
               public immaginiService: ImmaginiService,
               public sanitizer: DomSanitizer,
-              public dialog : MatDialog,
-              private router : Router) {
+              public dialog: MatDialog,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,7 +47,6 @@ export class MenuComponent implements OnInit, OnChanges {
     this.menuService.mostraMappa();
 
 
-
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -50,10 +54,9 @@ export class MenuComponent implements OnInit, OnChanges {
   }
 
 
-  getImmagine(id: number):string {
+  getImmagine(id: number): string {
     return this.immaginiService.mapImmagini.get(id)!;
   }
-
 
 
   togglePanel() {
@@ -71,19 +74,16 @@ export class MenuComponent implements OnInit, OnChanges {
   }
 
 
-  intValue(num:number): number {
+  intValue(num: number): number {
     return Math.trunc(num);
   }
 
-  diffValue(num:number): number {
-    return 5-Math.trunc(num);
+  diffValue(num: number): number {
+    return 5 - Math.trunc(num);
   }
 
 
-
-
-
-  openDialog(idPiatto:number, piatto: Piatto): void {
+  openDialog(idPiatto: number, piatto: Piatto): void {
     let valutazione = 0;
     let dialogRef = this.dialog.open(DialogComponent, {
       width: '75vw',
@@ -92,7 +92,7 @@ export class MenuComponent implements OnInit, OnChanges {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
-      this.router.navigateByUrl('/', { skipLocationChange: true })
+      this.router.navigateByUrl('/', {skipLocationChange: true})
         .then(() => {
           this.router.navigate(["/menu"]);
         });
@@ -101,14 +101,24 @@ export class MenuComponent implements OnInit, OnChanges {
 
   }
 
-  compare( a:Piatto, b:Piatto ) {
-    if ( a.numero < b.numero ){
+  compare(a: Piatto, b: Piatto) {
+    if (a.numero < b.numero) {
       return -1;
     }
-    if ( a.numero > b.numero ){
+    if (a.numero > b.numero) {
       return 1;
     }
     return 0;
+  }
+
+
+  modificaPreferito(piatto: Piatto) {
+    if (this.menuService.getPreferito(piatto)) {
+      this.preferitiHttpService.rimuoviDaiPreferiti(piatto, 0)
+    } else {
+      this.preferitiHttpService.aggiungiAiPreferiti(piatto, 0);
+    }
+
   }
 
 }

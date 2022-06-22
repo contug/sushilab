@@ -9,15 +9,15 @@
 
 
   <div class="color-light">
-    <mat-card class="mat-elevation-z8" *ngFor="let piatto of preferiti">
+    <mat-card class="mat-elevation-z8" *ngFor="let piatto of preferiti.sort(compare)">
 
       <div class="card-container flex-container">
         <div class="header-piatto flex-container">
           <h3 id="numero-piatto">{{piatto.numero}}</h3>
           <h3 id="nome-piatto">{{piatto.nome}}</h3>
-          <button id="star-button" (click)="aggiungiRimuoviDaiPreferiti(0,piatto)">
-            <mat-icon id="star-border" [hidden]="piatto.preferito">star_border</mat-icon>
-            <mat-icon id="star-full" [hidden]="!piatto.preferito">star</mat-icon>
+          <button id="star-button" (click)="this.modificaPreferito(piatto)">
+            <mat-icon id="star-border" [hidden]="this.menuService.getPreferito(piatto)">star_border</mat-icon>
+            <mat-icon id="star-full" [hidden]="!this.menuService.getPreferito(piatto)">star</mat-icon>
           </button>
         </div>
 
@@ -61,10 +61,10 @@
               <div class="val-utente-container">
                 <div class="star-container">
                   <mat-icon class="star-icon-yellow"
-                            *ngFor="let i of [].constructor(intValue(piatto.valutazioneUtente))">star
+                            *ngFor="let i of [].constructor(intValue(this.menuService.getValutazione(piatto.id)))">star
                   </mat-icon>
                   <mat-icon class="star-icon-white"
-                            *ngFor="let i of [].constructor(diffValue(piatto.valutazioneUtente))">star
+                            *ngFor="let i of [].constructor(diffValue(this.menuService.getValutazione(piatto.id)))">star
                   </mat-icon>
 
                 </div>
