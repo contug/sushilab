@@ -39,10 +39,11 @@ export class BlacklistComponent implements OnInit {
   eliminaDallaBlacklist(ingrediente:string){
     this.blacklistService.eliminaDallaBlacklist(ingrediente)
 
-    this.router.navigateByUrl('/', { skipLocationChange: true })
+    document.getElementById(ingrediente)!.hidden =true
+    /*this.router.navigateByUrl('/', { skipLocationChange: true })
       .then(() => {
         this.router.navigate(["/blacklist"]);
-      });
+      });*/
 
 
   }

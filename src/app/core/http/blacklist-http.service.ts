@@ -14,7 +14,7 @@ export class BlacklistHttpService {
   }
 
   ottieniBlacklist():Observable<Ingrediente[]>{
-    return this.http.get<Ingrediente[]>(Constants.ROOT_URL+'/blacklist/'+0);
+    return this.http.get<Ingrediente[]>(Constants.ROOT_URL+'/blacklist/'+ localStorage.getItem("idUtente"));
   }
 
   aggiornaBlacklist(ingredienti:string[]):Observable<string>{
@@ -38,10 +38,10 @@ export class BlacklistHttpService {
   eliminaDallaBlacklist(ingrediente: string) {
     console.log(ingrediente)
     this.http.delete<string>(
-      Constants.ROOT_URL + "/blacklist/" + "0",
+      Constants.ROOT_URL + "/blacklist/" + localStorage.getItem("idUtente"),
       {
         body: {
-          "ingrediente": ingrediente
+          "nome": ingrediente
         }
       }
     ).subscribe()
