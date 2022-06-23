@@ -4,6 +4,7 @@ import {OrdineDettaglio} from "../../shared/models/ordine-dettaglio";
 import {ImmaginiService} from "../../core/services/immagini.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Router} from "@angular/router";
+import {Piatto} from "../../shared/models/piatto";
 
 @Component({
   selector: 'app-in-arrivo',
@@ -29,7 +30,7 @@ export class InArrivoComponent implements OnInit {
   }
 
   ottieniOrdiniInArrivo():void{
-    this.ordiniService.ottieniOrdiniInArrivo("0").subscribe(res=>{
+    this.ordiniService.ottieniOrdiniInArrivo().subscribe(res=>{
       this.piattiInArrivo=res;
       console.log(this.piattiInArrivo);
       console.log(this.piattiInArrivo[0].piatto.numero);
@@ -44,23 +45,44 @@ export class InArrivoComponent implements OnInit {
     ordine.molteplicita--
     if(ordine.molteplicita==0){
       console.log(ordine)
-      this.ordiniService.eliminaOrdineArrivato(ordine, "0")
+      this.ordiniService.eliminaOrdineArrivato(ordine).subscribe(res => {})
       console.log("FAI DELETE ORDINE")
 
-      this.router.navigateByUrl('/', { skipLocationChange: true })
+      document.getElementById(ordine.piatto.id.toString())!.hidden = true;
+
+     /* this.router.navigateByUrl('/', { skipLocationChange: true })
         .then(() => {
           this.router.navigate(["/in-arrivo"]);
-        });
+        });*/
 
     }
     else {
       console.log(ordine)
-      this.ordiniService.aggiornaOrdineArrivato(ordine,"0")
+      this.ordiniService.aggiornaOrdineArrivato(ordine).subscribe(res => {})
       console.log("FAI PUT ORDINE (molteplicità -1)")
 
 
     }
 
   }
+
+
+  compare(a: OrdineDettaglio, b: OrdineDettaglio) {
+    if (a.piatto.numero < b.piatto.numero) {
+      return -1;
+    }
+    if (a.piatto.numero > b.piatto.numero) {
+      return 1;
+    }
+    return 0;
+  }
+
+  checkMolteplicita(molteplicita : number) : boolean {
+    if(molteplicita === 0)
+      return true;
+    else
+      return false;
+  }
+
 
 }

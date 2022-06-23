@@ -14,7 +14,7 @@
   </div>
 
   <div class="color-light">
-    <mat-card class="mat-elevation-z8" *ngFor="let item of piattiInArrivo">
+    <mat-card [id]="item.piatto.id" class="mat-elevation-z8" *ngFor="let item of piattiInArrivo.sort(compare)" [hidden]="checkMolteplicita(item.molteplicita)">
 
       <div class="card-container flex-container">
         <div class="header-piatto flex-container">

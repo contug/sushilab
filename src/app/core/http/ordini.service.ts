@@ -31,23 +31,23 @@ export class OrdiniService {
     return this.http.get<Piatto[]>(this.url + id + "/" + idUtente)
   }*/
 
-  public ottieniOrdiniInArrivo(id: string): Observable<OrdineDettaglio[]> {
-    return this.http.get<OrdineDettaglio[]>(this.url + id + "/inarrivo")
+  public ottieniOrdiniInArrivo(): Observable<OrdineDettaglio[]> {
+    return this.http.get<OrdineDettaglio[]>(this.url + "personali/" + localStorage.getItem("idUtente") )
   }
 
   public getOrdini(): Observable<Ordine[]> {
     return this.http.get<Ordine[]>(this.url + "/tavolo/0/personali")
   }
 
-  public eliminaOrdineArrivato(ordine: OrdineDettaglio, id: string) {
-    return this.http.delete(this.url + id + "/inarrivo",
+  public eliminaOrdineArrivato(ordine: OrdineDettaglio) {
+    return this.http.delete(this.url +"del/" + localStorage.getItem("idUtente") + "/" + ordine.piatto.id,
       {
         body: ordine
       })
   }
 
-  public aggiornaOrdineArrivato(ordine: OrdineDettaglio, id: string) {
-    return this.http.put(this.url + id + "/inarrivo",
+  public aggiornaOrdineArrivato(ordine: OrdineDettaglio) {
+    return this.http.put(this.url + "upd/" + localStorage.getItem("idUtente") + "/" + ordine.piatto.id,
       {
         body: ordine
       })
