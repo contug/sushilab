@@ -59,8 +59,9 @@ export class MenuComponent implements OnInit, OnChanges {
   }
 
 
-  togglePanel() {
-    this.hidden = !this.hidden;
+  togglePanel(piatto:Piatto) {
+    document.getElementById(piatto.id.toString())!.hidden =
+      !document.getElementById(piatto.id.toString())!.hidden;
   }
 
   ottieniMenu(): void {

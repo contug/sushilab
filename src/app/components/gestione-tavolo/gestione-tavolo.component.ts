@@ -14,8 +14,10 @@ export class GestioneTavoloComponent implements OnInit {
 
   tavolo!: Tavolo;
   idSessione!: string;
+  numeroTavolo : any;
 
   constructor(public http: HttpClient, public route: ActivatedRoute, public creaSessioneService: SessioneHttpService) {
+    this.numeroTavolo = localStorage.getItem("numeroTavolo");
   }
 
   ngOnInit(): void {

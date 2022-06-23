@@ -113,7 +113,6 @@ mat-dialog-container {
   }
 
   #immagine {
-    border: solid black 2px;
     height: 30vh;
     width: 30vh;
     margin-top: 1vh;

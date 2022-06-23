@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {FormBuilder, FormGroup, Validator, Validators} from "@angular/forms";
 import {Utente} from "../../shared/models/utente";
 import {AuthService} from "../../core/auth/auth.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
 
 
   constructor(public http: HttpClient, private fb: FormBuilder,
-              private auth: AuthService, private router: Router) {
+              private auth: AuthService, private router: Router,
+              private route: ActivatedRoute) {
 
     this.formLogin = this.fb.group({
       'email': ['', Validators.required],
@@ -28,6 +29,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.utente = new Utente();
+    this.route.params.subscribe(res => {
+      if (res['numero'] != undefined)
+        localStorage.setItem("numeroTavolo", res['numero']);
+    })
   }
 
 

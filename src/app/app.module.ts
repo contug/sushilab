@@ -60,7 +60,8 @@ const routes: Routes = [
   {path: "preferiti", component: PreferitiComponent},
   {path: "guida", component: GuidaComponent},
   {path: "blacklist", component: BlacklistComponent},
-  {path: "area-personale", component: AreaPersonaleComponent}
+  {path: "area-personale", component: AreaPersonaleComponent},
+  {path: "tavolo/num/:numero", component: LoginComponent}
 ]
 
 @NgModule({

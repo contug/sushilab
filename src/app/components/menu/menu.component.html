@@ -42,7 +42,7 @@
             *ngFor="let ingrediente of piatto.ingredienti; let ultimo=last"> {{ingrediente.nome}}{{ultimo ? "" : ","}}</span></span>
         </div>
 
-        <div class="expansion-panel flex-container" [hidden]="hidden">
+        <div [id]="piatto.id" class="expansion-panel flex-container" [hidden]="hidden">
           <div class="valutazioni flex-container">
             <div class="valutazione-media flex-container">
               valutazione media:
@@ -79,7 +79,7 @@
         </div>
 
         <div class="flex-container" id="card-footer">
-          <button id="panel-toggle" (click)="togglePanel()">
+          <button id="panel-toggle" (click)="togglePanel(piatto)">
             <mat-icon id="toggle-icon">more_vert</mat-icon>
           </button>
           <div class="flex-container quantity-buttons">

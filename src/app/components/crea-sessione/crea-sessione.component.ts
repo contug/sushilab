@@ -12,12 +12,13 @@ import {HttpClient} from "@angular/common/http";
 export class CreaSessioneComponent implements OnInit {
 
   constructor() {
-
+    if(localStorage.getItem("numeroTavolo"))
+      this.numeroTavolo = localStorage.getItem("numeroTavolo");
   }
 
   width = 0;
   qrData = "#temp-code";
-  numeroTavolo:number = 5;
+  numeroTavolo!:any;
   idSessione!:string;
 
   ngOnInit(): void {
@@ -42,10 +43,18 @@ export class CreaSessioneComponent implements OnInit {
     return result;
   }
 
-  generaIdSessione(numeroTavolo: number): string {
-    let idQr = this.generaIdQr(5)
-    let idTavolo = numeroTavolo + "-" + idQr
-    console.log(idTavolo)
-    return idTavolo
+  generaIdSessione(numeroTavolo: any): string {
+    let sessione = localStorage.getItem("idSessione");
+    if(sessione) {
+      return sessione
+    }
+    else{
+      let idQr = this.generaIdQr(5)
+      let idTavolo = numeroTavolo + "-" + idQr
+      console.log(idTavolo)
+      localStorage.setItem("idSessione", idTavolo);
+      return idTavolo;
+    }
+
   }
 }
