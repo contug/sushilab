@@ -44,7 +44,8 @@ export class LoginComponent implements OnInit {
           console.log(res)
           console.log("logged in");
           this.auth.setSession(res)
-          this.router.navigateByUrl("/");
+          this.router.navigateByUrl("/area-personale");
+
         });
     }
   }

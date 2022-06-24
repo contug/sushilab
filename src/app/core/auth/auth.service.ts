@@ -36,6 +36,12 @@ export class AuthService {
 
   }
 
+  public logged(): boolean {
+    if (localStorage.getItem("idUtente") != null)
+      return true
+    else return false
+  }
+
   logout(): void {
     localStorage.removeItem("token");
   }

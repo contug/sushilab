@@ -3,6 +3,8 @@ import {BlacklistHttpService} from "../../core/http/blacklist-http.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Ingrediente} from "../../shared/models/ingrediente";
 import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {BlacklistDialogComponent} from "../blacklist-dialog/blacklist-dialog.component";
 
 @Component({
   selector: 'app-blacklist',
@@ -12,13 +14,16 @@ import {Router} from "@angular/router";
 export class BlacklistComponent implements OnInit {
 
   constructor(public blacklistService:BlacklistHttpService,
-              private router:Router) { }
+              private router:Router,
+              public dialog:MatDialog) { }
 
   ingredientiBlacklistati:Ingrediente[]=[];
+  ingredienti:Ingrediente[]=[]
   idUtente:number=0;
   ingrediente!:string;
 
   ngOnInit(): void {
+    this.ottieniIngredienti()
     this.ottieniBlacklist()
   }
 
@@ -30,9 +35,9 @@ export class BlacklistComponent implements OnInit {
     )
   }
 
-  aggiungiIngredienteBlacklist(ingrediente:string){
-    this.blacklistService.aggiungiIngredienteBlacklist(ingrediente).subscribe();
-  }
+  /*aggiungiIngredienteBlacklist(ingrediente:string){
+    this.blacklistService.aggiungiIngredientiBlacklist(ingrediente).subscribe();
+  }*/
 
 
 
@@ -48,4 +53,20 @@ export class BlacklistComponent implements OnInit {
 
   }
 
+  ottieniIngredienti(){
+    this.blacklistService.ottieniIngredienti().subscribe(res=>{
+      this.ingredienti=res
+    })
+  }
+
+  openDialog(ingredienti: Ingrediente[]){
+    let dialogRef = this.dialog.open(BlacklistDialogComponent,{
+      width: '80vw',
+      data: {ingredienti: ingredienti}
+    });
+  }
+
+
 }
+
+

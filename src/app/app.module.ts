@@ -39,10 +39,11 @@ import {AreaPersonaleComponent} from './components/area-personale/area-personale
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 import {ZXingScannerModule} from "@zxing/ngx-scanner";
+import { BlacklistDialogComponent } from './components/blacklist-dialog/blacklist-dialog.component';
 
 
 const routes: Routes = [
-  {path: "", redirectTo: "gestione-tavolo", pathMatch: "full"},
+  {path: "", redirectTo: "login", pathMatch: "full"},
   {path: "gestione-tavolo", component: GestioneTavoloComponent},
   {path: "menu", component: MenuComponent},
   {path: "gestione-tavolo/unisciti", component: UniscitiComponent},
@@ -85,6 +86,7 @@ const routes: Routes = [
     DialogComponent,
     AreaPersonaleComponent,
     QrDialogComponent,
+    BlacklistDialogComponent,
   ],
   imports: [
     BrowserModule,

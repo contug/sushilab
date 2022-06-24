@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {AuthService} from "../../core/auth/auth.service";
 
 @Component({
   selector: 'app-drawer',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrawerComponent implements OnInit {
 
-  constructor() { }
+  loggato!:boolean
+
+  constructor(private auth:AuthService) { }
 
   ngOnInit(): void {
+    this.loggato=this.auth.logged()
   }
 
 }

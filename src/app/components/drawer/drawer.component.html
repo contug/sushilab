@@ -15,6 +15,9 @@
     <div class="drawer-item-text">Guida</div>
   </div>
   <div class="drawer-item">
-    <div class="drawer-item-text" routerLink="/login">Area Personale</div>
+    <div class="drawer-item-text" *ngIf="loggato==true; else nonloggato" routerLink="area-personale">Area Personale</div>
+    <ng-template #nonloggato>
+      <div class="drawer-item-text" routerLink="login">Area Personale</div>
+    </ng-template>
   </div>
 </div>
