@@ -55,4 +55,8 @@ export class BlacklistDialogComponent implements OnInit {
       this.dialogRef.close()
     })
   }
+
+  annulla(){
+    this.dialogRef.close()
+  }
 }
