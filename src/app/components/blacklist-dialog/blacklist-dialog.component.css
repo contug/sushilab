@@ -1,0 +1,64 @@
+h1 {
+  font-size: 3vh;
+  font-family: "Jockey One", sans-serif;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Jockey One", sans-serif;
+  text-align: center;
+}
+
+.dialog-container {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 60vh;
+}
+
+mat-card{
+  height: 2.5vh;
+  margin-bottom: 0.5vh;
+  margin-top: 0.5vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.mat-dialog-content {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.button-container {
+  justify-content: center;
+
+}
+
+
+
+.button-left {
+  scale: 1.5;
+  margin-left: 6vw;
+  margin-right: 6vw;
+  text-align: center;
+  border-radius: 9999em 9999em 9999em 9999em;
+  border: 0;
+  font-size: 2vh;
+}
+
+.button-right {
+  scale: 1.5;
+  margin-left: 6vw;
+  margin-right: 6vw;
+  text-align: center;
+  border-radius: 9999em 9999em 9999em 9999em;
+  border: 0;
+  font-size: 2vh;
+}
+
+
+
+
