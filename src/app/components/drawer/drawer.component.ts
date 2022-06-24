@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DrawerService} from "../../core/services/drawer.service";
 
 @Component({
   selector: 'app-drawer',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrawerComponent implements OnInit {
 
-  constructor() { }
+  constructor(public drawerService : DrawerService) { }
 
   ngOnInit(): void {
   }

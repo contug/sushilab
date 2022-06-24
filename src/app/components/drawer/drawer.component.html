@@ -1,20 +1,23 @@
 <div id="drawer-root-container">
   <div class="drawer-item">
-    <div class="drawer-item-text" routerLink="menu">Menu</div>
+    <div class="drawer-item-text" routerLink="menu" (click)="this.drawerService.drawer.toggle()">Menu</div>
   </div>
   <div class="drawer-item">
-    <div class="drawer-item-text" routerLink="preferiti">Preferiti</div>
-  </div>
-  <div class="drawer-item" routerLink="lista-ordini">
-    <div class="drawer-item-text">Lista Ordini</div>
-  </div>
-  <div class="drawer-item" routerLink="gestione-tavolo">
-    <div class="drawer-item-text">Gestione Tavolo</div>
-  </div>
-  <div class="drawer-item" routerLink="guida">
-    <div class="drawer-item-text">Guida</div>
+    <div class="drawer-item-text" routerLink="preferiti" (click)="this.drawerService.drawer.toggle()">Preferiti</div>
   </div>
   <div class="drawer-item">
-    <div class="drawer-item-text" routerLink="/login">Area Personale</div>
+    <div class="drawer-item-text" routerLink="lista-ordini" (click)="this.drawerService.drawer.toggle()">Lista Ordini
+    </div>
+  </div>
+  <div class="drawer-item">
+    <div class="drawer-item-text" routerLink="gestione-tavolo" (click)="this.drawerService.drawer.toggle()">Gestione
+      Tavolo
+    </div>
+  </div>
+  <div class="drawer-item">
+    <div class="drawer-item-text" routerLink="guida" (click)="this.drawerService.drawer.toggle()">Guida</div>
+  </div>
+  <div class="drawer-item">
+    <div class="drawer-item-text" routerLink="/login" (click)="this.drawerService.drawer.toggle()">Area Personale</div>
   </div>
 </div>
