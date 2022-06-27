@@ -2,6 +2,7 @@ import {Component, Inject, Injectable, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Ingrediente} from "../../shared/models/ingrediente";
 import {BlacklistHttpService} from "../../core/http/blacklist-http.service";
+import {Router} from "@angular/router";
 
 
 export interface DialogData {
@@ -21,7 +22,8 @@ export class BlacklistDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<BlacklistDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: DialogData,
-              private blackListHttpService: BlacklistHttpService) { }
+              private blackListHttpService: BlacklistHttpService,
+              private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -53,6 +55,10 @@ export class BlacklistDialogComponent implements OnInit {
     this.blackListHttpService.aggiungiIngredientiBlacklist(ingredienti).subscribe(res=>{
       console.log("dialog close click:" +res)
       this.dialogRef.close()
+      this.router.navigateByUrl('/', {skipLocationChange: true})
+        .then(() => {
+          this.router.navigate(["/blacklist"]);
+        });
     })
   }
 
