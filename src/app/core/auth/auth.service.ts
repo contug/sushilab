@@ -28,10 +28,11 @@ export class AuthService {
   public setSession(jsonWebToken: JsonWebToken) {
 
     localStorage.setItem('token', jsonWebToken.token);
+    localStorage.setItem('expiresAt', JSON.stringify(moment().add(7200, 'second').valueOf()));
 
     console.log("auth.setSession idUtente dal token: " + jsonWebToken.idUtente);
     this.utente.idUtente = jsonWebToken.idUtente;
-    localStorage.setItem('idUtente', jsonWebToken.idUtente.toString())
+    localStorage.setItem('idUtente', jsonWebToken.idUtente.toString());
     console.log("auth.utente.idUtente: " + this.utente.idUtente);
 
   }
@@ -42,8 +43,19 @@ export class AuthService {
     else return false
   }
 
+  public isLoggedIn() : boolean {
+    if (localStorage.getItem('expiresAt')) {
+      if(moment().isBefore(JSON.parse(localStorage.getItem('expiresAt')!)))
+        return true;
+      else
+        return false;
+    }
+    return false;
+  }
+
   logout(): void {
     localStorage.removeItem("token");
+    localStorage.removeItem('expiresAt');
   }
 
 

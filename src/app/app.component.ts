@@ -26,4 +26,6 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.drawerService.setDrawer(this.drawer);
   }
 
+
+
 }
