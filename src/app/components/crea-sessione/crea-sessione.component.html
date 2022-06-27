@@ -13,7 +13,7 @@
           <qrcode [qrdata]="this.qrData" [width]="this.width" [errorCorrectionLevel]="'M'"></qrcode>
         </div>
 
-        <button class="card-button color-dark mat-elevation-z8">Esci dalla sessione
+        <button class="card-button color-dark mat-elevation-z8" (click)="this.chiudiSessione()">Esci dalla sessione
         </button>
       </div>
     </mat-card>

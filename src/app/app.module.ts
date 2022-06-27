@@ -62,7 +62,7 @@ const routes: Routes = [
   {path: "guida", component: GuidaComponent},
   {path: "blacklist", component: BlacklistComponent},
   {path: "area-personale", component: AreaPersonaleComponent},
-  {path: "tavolo/num/:numero", component: LoginComponent}
+  {path: "t/:numero", component: LoginComponent}
 ]
 
 @NgModule({

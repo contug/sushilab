@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SessioneHttpService} from "../../core/http/sessione-http.service";
 import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {QrService} from "../../core/services/qr.service";
 
 @Component({
   selector: 'app-crea-sessione',
@@ -11,7 +12,8 @@ import {HttpClient} from "@angular/common/http";
 })
 export class CreaSessioneComponent implements OnInit {
 
-  constructor() {
+  constructor(public sessioneHttpService : SessioneHttpService,
+              public qrService : QrService) {
     if(localStorage.getItem("numeroTavolo"))
       this.numeroTavolo = localStorage.getItem("numeroTavolo");
   }
@@ -53,8 +55,14 @@ export class CreaSessioneComponent implements OnInit {
       let idTavolo = numeroTavolo + "-" + idQr
       console.log(idTavolo)
       localStorage.setItem("idSessione", idTavolo);
+      this.sessioneHttpService.creaSessione(idTavolo, numeroTavolo).subscribe(res => {});
+      this.qrService.qrCode = idTavolo;
       return idTavolo;
     }
 
+  }
+
+  chiudiSessione() {
+    this.sessioneHttpService.chiudiSessione(localStorage.getItem("numeroTavolo")!).subscribe(res => {});
   }
 }

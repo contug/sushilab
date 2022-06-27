@@ -23,8 +23,9 @@ export class ListaOrdiniComponent implements OnInit {
   }
 
   ottieniOrdiniTavolo(): void {
-    this.ordiniService.ottieniOrdiniTavolo(this.idSessione).subscribe(res => {
-      console.log(res);
+    this.ordiniService.ottieniOrdiniTavolo(localStorage.getItem("numeroTavolo")!).subscribe(res => {
+      console.log("ottieni ordini tavolo ");
+      console.log(res)
       this.ordiniTavolo=res;
     })
   }

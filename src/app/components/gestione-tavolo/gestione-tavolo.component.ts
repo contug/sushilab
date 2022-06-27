@@ -24,13 +24,13 @@ export class GestioneTavoloComponent implements OnInit {
   }
 
 
-  creaSessione(): void {
+ /* creaSessione(): void {
     this.creaSessioneService.creaSessione().subscribe(res => {
       this.idSessione = res;
       console.log(res);
     })
 
-  }
+  }*/
 
   ottieniSessione(id: string): void {
     this.creaSessioneService.ottieniSessione(id).subscribe(res => {
