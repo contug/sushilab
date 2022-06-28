@@ -1,13 +1,13 @@
 <div class="dialog-container flex-container">
   <h1 mat-dialog-title>Aggiungi alla blacklist</h1>
   <div mat-dialog-content class="mat-dialog-content ">
-      <mat-card [id]="item.id" class="mat-elevation-z8"
-                *ngFor="let item of data.ingredienti" (click)="seleziona(item)">
-          <p class="nomeIngrediente">{{item.nome}}</p>
-      </mat-card>
+    <mat-card [id]="item.id" class="mat-elevation-z8 blacklist-card"
+              *ngFor="let item of data.ingredienti" (click)="seleziona(item)">
+      <p class="nomeIngrediente">{{item.nome}}</p>
+    </mat-card>
   </div>
   <div mat-dialog-actions class="button-container flex-container">
-    <button mat-button class="button-left color-light-button" (click)="annulla()" >Annulla</button>
+    <button mat-button class="button-left color-light-button" (click)="annulla()">Annulla</button>
     <button mat-button class="button-right color-dark" (click)="onClickClose()">Invia</button>
   </div>
 </div>
