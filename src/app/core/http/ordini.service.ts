@@ -24,7 +24,6 @@ export class OrdiniService {
   public confermaOrdine(idTavolo: string, idUtente: string, listaOrdini: OrdineConfermato[]): Observable<any> {
     return this.http.post(this.url + idUtente,
       listaOrdini);
-
   }
 
   /*public ottieniOrdiniUtente(id: string, idUtente: string): Observable<Piatto[]> {

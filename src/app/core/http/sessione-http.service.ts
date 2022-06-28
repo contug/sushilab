@@ -16,7 +16,7 @@ export class SessioneHttpService {
   }
 
   creaSessione(qrCode: string, idTavolo: number):Observable<string>{
-      return this.http.post<string>(Constants.ROOT_URL+'/tavolo/qr/' + idTavolo + "/" + localStorage.getItem("idUtente"), {body : qrCode});
+      return this.http.post<string>(Constants.ROOT_URL+'/tavolo/qr/' + idTavolo + "/" + localStorage.getItem("idUtente"), qrCode);
   }
 
   ottieniSessione(id: string):Observable<Tavolo>{
