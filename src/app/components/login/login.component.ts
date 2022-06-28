@@ -28,6 +28,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.auth.isLoggedIn()) {
+      if(localStorage.getItem("idSessione")) {
+        this.router.navigateByUrl("/menu")
+      }
+      else
+       this.router.navigateByUrl("/gestione-tavolo")
+    }
     this.utente = new Utente();
     this.route.params.subscribe(res => {
       if (res['numero'] != undefined)

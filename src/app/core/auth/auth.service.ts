@@ -34,7 +34,6 @@ export class AuthService {
     this.utente.idUtente = jsonWebToken.idUtente;
     localStorage.setItem('idUtente', jsonWebToken.idUtente.toString());
     console.log("auth.utente.idUtente: " + this.utente.idUtente);
-
   }
 
   public logged(): boolean {
